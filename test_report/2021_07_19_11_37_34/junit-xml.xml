@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="1" failures="0" skipped="0" tests="1" time="30.411" timestamp="2021-07-19T11:37:35.188204" hostname="Win7-2019MNTZRK"><testcase time="21.649" /><testcase classname="pytest" name="internal" time="0.000"><error message="internal error">Traceback (most recent call last):
+  File "C:\Program Files\Python38\lib\site-packages\_pytest\main.py", line 257, in wrap_session
+    session.exitstatus = doit(config, session) or 0
+  File "C:\Program Files\Python38\lib\site-packages\_pytest\main.py", line 313, in _main
+    config.hook.pytest_runtestloop(session=session)
+  File "C:\Program Files\Python38\lib\site-packages\pluggy\hooks.py", line 286, in __call__
+    return self._hookexec(self, self.get_hookimpls(), kwargs)
+  File "C:\Program Files\Python38\lib\site-packages\pluggy\manager.py", line 93, in _hookexec
+    return self._inner_hookexec(hook, methods, kwargs)
+  File "C:\Program Files\Python38\lib\site-packages\pluggy\manager.py", line 84, in &lt;lambda&gt;
+    self._inner_hookexec = lambda hook, methods, kwargs: hook.multicall(
+  File "C:\Program Files\Python38\lib\site-packages\pluggy\callers.py", line 208, in _multicall
+    return outcome.get_result()
+  File "C:\Program Files\Python38\lib\site-packages\pluggy\callers.py", line 80, in get_result
+    raise ex[1].with_traceback(ex[2])
+  File "C:\Program Files\Python38\lib\site-packages\pluggy\callers.py", line 187, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Program Files\Python38\lib\site-packages\_pytest\main.py", line 338, in pytest_runtestloop
+    item.config.hook.pytest_runtest_protocol(item=item, nextitem=nextitem)
+  File "C:\Program Files\Python38\lib\site-packages\pluggy\hooks.py", line 286, in __call__
+    return self._hookexec(self, self.get_hookimpls(), kwargs)
+  File "C:\Program Files\Python38\lib\site-packages\pluggy\manager.py", line 93, in _hookexec
+    return self._inner_hookexec(hook, methods, kwargs)
+  File "C:\Program Files\Python38\lib\site-packages\pluggy\manager.py", line 84, in &lt;lambda&gt;
+    self._inner_hookexec = lambda hook, methods, kwargs: hook.multicall(
+  File "C:\Program Files\Python38\lib\site-packages\pluggy\callers.py", line 208, in _multicall
+    return outcome.get_result()
+  File "C:\Program Files\Python38\lib\site-packages\pluggy\callers.py", line 80, in get_result
+    raise ex[1].with_traceback(ex[2])
+  File "C:\Program Files\Python38\lib\site-packages\pluggy\callers.py", line 187, in _multicall
+    res = hook_impl.function(*args)
+  File "C:\Program Files\Python38\lib\site-packages\pytest_rerunfailures.py", line 240, in pytest_runtest_protocol
+    reports = runtestprotocol(item, nextitem=nextitem, log=False)
+  File "C:\Program Files\Python38\lib\site-packages\_pytest\runner.py", line 127, in runtestprotocol
+    reports.append(call_and_report(item, "call", log))
+  File "C:\Program Files\Python38\lib\site-packages\_pytest\runner.py", line 218, in call_and_report
+    report = hook.pytest_runtest_makereport(item=item, call=call)  # type: TestReport
+  File "C:\Program Files\Python38\lib\site-packages\pluggy\hooks.py", line 286, in __call__
+    return self._hookexec(self, self.get_hookimpls(), kwargs)
+  File "C:\Program Files\Python38\lib\site-packages\pluggy\manager.py", line 93, in _hookexec
+    return self._inner_hookexec(hook, methods, kwargs)
+  File "C:\Program Files\Python38\lib\site-packages\pluggy\manager.py", line 84, in &lt;lambda&gt;
+    self._inner_hookexec = lambda hook, methods, kwargs: hook.multicall(
+  File "C:\Program Files\Python38\lib\site-packages\pluggy\callers.py", line 203, in _multicall
+    gen.send(outcome)
+  File "D:\python_work\sh_elinkbuy_cn\conftest.py", line 52, in pytest_runtest_makereport
+    capture_screenshots(case_name)
+  File "D:\python_work\sh_elinkbuy_cn\conftest.py", line 99, in capture_screenshots
+    RunConfig.driver.save_screenshot(image_dir)
+  File "C:\Program Files\Python38\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 1055, in save_screenshot
+    return self.get_screenshot_as_file(filename)
+  File "C:\Program Files\Python38\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 1032, in get_screenshot_as_file
+    png = self.get_screenshot_as_png()
+  File "C:\Program Files\Python38\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 1064, in get_screenshot_as_png
+    return base64.b64decode(self.get_screenshot_as_base64().encode('ascii'))
+  File "C:\Program Files\Python38\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 1074, in get_screenshot_as_base64
+    return self.execute(Command.SCREENSHOT)['value']
+  File "C:\Program Files\Python38\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Program Files\Python38\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=91.0.4472.114)</error></testcase></testsuite></testsuites>
