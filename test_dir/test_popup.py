@@ -53,7 +53,7 @@ class TestPopup:
         else:
             flag = False
 
-        assert flag is False
+        assert flag is True
 
         # def test_wait_visit_case(self, browser, base_url):
         """
