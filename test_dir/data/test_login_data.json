@@ -1,0 +1,22 @@
+[
+  {
+    "user": "唐静",
+    "pwd": "",
+    "expected": "请输入密码"
+  },
+  {
+    "user": "",
+    "pwd": "sh987654",
+    "expected": "请输入用户名"
+  },
+  {
+    "user": "error_user_name",
+    "pwd": "error_password",
+    "expected": "用户名错误或用户已失效"
+  },
+  {
+    "user": "唐静",
+    "pwd": "sh987654",
+    "expected": "登录成功"
+  }
+]
