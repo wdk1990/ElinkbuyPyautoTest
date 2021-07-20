@@ -1,0 +1,22 @@
+{
+  "b76382b248c9ab9fa69ae7a36c0f5bd9" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "84585db628eabc4",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: assert True is False",
+      "time" : {
+        "start" : 1626762214639,
+        "stop" : 1626762234182,
+        "duration" : 19543
+      }
+    } ]
+  }
+}

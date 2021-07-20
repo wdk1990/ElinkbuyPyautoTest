@@ -1,0 +1,11 @@
+[ {
+  "uid" : "84585db628eabc4",
+  "name" : "test_popup_show_case",
+  "time" : {
+    "start" : 1626762214639,
+    "stop" : 1626762234182,
+    "duration" : 19543
+  },
+  "status" : "failed",
+  "severity" : "normal"
+} ]

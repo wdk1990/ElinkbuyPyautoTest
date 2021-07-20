@@ -1,4 +1,5 @@
 import os
+import allure
 import pytest
 from py.xml import html
 from selenium import webdriver
@@ -19,15 +20,23 @@ def base_url():
 
 
 # 设置用例描述表头
+# def pytest_html_results_table_header(cells):
+#     cells.insert(2, html.th('Description'))
+#     cells.pop()
+
+@pytest.mark.optionalhook
 def pytest_html_results_table_header(cells):
-    cells.insert(2, html.th('Description'))
-    cells.pop()
+    cells.insert(1, html.th('Description'))
 
 
 # 设置用例描述表格
+# def pytest_html_results_table_row(report, cells):
+#     cells.insert(2, html.td(report.description))
+#     cells.pop()
+
+@pytest.mark.optionalhook
 def pytest_html_results_table_row(report, cells):
-    cells.insert(2, html.td(report.description))
-    cells.pop()
+    cells.insert(1, html.td(report.description))
 
 
 @pytest.mark.hookwrapper
@@ -55,7 +64,11 @@ def pytest_runtest_makereport(item):
                 html = '<div><img src="%s" alt="screenshot" style="width:304px;height:228px;" ' \
                        'onclick="window.open(this.src)" align="right"/></div>' % img_path
                 extra.append(pytest_html.extras.html(html))
+            # allure失败截图
+            with allure.step('添加失败截图...'):
+                allure.attach(driver.get_screenshot_as_png(), "失败截图", allure.attachment_type.PNG)
         report.extra = extra
+        report.description = str(item.function.__doc__)
 
 
 def description_html(desc):

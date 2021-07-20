@@ -1,0 +1,164 @@
+{
+  "uid" : "ea4f5ead30e2fe8b",
+  "name" : "test_popup_show_case",
+  "fullName" : "test_dir.test_popup.TestPopup#test_popup_show_case",
+  "historyId" : "b76382b248c9ab9fa69ae7a36c0f5bd9",
+  "time" : {
+    "start" : 1626762190535,
+    "stop" : 1626762210120,
+    "duration" : 19585
+  },
+  "description" : "\n        检测弹窗弹出：\n        步骤：\n        1.检测弹层是否正常弹出\n        2.检测点击信息图标是否正常出现下拉菜单\n        ",
+  "descriptionHtml" : "<pre><code>    检测弹窗弹出：\n    步骤：\n    1.检测弹层是否正常弹出\n    2.检测点击信息图标是否正常出现下拉菜单\n</code></pre>\n",
+  "status" : "failed",
+  "statusMessage" : "AssertionError: assert True is False",
+  "statusTrace" : "self = <test_dir.test_popup.TestPopup object at 0x0000000004084910>, browser = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"e546298d992721f8b09bef4d6eda14c5\")>, base_url = 'http://newtest.elinkbuy.cn'\n\n    def test_popup_show_case(self, browser, base_url):\n        \"\"\"\n        检测弹窗弹出：\n        步骤：\n        1.检测弹层是否正常弹出\n        2.检测点击信息图标是否正常出现下拉菜单\n        \"\"\"\n        self.login(browser, base_url)\n        self.page = PopupPage(browser)\n    \n        flag = False\n        layer_divs = self.page.layer_divs  # 弹出弹窗\n        if len(layer_divs) > 0:\n            flag = True\n    \n        layer_shades = self.page.layer_shades\n        for layer_shade in layer_shades:\n            self.page.execute_script('arguments[0].click()', layer_shade)  # 关闭弹窗\n        sleep(2)\n    \n        self.page.message_button.click()  # 点击信息图标\n        is_display = self.page.message_box.is_displayed()\n    \n        if flag is True and is_display is True:\n            flag = True\n        else:\n            flag = False\n    \n>       assert flag is False\nE       assert True is False\n\ntest_dir\\test_popup.py:56: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "browser_close",
+    "time" : {
+      "start" : 1626762190533,
+      "stop" : 1626762190533,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1626762190533,
+      "stop" : 1626762190533,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "browser",
+    "time" : {
+      "start" : 1626762188794,
+      "stop" : 1626762190533,
+      "duration" : 1739
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "testStage" : {
+    "description" : "\n        检测弹窗弹出：\n        步骤：\n        1.检测弹层是否正常弹出\n        2.检测点击信息图标是否正常出现下拉菜单\n        ",
+    "status" : "failed",
+    "statusMessage" : "AssertionError: assert True is False",
+    "statusTrace" : "self = <test_dir.test_popup.TestPopup object at 0x0000000004084910>, browser = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"e546298d992721f8b09bef4d6eda14c5\")>, base_url = 'http://newtest.elinkbuy.cn'\n\n    def test_popup_show_case(self, browser, base_url):\n        \"\"\"\n        检测弹窗弹出：\n        步骤：\n        1.检测弹层是否正常弹出\n        2.检测点击信息图标是否正常出现下拉菜单\n        \"\"\"\n        self.login(browser, base_url)\n        self.page = PopupPage(browser)\n    \n        flag = False\n        layer_divs = self.page.layer_divs  # 弹出弹窗\n        if len(layer_divs) > 0:\n            flag = True\n    \n        layer_shades = self.page.layer_shades\n        for layer_shade in layer_shades:\n            self.page.execute_script('arguments[0].click()', layer_shade)  # 关闭弹窗\n        sleep(2)\n    \n        self.page.message_button.click()  # 点击信息图标\n        is_display = self.page.message_box.is_displayed()\n    \n        if flag is True and is_display is True:\n            flag = True\n        else:\n            flag = False\n    \n>       assert flag is False\nE       assert True is False\n\ntest_dir\\test_popup.py:56: AssertionError",
+    "steps" : [ {
+      "name" : "添加失败截图...",
+      "time" : {
+        "start" : 1626762210616,
+        "stop" : 1626762210767,
+        "duration" : 151
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "80e0417ae8c92f18",
+        "name" : "失败截图",
+        "source" : "80e0417ae8c92f18.png",
+        "type" : "image/png",
+        "size" : 134884
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "57a9ebc129319bcd",
+      "name" : "log",
+      "source" : "57a9ebc129319bcd.txt",
+      "type" : "text/plain",
+      "size" : 1085
+    }, {
+      "uid" : "c707259e7d38c02f",
+      "name" : "stdout",
+      "source" : "c707259e7d38c02f.txt",
+      "type" : "text/plain",
+      "size" : 942
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 1,
+    "hasContent" : true,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : true
+  },
+  "afterStages" : [ {
+    "name" : "browser_close::0",
+    "time" : {
+      "start" : 1626762210768,
+      "stop" : 1626762212875,
+      "duration" : 2107
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_dir"
+  }, {
+    "name" : "suite",
+    "value" : "test_popup"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPopup"
+  }, {
+    "name" : "host",
+    "value" : "Win7-2019MNTZRK"
+  }, {
+    "name" : "thread",
+    "value" : "9300-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_dir.test_popup"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "ea4f5ead30e2fe8b.json",
+  "parameterValues" : [ ]
+}

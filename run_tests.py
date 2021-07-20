@@ -2,10 +2,12 @@
 import os
 import time
 import logging
+import allure
 import pytest
 import click
 from conftest import REPORT_DIR
 from config import RunConfig
+from TestRunner import SMTP
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -38,12 +40,19 @@ def run(m):
         html_report = os.path.join(RunConfig.NEW_REPORT, "report.html")
         xml_report = os.path.join(RunConfig.NEW_REPORT, "junit-xml.xml")
         pytest.main(["-s", "-v", RunConfig.cases_path,
+                     "--alluredir=./temp",  # 生成allure报告临时数据目录
                      "--capture=sys",
                      "--html=" + html_report,
                      "--junit-xml=" + xml_report,
                      "--self-contained-html",
                      "--maxfail", RunConfig.max_fail,
                      "--reruns", RunConfig.rerun])
+        os.system('allure generate ./temp -o ./allure-2.14.0/report --clean')
+
+        # HTMLTestRunner封装内置发邮件功能
+        smtp = SMTP(user="513411425@qq.com", password="xilwsmpslpzjbijf", host="smtp.qq.com")
+        smtp.sender(to="513411425@qq.com", subject="易联购UI测试报告", contents="请查看附件", attachments=html_report)
+
         logger.info("运行结束，生成测试报告♥❤！")
     elif m == "debug":
         print("debug模式，开始执行！")

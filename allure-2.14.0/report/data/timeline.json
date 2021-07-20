@@ -1,0 +1,39 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "name" : "timeline",
+  "children" : [ {
+    "name" : "Win7-2019MNTZRK",
+    "children" : [ {
+      "name" : "9300-MainThread",
+      "children" : [ {
+        "name" : "test_popup_show_case",
+        "uid" : "ea4f5ead30e2fe8b",
+        "parentUid" : "4cb0aba4631e99e67cf4fd4a16e4fc85",
+        "status" : "failed",
+        "time" : {
+          "start" : 1626762190535,
+          "stop" : 1626762210120,
+          "duration" : 19585
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_popup_show_case",
+        "uid" : "84585db628eabc4",
+        "parentUid" : "4cb0aba4631e99e67cf4fd4a16e4fc85",
+        "status" : "failed",
+        "time" : {
+          "start" : 1626762214639,
+          "stop" : 1626762234182,
+          "duration" : 19543
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "4cb0aba4631e99e67cf4fd4a16e4fc85"
+    } ],
+    "uid" : "ed1a497f20e4f507e76b7fdeaf53ab49"
+  } ]
+}

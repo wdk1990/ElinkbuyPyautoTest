@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="49.889" timestamp="2021-07-20T13:49:11.810657" hostname="Win7-2019MNTZRK"><testcase classname="test_dir.test_popup.TestPopup" name="test_popup_show_case" time="46.875"><failure message="assert True is False">self = &lt;test_dir.test_popup.TestPopup object at 0x0000000004B46F40&gt;, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="67b5d5a68d85cd139a98db59657935e1")&gt;, base_url = 'http://newtest.elinkbuy.cn'
+
+    def test_popup_show_case(self, browser, base_url):
+        """
+        检测弹窗弹出：
+        步骤：
+        1.检测弹层是否正常弹出
+        2.检测点击信息图标是否正常出现下拉菜单
+        """
+        self.login(browser, base_url)
+        self.page = PopupPage(browser)
+    
+        flag = False
+        layer_divs = self.page.layer_divs  # 弹出弹窗
+        if len(layer_divs) &gt; 0:
+            flag = True
+    
+        layer_shades = self.page.layer_shades
+        for layer_shade in layer_shades:
+            self.page.execute_script('arguments[0].click()', layer_shade)  # 关闭弹窗
+        sleep(2)
+    
+        self.page.message_button.click()  # 点击信息图标
+        is_display = self.page.message_box.is_displayed()
+    
+        if flag is True and is_display is True:
+            flag = True
+        else:
+            flag = False
+    
+&gt;       assert flag is False
+E       assert True is False
+
+test_dir\test_popup.py:56: AssertionError</failure></testcase></testsuite></testsuites>
