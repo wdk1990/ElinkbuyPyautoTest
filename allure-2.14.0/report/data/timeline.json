@@ -4,35 +4,108 @@
   "children" : [ {
     "name" : "Win7-2019MNTZRK",
     "children" : [ {
-      "name" : "9300-MainThread",
+      "name" : "8732-MainThread",
+      "children" : [ {
+        "name" : "test_login_case[data2]",
+        "uid" : "dbc25ae09bff403a",
+        "parentUid" : "a01bb5531b8356519be1ed05dd8ec320",
+        "status" : "passed",
+        "time" : {
+          "start" : 1626769154491,
+          "stop" : 1626769162168,
+          "duration" : 7677
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'user': 'error_user_name', 'pwd': 'error_password', 'expected': '用户名错误或用户已失效'}" ]
+      }, {
+        "name" : "test_login_case[data3]",
+        "uid" : "c4ddc6aeab0b4062",
+        "parentUid" : "a01bb5531b8356519be1ed05dd8ec320",
+        "status" : "passed",
+        "time" : {
+          "start" : 1626769162176,
+          "stop" : 1626769168202,
+          "duration" : 6026
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'user': '唐静', 'pwd': 'sh987654', 'expected': '登录成功'}" ]
+      }, {
+        "name" : "test_login_case[data0]",
+        "uid" : "8bdfa24c30ebcd8",
+        "parentUid" : "a01bb5531b8356519be1ed05dd8ec320",
+        "status" : "passed",
+        "time" : {
+          "start" : 1626769136819,
+          "stop" : 1626769145982,
+          "duration" : 9163
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'user': '唐静', 'pwd': '', 'expected': '请输入密码'}" ]
+      }, {
+        "name" : "test_login_case[data1]",
+        "uid" : "68b7d5b5050fe58d",
+        "parentUid" : "a01bb5531b8356519be1ed05dd8ec320",
+        "status" : "passed",
+        "time" : {
+          "start" : 1626769146006,
+          "stop" : 1626769154474,
+          "duration" : 8468
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'user': '', 'pwd': 'sh987654', 'expected': '请输入用户名'}" ]
+      } ],
+      "uid" : "a01bb5531b8356519be1ed05dd8ec320"
+    }, {
+      "name" : "11656-MainThread",
       "children" : [ {
         "name" : "test_popup_show_case",
-        "uid" : "ea4f5ead30e2fe8b",
-        "parentUid" : "4cb0aba4631e99e67cf4fd4a16e4fc85",
+        "uid" : "ad294306e6736145",
+        "parentUid" : "092d144d8b6690e923dff3201a83183e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1626768546578,
+          "stop" : 1626768566274,
+          "duration" : 19696
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "092d144d8b6690e923dff3201a83183e"
+    }, {
+      "name" : "9576-MainThread",
+      "children" : [ {
+        "name" : "test_popup_show_case",
+        "uid" : "264f92af0e02ef16",
+        "parentUid" : "f85810278d3439c00409077f50167c9b",
         "status" : "failed",
         "time" : {
-          "start" : 1626762190535,
-          "stop" : 1626762210120,
-          "duration" : 19585
+          "start" : 1626768743874,
+          "stop" : 1626768763817,
+          "duration" : 19943
         },
         "flaky" : false,
         "newFailed" : false,
         "parameters" : [ ]
       }, {
         "name" : "test_popup_show_case",
-        "uid" : "84585db628eabc4",
-        "parentUid" : "4cb0aba4631e99e67cf4fd4a16e4fc85",
+        "uid" : "3b7b0ec1aa63999a",
+        "parentUid" : "f85810278d3439c00409077f50167c9b",
         "status" : "failed",
         "time" : {
-          "start" : 1626762214639,
-          "stop" : 1626762234182,
-          "duration" : 19543
+          "start" : 1626768768316,
+          "stop" : 1626768788170,
+          "duration" : 19854
         },
         "flaky" : false,
         "newFailed" : false,
         "parameters" : [ ]
       } ],
-      "uid" : "4cb0aba4631e99e67cf4fd4a16e4fc85"
+      "uid" : "f85810278d3439c00409077f50167c9b"
     } ],
     "uid" : "ed1a497f20e4f507e76b7fdeaf53ab49"
   } ]

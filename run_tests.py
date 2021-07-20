@@ -5,9 +5,9 @@ import logging
 import allure
 import pytest
 import click
-from conftest import REPORT_DIR
+import yagmail
+from conftest import REPORT_DIR, zipDir
 from config import RunConfig
-from TestRunner import SMTP
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -49,10 +49,14 @@ def run(m):
                      "--reruns", RunConfig.rerun])
         os.system('allure generate ./temp -o ./allure-2.14.0/report --clean')
 
-        # HTMLTestRunner封装内置发邮件功能
-        smtp = SMTP(user="513411425@qq.com", password="xilwsmpslpzjbijf", host="smtp.qq.com")
-        smtp.sender(to="513411425@qq.com", subject="易联购UI测试报告", contents="请查看附件", attachments=html_report)
-
+        zipDir(RunConfig.NEW_REPORT, RunConfig.NEW_REPORT + '.zip')  # 压缩测试报告目录
+        html_report_zip = RunConfig.NEW_REPORT + '.zip'
+        yag = yagmail.SMTP(user="513411425@qq.com", password="xilwsmpslpzjbijf", host='smtp.qq.com')
+        yag.send(['513411425@qq.com', '599403836@qq.com', '445140615@qq.com'], now_time + "_易联购测试报告", ["请查看附件"],
+                 [html_report_zip])
+        yag.close()
+        print("测试报告邮件发送成功！")
+        
         logger.info("运行结束，生成测试报告♥❤！")
     elif m == "debug":
         print("debug模式，开始执行！")

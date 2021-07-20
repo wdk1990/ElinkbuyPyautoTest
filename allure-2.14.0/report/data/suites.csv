@@ -1,7 +1,43 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"failed","Tue Jul 20 14:23:34 CST 2021","Tue Jul 20 14:23:54 CST 2021","19543","test_dir","test_popup","TestPopup","","","test_popup_show_case","
+"passed","Tue Jul 20 16:18:56 CST 2021","Tue Jul 20 16:19:05 CST 2021","9163","test_dir","test_login","TestLogin","","","test_login_case[data0]","
+        模拟登录
+        步骤：
+        1，输入用户名
+        2.输入密码
+        3.点击登录按钮
+        检查点：
+        *检查输入用户名和密码是否为空
+        "
+"passed","Tue Jul 20 16:19:14 CST 2021","Tue Jul 20 16:19:22 CST 2021","7677","test_dir","test_login","TestLogin","","","test_login_case[data2]","
+        模拟登录
+        步骤：
+        1，输入用户名
+        2.输入密码
+        3.点击登录按钮
+        检查点：
+        *检查输入用户名和密码是否为空
+        "
+"failed","Tue Jul 20 16:12:48 CST 2021","Tue Jul 20 16:13:08 CST 2021","19854","test_dir","test_popup","TestPopup","","","test_popup_show_case","
         检测弹窗弹出：
         步骤：
         1.检测弹层是否正常弹出
         2.检测点击信息图标是否正常出现下拉菜单
+        "
+"passed","Tue Jul 20 16:19:06 CST 2021","Tue Jul 20 16:19:14 CST 2021","8468","test_dir","test_login","TestLogin","","","test_login_case[data1]","
+        模拟登录
+        步骤：
+        1，输入用户名
+        2.输入密码
+        3.点击登录按钮
+        检查点：
+        *检查输入用户名和密码是否为空
+        "
+"passed","Tue Jul 20 16:19:22 CST 2021","Tue Jul 20 16:19:28 CST 2021","6026","test_dir","test_login","TestLogin","","","test_login_case[data3]","
+        模拟登录
+        步骤：
+        1，输入用户名
+        2.输入密码
+        3.点击登录按钮
+        检查点：
+        *检查输入用户名和密码是否为空
         "

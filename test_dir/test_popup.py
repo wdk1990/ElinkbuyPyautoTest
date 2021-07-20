@@ -7,6 +7,7 @@ import sys
 import json
 from time import sleep
 import pytest
+import pymysql
 from os.path import dirname, abspath
 
 base_path = dirname(dirname(abspath(__file__)))

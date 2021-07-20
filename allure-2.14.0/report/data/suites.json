@@ -9,13 +9,13 @@
         "name" : "TestPopup",
         "children" : [ {
           "name" : "test_popup_show_case",
-          "uid" : "84585db628eabc4",
+          "uid" : "3b7b0ec1aa63999a",
           "parentUid" : "351c8d4cb291bc90d0d1aa00e11af232",
           "status" : "failed",
           "time" : {
-            "start" : 1626762214639,
-            "stop" : 1626762234182,
-            "duration" : 19543
+            "start" : 1626768768316,
+            "stop" : 1626768788170,
+            "duration" : 19854
           },
           "flaky" : false,
           "newFailed" : false,
@@ -24,6 +24,66 @@
         "uid" : "351c8d4cb291bc90d0d1aa00e11af232"
       } ],
       "uid" : "30d05ffc167d33f4cce0e6525f0650c4"
+    }, {
+      "name" : "test_login",
+      "children" : [ {
+        "name" : "TestLogin",
+        "children" : [ {
+          "name" : "test_login_case[data0]",
+          "uid" : "8bdfa24c30ebcd8",
+          "parentUid" : "9f2eb823ca99aa13e85f077cc970977e",
+          "status" : "passed",
+          "time" : {
+            "start" : 1626769136819,
+            "stop" : 1626769145982,
+            "duration" : 9163
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "{'user': '唐静', 'pwd': '', 'expected': '请输入密码'}" ]
+        }, {
+          "name" : "test_login_case[data1]",
+          "uid" : "68b7d5b5050fe58d",
+          "parentUid" : "9f2eb823ca99aa13e85f077cc970977e",
+          "status" : "passed",
+          "time" : {
+            "start" : 1626769146006,
+            "stop" : 1626769154474,
+            "duration" : 8468
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "{'user': '', 'pwd': 'sh987654', 'expected': '请输入用户名'}" ]
+        }, {
+          "name" : "test_login_case[data2]",
+          "uid" : "dbc25ae09bff403a",
+          "parentUid" : "9f2eb823ca99aa13e85f077cc970977e",
+          "status" : "passed",
+          "time" : {
+            "start" : 1626769154491,
+            "stop" : 1626769162168,
+            "duration" : 7677
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "{'user': 'error_user_name', 'pwd': 'error_password', 'expected': '用户名错误或用户已失效'}" ]
+        }, {
+          "name" : "test_login_case[data3]",
+          "uid" : "c4ddc6aeab0b4062",
+          "parentUid" : "9f2eb823ca99aa13e85f077cc970977e",
+          "status" : "passed",
+          "time" : {
+            "start" : 1626769162176,
+            "stop" : 1626769168202,
+            "duration" : 6026
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "{'user': '唐静', 'pwd': 'sh987654', 'expected': '登录成功'}" ]
+        } ],
+        "uid" : "9f2eb823ca99aa13e85f077cc970977e"
+      } ],
+      "uid" : "f4922995258b28b89898bf87abc568b9"
     } ],
     "uid" : "0deb62a7421191a8a69ea1015ab6c56d"
   } ]
