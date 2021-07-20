@@ -57,10 +57,6 @@ class TestPopup:
         assert flag is False
 
         # def test_wait_visit_case(self, browser, base_url):
-        """
-        模拟业务员弹窗待回访数据验证:
-        1.
-        """
 
 
 if __name__ == '__main__':
