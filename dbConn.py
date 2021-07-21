@@ -6,9 +6,9 @@ import pymysql
 pymysql.install_as_MySQLdb()
 
 
-class DB(object):
+class DB:
     # 初始化对象，产生一个mysql连接
-    def __init__(self, ip, user, passwd, db, port=3306, charset='utf8'):
+    def __init__(self, ip='127.0.0.1', user='root', passwd='root', db='yiliangou', port=3306, charset='utf8'):
         self._ip = ip
         self._user = user
         self._passwd = passwd

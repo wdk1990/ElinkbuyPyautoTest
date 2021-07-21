@@ -1,0 +1,11 @@
+2021-07-21 15:51:44,070 [32mINFO ✅ Find element: name=staff_name [0m
+2021-07-21 15:51:45,112 [32mINFO 🖋 input element: 登录用户名[0m
+2021-07-21 15:51:45,191 [32mINFO ✅ Find element: name=password [0m
+2021-07-21 15:51:46,147 [32mINFO 🖋 input element: 登录密码[0m
+2021-07-21 15:51:46,215 [32mINFO ✅ Find element: css selector=.card-body>form>div.form-group>button.btn [0m
+2021-07-21 15:51:47,145 [32mINFO 🖱 click element: 登录按钮[0m
+2021-07-21 15:52:03,065 [32mINFO ✨ Find 9 elements through: class_name=layui-m-layer, describe:layer弹窗[0m
+2021-07-21 15:52:03,093 [32mINFO ✨ Find 9 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层[0m
+2021-07-21 15:52:05,253 [32mINFO ✅ Find element: id=message_warn [0m
+2021-07-21 15:52:06,216 [32mINFO 🖱 click element: 信息图标按钮[0m
+2021-07-21 15:52:06,333 [32mINFO ✅ Find element: id=messageBox [0m

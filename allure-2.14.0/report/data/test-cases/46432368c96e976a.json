@@ -1,0 +1,164 @@
+{
+  "uid" : "46432368c96e976a",
+  "name" : "test_wait_visit_case",
+  "fullName" : "test_dir.test_popup.TestPopup#test_wait_visit_case",
+  "historyId" : "1d978a18544ed26dc79f18bec5477ca3",
+  "time" : {
+    "start" : 1626839326027,
+    "stop" : 1626839346300,
+    "duration" : 20273
+  },
+  "description" : "\n        模拟业务员待回访数据验证:\n        1.查询业务员待回访数据\n        2.点击信息图标获取信息下拉菜单中的待回访客户数据\n        3.验证待回访数据\n        ",
+  "descriptionHtml" : "<pre><code>    模拟业务员待回访数据验证:\n    1.查询业务员待回访数据\n    2.点击信息图标获取信息下拉菜单中的待回访客户数据\n    3.验证待回访数据\n</code></pre>\n",
+  "status" : "broken",
+  "statusMessage" : "AttributeError: 'str' object has no attribute 'cur'",
+  "statusTrace" : "self = <test_dir.test_popup.TestPopup object at 0x00000000047E6460>, browser = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"8d1f70ae13f1bbd0c219610686f75363\")>, base_url = 'http://newtest.elinkbuy.cn'\n\n    def test_wait_visit_case(self, browser, base_url):\n        \"\"\"\n        模拟业务员待回访数据验证:\n        1.查询业务员待回访数据\n        2.点击信息图标获取信息下拉菜单中的待回访客户数据\n        3.验证待回访数据\n        \"\"\"\n        self.login(browser, base_url)\n    \n        sql = 'select * from xy_staff where staff_id=5'\n>       res = DBHelper.fetchall(sql, None)\n\ntest_dir\\test_popup.py:67: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = 'select * from xy_staff where staff_id=5', sql = None, params = None\n\n    def fetchall(self, sql, params=None):\n>       self.cur.execute(sql, params)\nE       AttributeError: 'str' object has no attribute 'cur'\n\ndbconfig.py:74: AttributeError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "browser",
+    "time" : {
+      "start" : 1626839324327,
+      "stop" : 1626839326026,
+      "duration" : 1699
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "browser_close",
+    "time" : {
+      "start" : 1626839326026,
+      "stop" : 1626839326026,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1626839326026,
+      "stop" : 1626839326026,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "testStage" : {
+    "description" : "\n        模拟业务员待回访数据验证:\n        1.查询业务员待回访数据\n        2.点击信息图标获取信息下拉菜单中的待回访客户数据\n        3.验证待回访数据\n        ",
+    "status" : "broken",
+    "statusMessage" : "AttributeError: 'str' object has no attribute 'cur'",
+    "statusTrace" : "self = <test_dir.test_popup.TestPopup object at 0x00000000047E6460>, browser = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"8d1f70ae13f1bbd0c219610686f75363\")>, base_url = 'http://newtest.elinkbuy.cn'\n\n    def test_wait_visit_case(self, browser, base_url):\n        \"\"\"\n        模拟业务员待回访数据验证:\n        1.查询业务员待回访数据\n        2.点击信息图标获取信息下拉菜单中的待回访客户数据\n        3.验证待回访数据\n        \"\"\"\n        self.login(browser, base_url)\n    \n        sql = 'select * from xy_staff where staff_id=5'\n>       res = DBHelper.fetchall(sql, None)\n\ntest_dir\\test_popup.py:67: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = 'select * from xy_staff where staff_id=5', sql = None, params = None\n\n    def fetchall(self, sql, params=None):\n>       self.cur.execute(sql, params)\nE       AttributeError: 'str' object has no attribute 'cur'\n\ndbconfig.py:74: AttributeError",
+    "steps" : [ {
+      "name" : "添加失败截图...",
+      "time" : {
+        "start" : 1626839346513,
+        "stop" : 1626839346692,
+        "duration" : 179
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "75c1a7db9be3ea5f",
+        "name" : "失败截图",
+        "source" : "75c1a7db9be3ea5f.png",
+        "type" : "image/png",
+        "size" : 83993
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "4ed4a42ad004fe0c",
+      "name" : "log",
+      "source" : "4ed4a42ad004fe0c.txt",
+      "type" : "text/plain",
+      "size" : 555
+    }, {
+      "uid" : "598f89c3fb896fe6",
+      "name" : "stdout",
+      "source" : "598f89c3fb896fe6.txt",
+      "type" : "text/plain",
+      "size" : 492
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 1,
+    "hasContent" : true,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : true
+  },
+  "afterStages" : [ {
+    "name" : "browser_close::0",
+    "time" : {
+      "start" : 1626839346694,
+      "stop" : 1626839348790,
+      "duration" : 2096
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_dir"
+  }, {
+    "name" : "suite",
+    "value" : "test_popup"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPopup"
+  }, {
+    "name" : "host",
+    "value" : "Win7-2019MNTZRK"
+  }, {
+    "name" : "thread",
+    "value" : "6296-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_dir.test_popup"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "46432368c96e976a.json",
+  "parameterValues" : [ ]
+}

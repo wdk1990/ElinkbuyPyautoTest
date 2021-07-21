@@ -1,5 +1,15 @@
 [ {
-  "uid" : "108f16aeab5e03cb",
+  "uid" : "c8c31c20c1fc0f06",
+  "name" : "test_popup_show_case",
+  "time" : {
+    "start" : 1626853903285,
+    "stop" : 1626853927296,
+    "duration" : 24011
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "6aa93c14544f1551",
   "name" : "test_login_case[data1]",
   "time" : {
     "start" : 1626769146006,
@@ -9,7 +19,17 @@
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "e14094eaceb7ec5d",
+  "uid" : "2243fe2fac0f6755",
+  "name" : "test_login_case[data0]",
+  "time" : {
+    "start" : 1626769136819,
+    "stop" : 1626769145982,
+    "duration" : 9163
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "193207e2f502a50b",
   "name" : "test_login_case[data3]",
   "time" : {
     "start" : 1626769162176,
@@ -19,42 +39,22 @@
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "cb034f6be9768b6a",
+  "uid" : "c30b71cbe349b159",
+  "name" : "test_wait_visit_case",
+  "time" : {
+    "start" : 1626857146274,
+    "stop" : 1626857166683,
+    "duration" : 20409
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d8c04f4b8475df97",
   "name" : "test_login_case[data2]",
   "time" : {
     "start" : 1626769154491,
     "stop" : 1626769162168,
     "duration" : 7677
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "9a7f4eaeb8da8b25",
-  "name" : "test_wait_visit_case",
-  "time" : {
-    "start" : 1626847752285,
-    "stop" : 1626847753805,
-    "duration" : 1520
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "742c201349a5fa68",
-  "name" : "test_popup_show_case",
-  "time" : {
-    "start" : 1626847727080,
-    "stop" : 1626847752253,
-    "duration" : 25173
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "3e42a3658bc147b4",
-  "name" : "test_login_case[data0]",
-  "time" : {
-    "start" : 1626769136819,
-    "stop" : 1626769145982,
-    "duration" : 9163
   },
   "status" : "passed",
   "severity" : "normal"

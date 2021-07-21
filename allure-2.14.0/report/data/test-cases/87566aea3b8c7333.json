@@ -1,0 +1,119 @@
+{
+  "uid" : "87566aea3b8c7333",
+  "name" : "test_popup_show_case",
+  "fullName" : "test_dir.test_popup.TestPopup#test_popup_show_case",
+  "historyId" : "b76382b248c9ab9fa69ae7a36c0f5bd9",
+  "time" : {
+    "start" : 1626838891509,
+    "stop" : 1626838912273,
+    "duration" : 20764
+  },
+  "description" : "\n        检测弹窗弹出：\n        步骤：\n        1.检测弹层是否正常弹出\n        2.检测点击信息图标是否正常出现下拉菜单\n        ",
+  "descriptionHtml" : "<pre><code>    检测弹窗弹出：\n    步骤：\n    1.检测弹层是否正常弹出\n    2.检测点击信息图标是否正常出现下拉菜单\n</code></pre>\n",
+  "status" : "broken",
+  "statusMessage" : "selenium.common.exceptions.NoSuchElementException: Message: ❌ Find 0 elements through: id=message_warn",
+  "statusTrace" : "self = <test_dir.test_popup.TestPopup object at 0x000000000478D610>, browser = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"f74a9d1d7452e558cc2e4385bd445343\")>, base_url = 'http://newtest.elinkbuy.cn'\n\n    def test_popup_show_case(self, browser, base_url):\n        \"\"\"\n        检测弹窗弹出：\n        步骤：\n        1.检测弹层是否正常弹出\n        2.检测点击信息图标是否正常出现下拉菜单\n        \"\"\"\n        self.login(browser, base_url)\n    \n        flag = False\n        layer_divs = self.page.layer_divs  # 弹出弹窗\n        if len(layer_divs) > 0:\n            flag = True\n    \n        layer_shades = self.page.layer_shades\n        for layer_shade in layer_shades:\n            self.page.execute_script('arguments[0].click()', layer_shade)  # 关闭弹窗\n        sleep(2)\n>       self.page.message_button.click()  # 点击信息图标\n\ntest_dir\\test_popup.py:48: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nC:\\Program Files\\Python38\\lib\\site-packages\\poium\\page_objects.py:233: in click\n    elem = self.__get_element(self.k, self.v)\nC:\\Program Files\\Python38\\lib\\site-packages\\poium\\page_objects.py:137: in __get_element\n    self.__find_element((By.ID, value))\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <poium.page_objects.Element object at 0x0000000003C557F0>, elem = ('id', 'message_warn')\n\n    def __find_element(self, elem):\n        \"\"\"\n        Find if the element exists.\n        \"\"\"\n        for i in range(self.timeout):\n            try:\n                elems = self.__elements(elem[0], elem[1])\n            except FunctionTimedOut:\n                elems = []\n    \n            if len(elems) == 1:\n                logging.info(\"✅ Find element: {by}={value} \".format(\n                    by=elem[0], value=elem[1]))\n                break\n            elif len(elems) > 1:\n                logging.info(\"❓ Find {n} elements through: {by}={value}\".format(\n                    n=len(elems), by=elem[0], value=elem[1]))\n                break\n            else:\n                sleep(1)\n        else:\n            error_msg = \"❌ Find 0 elements through: {by}={value}\".format(by=elem[0], value=elem[1])\n            logging.error(error_msg)\n>           raise NoSuchElementException(error_msg)\nE           selenium.common.exceptions.NoSuchElementException: Message: ❌ Find 0 elements through: id=message_warn\n\nC:\\Program Files\\Python38\\lib\\site-packages\\poium\\page_objects.py:128: NoSuchElementException",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1626838891507,
+      "stop" : 1626838891507,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "testStage" : {
+    "description" : "\n        检测弹窗弹出：\n        步骤：\n        1.检测弹层是否正常弹出\n        2.检测点击信息图标是否正常出现下拉菜单\n        ",
+    "status" : "broken",
+    "statusMessage" : "selenium.common.exceptions.NoSuchElementException: Message: ❌ Find 0 elements through: id=message_warn",
+    "statusTrace" : "self = <test_dir.test_popup.TestPopup object at 0x000000000478D610>, browser = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"f74a9d1d7452e558cc2e4385bd445343\")>, base_url = 'http://newtest.elinkbuy.cn'\n\n    def test_popup_show_case(self, browser, base_url):\n        \"\"\"\n        检测弹窗弹出：\n        步骤：\n        1.检测弹层是否正常弹出\n        2.检测点击信息图标是否正常出现下拉菜单\n        \"\"\"\n        self.login(browser, base_url)\n    \n        flag = False\n        layer_divs = self.page.layer_divs  # 弹出弹窗\n        if len(layer_divs) > 0:\n            flag = True\n    \n        layer_shades = self.page.layer_shades\n        for layer_shade in layer_shades:\n            self.page.execute_script('arguments[0].click()', layer_shade)  # 关闭弹窗\n        sleep(2)\n>       self.page.message_button.click()  # 点击信息图标\n\ntest_dir\\test_popup.py:48: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nC:\\Program Files\\Python38\\lib\\site-packages\\poium\\page_objects.py:233: in click\n    elem = self.__get_element(self.k, self.v)\nC:\\Program Files\\Python38\\lib\\site-packages\\poium\\page_objects.py:137: in __get_element\n    self.__find_element((By.ID, value))\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <poium.page_objects.Element object at 0x0000000003C557F0>, elem = ('id', 'message_warn')\n\n    def __find_element(self, elem):\n        \"\"\"\n        Find if the element exists.\n        \"\"\"\n        for i in range(self.timeout):\n            try:\n                elems = self.__elements(elem[0], elem[1])\n            except FunctionTimedOut:\n                elems = []\n    \n            if len(elems) == 1:\n                logging.info(\"✅ Find element: {by}={value} \".format(\n                    by=elem[0], value=elem[1]))\n                break\n            elif len(elems) > 1:\n                logging.info(\"❓ Find {n} elements through: {by}={value}\".format(\n                    n=len(elems), by=elem[0], value=elem[1]))\n                break\n            else:\n                sleep(1)\n        else:\n            error_msg = \"❌ Find 0 elements through: {by}={value}\".format(by=elem[0], value=elem[1])\n            logging.error(error_msg)\n>           raise NoSuchElementException(error_msg)\nE           selenium.common.exceptions.NoSuchElementException: Message: ❌ Find 0 elements through: id=message_warn\n\nC:\\Program Files\\Python38\\lib\\site-packages\\poium\\page_objects.py:128: NoSuchElementException",
+    "steps" : [ {
+      "name" : "添加失败截图...",
+      "time" : {
+        "start" : 1626838930095,
+        "stop" : 1626838930238,
+        "duration" : 143
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "7e99b32e11b6cd5a",
+        "name" : "失败截图",
+        "source" : "7e99b32e11b6cd5a.png",
+        "type" : "image/png",
+        "size" : 24905
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "791498a2ac274d85",
+      "name" : "log",
+      "source" : "791498a2ac274d85.txt",
+      "type" : "text/plain",
+      "size" : 368
+    }, {
+      "uid" : "4af4521d15ae9313",
+      "name" : "stdout",
+      "source" : "4af4521d15ae9313.txt",
+      "type" : "text/plain",
+      "size" : 323
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 1,
+    "hasContent" : true,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_dir"
+  }, {
+    "name" : "suite",
+    "value" : "test_popup"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPopup"
+  }, {
+    "name" : "host",
+    "value" : "Win7-2019MNTZRK"
+  }, {
+    "name" : "thread",
+    "value" : "3808-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_dir.test_popup"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "87566aea3b8c7333.json",
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,144 @@
+{
+  "uid" : "193207e2f502a50b",
+  "name" : "test_login_case[data3]",
+  "fullName" : "test_dir.test_login.TestLogin#test_login_case",
+  "historyId" : "85e1bc6544ddb4e43664e0c62f065f93",
+  "time" : {
+    "start" : 1626769162176,
+    "stop" : 1626769168202,
+    "duration" : 6026
+  },
+  "description" : "\n        模拟登录\n        步骤：\n        1，输入用户名\n        2.输入密码\n        3.点击登录按钮\n        检查点：\n        *检查输入用户名和密码是否为空\n        ",
+  "descriptionHtml" : "<pre><code>    模拟登录\n    步骤：\n    1，输入用户名\n    2.输入密码\n    3.点击登录按钮\n    检查点：\n    *检查输入用户名和密码是否为空\n</code></pre>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1626769162176,
+      "stop" : 1626769162176,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "browser_close",
+    "time" : {
+      "start" : 1626769136817,
+      "stop" : 1626769136817,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "browser",
+    "time" : {
+      "start" : 1626769135044,
+      "stop" : 1626769136817,
+      "duration" : 1773
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "testStage" : {
+    "description" : "\n        模拟登录\n        步骤：\n        1，输入用户名\n        2.输入密码\n        3.点击登录按钮\n        检查点：\n        *检查输入用户名和密码是否为空\n        ",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "4a815a918f660c4b",
+      "name" : "log",
+      "source" : "4a815a918f660c4b.txt",
+      "type" : "text/plain",
+      "size" : 555
+    }, {
+      "uid" : "62ff349222ca6254",
+      "name" : "stdout",
+      "source" : "62ff349222ca6254.txt",
+      "type" : "text/plain",
+      "size" : 482
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : true,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false
+  },
+  "afterStages" : [ {
+    "name" : "browser_close::0",
+    "time" : {
+      "start" : 1626769168207,
+      "stop" : 1626769170361,
+      "duration" : 2154
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_dir"
+  }, {
+    "name" : "suite",
+    "value" : "test_login"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestLogin"
+  }, {
+    "name" : "host",
+    "value" : "Win7-2019MNTZRK"
+  }, {
+    "name" : "thread",
+    "value" : "8732-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_dir.test_login"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "data",
+    "value" : "{'user': '唐静', 'pwd': 'sh987654', 'expected': '登录成功'}"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "193207e2f502a50b.json",
+  "parameterValues" : [ "{'user': '唐静', 'pwd': 'sh987654', 'expected': '登录成功'}" ]
+}

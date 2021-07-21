@@ -3,7 +3,7 @@
   "name" : "behaviors",
   "children" : [ {
     "name" : "test_login_case[data0]",
-    "uid" : "3e42a3658bc147b4",
+    "uid" : "2243fe2fac0f6755",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
@@ -16,7 +16,7 @@
     "parameters" : [ "{'user': '唐静', 'pwd': '', 'expected': '请输入密码'}" ]
   }, {
     "name" : "test_login_case[data1]",
-    "uid" : "108f16aeab5e03cb",
+    "uid" : "6aa93c14544f1551",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
@@ -29,7 +29,7 @@
     "parameters" : [ "{'user': '', 'pwd': 'sh987654', 'expected': '请输入用户名'}" ]
   }, {
     "name" : "test_login_case[data2]",
-    "uid" : "cb034f6be9768b6a",
+    "uid" : "d8c04f4b8475df97",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
@@ -42,7 +42,7 @@
     "parameters" : [ "{'user': 'error_user_name', 'pwd': 'error_password', 'expected': '用户名错误或用户已失效'}" ]
   }, {
     "name" : "test_login_case[data3]",
-    "uid" : "e14094eaceb7ec5d",
+    "uid" : "193207e2f502a50b",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
@@ -55,26 +55,26 @@
     "parameters" : [ "{'user': '唐静', 'pwd': 'sh987654', 'expected': '登录成功'}" ]
   }, {
     "name" : "test_popup_show_case",
-    "uid" : "742c201349a5fa68",
+    "uid" : "c8c31c20c1fc0f06",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
-      "start" : 1626847727080,
-      "stop" : 1626847752253,
-      "duration" : 25173
+      "start" : 1626853903285,
+      "stop" : 1626853927296,
+      "duration" : 24011
     },
     "flaky" : false,
     "newFailed" : false,
     "parameters" : [ ]
   }, {
     "name" : "test_wait_visit_case",
-    "uid" : "9a7f4eaeb8da8b25",
+    "uid" : "c30b71cbe349b159",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
-      "start" : 1626847752285,
-      "stop" : 1626847753805,
-      "duration" : 1520
+      "start" : 1626857146274,
+      "stop" : 1626857166683,
+      "duration" : 20409
     },
     "flaky" : false,
     "newFailed" : false,

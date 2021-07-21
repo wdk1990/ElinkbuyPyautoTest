@@ -1,0 +1,164 @@
+{
+  "uid" : "903b229cdae58d98",
+  "name" : "test_wait_visit_case",
+  "fullName" : "test_dir.test_popup.TestPopup#test_wait_visit_case",
+  "historyId" : "1d978a18544ed26dc79f18bec5477ca3",
+  "time" : {
+    "start" : 1626851964168,
+    "stop" : 1626851984960,
+    "duration" : 20792
+  },
+  "description" : "\n        模拟业务员待回访数据验证:\n        1.查询业务员待回访数据\n        2.点击信息图标获取信息下拉菜单中的待回访客户数据\n        3.验证待回访数据\n        ",
+  "descriptionHtml" : "<pre><code>    模拟业务员待回访数据验证:\n    1.查询业务员待回访数据\n    2.点击信息图标获取信息下拉菜单中的待回访客户数据\n    3.验证待回访数据\n</code></pre>\n",
+  "status" : "broken",
+  "statusMessage" : "TypeError: query() missing 1 required positional argument: 'sql'",
+  "statusTrace" : "self = <test_dir.test_popup.TestPopup object at 0x0000000003ED1190>, browser = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"900f52a0b2b69f3fc78aeea792f22303\")>, base_url = 'http://newtest.elinkbuy.cn'\n\n    def test_wait_visit_case(self, browser, base_url):\n        \"\"\"\n        模拟业务员待回访数据验证:\n        1.查询业务员待回访数据\n        2.点击信息图标获取信息下拉菜单中的待回访客户数据\n        3.验证待回访数据\n        \"\"\"\n        self.login(browser, base_url)\n        sql = 'select staff_id,name from xy_staff where staff_id=5'\n>       row = DB.query(sql)\nE       TypeError: query() missing 1 required positional argument: 'sql'\n\ntest_dir\\test_popup.py:66: TypeError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "browser_close",
+    "time" : {
+      "start" : 1626851964166,
+      "stop" : 1626851964166,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "browser",
+    "time" : {
+      "start" : 1626851962331,
+      "stop" : 1626851964166,
+      "duration" : 1835
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1626851964166,
+      "stop" : 1626851964166,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "testStage" : {
+    "description" : "\n        模拟业务员待回访数据验证:\n        1.查询业务员待回访数据\n        2.点击信息图标获取信息下拉菜单中的待回访客户数据\n        3.验证待回访数据\n        ",
+    "status" : "broken",
+    "statusMessage" : "TypeError: query() missing 1 required positional argument: 'sql'",
+    "statusTrace" : "self = <test_dir.test_popup.TestPopup object at 0x0000000003ED1190>, browser = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"900f52a0b2b69f3fc78aeea792f22303\")>, base_url = 'http://newtest.elinkbuy.cn'\n\n    def test_wait_visit_case(self, browser, base_url):\n        \"\"\"\n        模拟业务员待回访数据验证:\n        1.查询业务员待回访数据\n        2.点击信息图标获取信息下拉菜单中的待回访客户数据\n        3.验证待回访数据\n        \"\"\"\n        self.login(browser, base_url)\n        sql = 'select staff_id,name from xy_staff where staff_id=5'\n>       row = DB.query(sql)\nE       TypeError: query() missing 1 required positional argument: 'sql'\n\ntest_dir\\test_popup.py:66: TypeError",
+    "steps" : [ {
+      "name" : "添加失败截图...",
+      "time" : {
+        "start" : 1626852001423,
+        "stop" : 1626852001598,
+        "duration" : 175
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "f44599eeeae7f076",
+        "name" : "失败截图",
+        "source" : "f44599eeeae7f076.png",
+        "type" : "image/png",
+        "size" : 10866
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "91bb1e77f016460b",
+      "name" : "log",
+      "source" : "91bb1e77f016460b.txt",
+      "type" : "text/plain",
+      "size" : 555
+    }, {
+      "uid" : "b410451474fc23ee",
+      "name" : "stdout",
+      "source" : "b410451474fc23ee.txt",
+      "type" : "text/plain",
+      "size" : 482
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 1,
+    "hasContent" : true,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : true
+  },
+  "afterStages" : [ {
+    "name" : "browser_close::0",
+    "time" : {
+      "start" : 1626852001600,
+      "stop" : 1626852003697,
+      "duration" : 2097
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_dir"
+  }, {
+    "name" : "suite",
+    "value" : "test_popup"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPopup"
+  }, {
+    "name" : "host",
+    "value" : "Win7-2019MNTZRK"
+  }, {
+    "name" : "thread",
+    "value" : "8200-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_dir.test_popup"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "903b229cdae58d98.json",
+  "parameterValues" : [ ]
+}

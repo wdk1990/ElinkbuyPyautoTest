@@ -1,0 +1,164 @@
+{
+  "uid" : "7d3096695811d176",
+  "name" : "test_wait_visit_case",
+  "fullName" : "test_dir.test_popup.TestPopup#test_wait_visit_case",
+  "historyId" : "1d978a18544ed26dc79f18bec5477ca3",
+  "time" : {
+    "start" : 1626851077708,
+    "stop" : 1626851098559,
+    "duration" : 20851
+  },
+  "description" : "\n        模拟业务员待回访数据验证:\n        1.查询业务员待回访数据\n        2.点击信息图标获取信息下拉菜单中的待回访客户数据\n        3.验证待回访数据\n        ",
+  "descriptionHtml" : "<pre><code>    模拟业务员待回访数据验证:\n    1.查询业务员待回访数据\n    2.点击信息图标获取信息下拉菜单中的待回访客户数据\n    3.验证待回访数据\n</code></pre>\n",
+  "status" : "broken",
+  "statusMessage" : "TypeError: query() missing 1 required positional argument: 'sql'",
+  "statusTrace" : "self = <test_dir.test_popup.TestPopup object at 0x0000000004807580>, browser = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"a44fdf63c0d72393b9f0e542584181ad\")>, base_url = 'http://newtest.elinkbuy.cn'\n\n    def test_wait_visit_case(self, browser, base_url):\n        \"\"\"\n        模拟业务员待回访数据验证:\n        1.查询业务员待回访数据\n        2.点击信息图标获取信息下拉菜单中的待回访客户数据\n        3.验证待回访数据\n        \"\"\"\n        self.login(browser, base_url)\n>       total = self.wait_visit_total()\n\ntest_dir\\test_popup.py:65: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <test_dir.test_popup.TestPopup object at 0x0000000004807580>\n\n    def wait_visit_total(self):\n>       row = DB.query('select staff_id,name from xy_staff where staff_id=5')\nE       TypeError: query() missing 1 required positional argument: 'sql'\n\ntest_dir\\test_popup.py:71: TypeError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "browser_close",
+    "time" : {
+      "start" : 1626851077707,
+      "stop" : 1626851077707,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "browser",
+    "time" : {
+      "start" : 1626851075973,
+      "stop" : 1626851077707,
+      "duration" : 1734
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1626851077708,
+      "stop" : 1626851077708,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "testStage" : {
+    "description" : "\n        模拟业务员待回访数据验证:\n        1.查询业务员待回访数据\n        2.点击信息图标获取信息下拉菜单中的待回访客户数据\n        3.验证待回访数据\n        ",
+    "status" : "broken",
+    "statusMessage" : "TypeError: query() missing 1 required positional argument: 'sql'",
+    "statusTrace" : "self = <test_dir.test_popup.TestPopup object at 0x0000000004807580>, browser = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"a44fdf63c0d72393b9f0e542584181ad\")>, base_url = 'http://newtest.elinkbuy.cn'\n\n    def test_wait_visit_case(self, browser, base_url):\n        \"\"\"\n        模拟业务员待回访数据验证:\n        1.查询业务员待回访数据\n        2.点击信息图标获取信息下拉菜单中的待回访客户数据\n        3.验证待回访数据\n        \"\"\"\n        self.login(browser, base_url)\n>       total = self.wait_visit_total()\n\ntest_dir\\test_popup.py:65: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <test_dir.test_popup.TestPopup object at 0x0000000004807580>\n\n    def wait_visit_total(self):\n>       row = DB.query('select staff_id,name from xy_staff where staff_id=5')\nE       TypeError: query() missing 1 required positional argument: 'sql'\n\ntest_dir\\test_popup.py:71: TypeError",
+    "steps" : [ {
+      "name" : "添加失败截图...",
+      "time" : {
+        "start" : 1626851098793,
+        "stop" : 1626851099043,
+        "duration" : 250
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "8fbc1c5edb2c7d2d",
+        "name" : "失败截图",
+        "source" : "8fbc1c5edb2c7d2d.png",
+        "type" : "image/png",
+        "size" : 83993
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "71957c5b7f15faa0",
+      "name" : "log",
+      "source" : "71957c5b7f15faa0.txt",
+      "type" : "text/plain",
+      "size" : 555
+    }, {
+      "uid" : "b0678bd879709093",
+      "name" : "stdout",
+      "source" : "b0678bd879709093.txt",
+      "type" : "text/plain",
+      "size" : 492
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 1,
+    "hasContent" : true,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : true
+  },
+  "afterStages" : [ {
+    "name" : "browser_close::0",
+    "time" : {
+      "start" : 1626851099045,
+      "stop" : 1626851101168,
+      "duration" : 2123
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_dir"
+  }, {
+    "name" : "suite",
+    "value" : "test_popup"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPopup"
+  }, {
+    "name" : "host",
+    "value" : "Win7-2019MNTZRK"
+  }, {
+    "name" : "thread",
+    "value" : "12488-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_dir.test_popup"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "7d3096695811d176.json",
+  "parameterValues" : [ ]
+}
