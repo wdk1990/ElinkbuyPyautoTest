@@ -1,35 +1,5 @@
 [ {
-  "uid" : "8bdfa24c30ebcd8",
-  "name" : "test_login_case[data0]",
-  "time" : {
-    "start" : 1626769136819,
-    "stop" : 1626769145982,
-    "duration" : 9163
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "dbc25ae09bff403a",
-  "name" : "test_login_case[data2]",
-  "time" : {
-    "start" : 1626769154491,
-    "stop" : 1626769162168,
-    "duration" : 7677
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "3b7b0ec1aa63999a",
-  "name" : "test_popup_show_case",
-  "time" : {
-    "start" : 1626768768316,
-    "stop" : 1626768788170,
-    "duration" : 19854
-  },
-  "status" : "failed",
-  "severity" : "normal"
-}, {
-  "uid" : "68b7d5b5050fe58d",
+  "uid" : "108f16aeab5e03cb",
   "name" : "test_login_case[data1]",
   "time" : {
     "start" : 1626769146006,
@@ -39,12 +9,52 @@
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "c4ddc6aeab0b4062",
+  "uid" : "e14094eaceb7ec5d",
   "name" : "test_login_case[data3]",
   "time" : {
     "start" : 1626769162176,
     "stop" : 1626769168202,
     "duration" : 6026
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "cb034f6be9768b6a",
+  "name" : "test_login_case[data2]",
+  "time" : {
+    "start" : 1626769154491,
+    "stop" : 1626769162168,
+    "duration" : 7677
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "9a7f4eaeb8da8b25",
+  "name" : "test_wait_visit_case",
+  "time" : {
+    "start" : 1626847752285,
+    "stop" : 1626847753805,
+    "duration" : 1520
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "742c201349a5fa68",
+  "name" : "test_popup_show_case",
+  "time" : {
+    "start" : 1626847727080,
+    "stop" : 1626847752253,
+    "duration" : 25173
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3e42a3658bc147b4",
+  "name" : "test_login_case[data0]",
+  "time" : {
+    "start" : 1626769136819,
+    "stop" : 1626769145982,
+    "duration" : 9163
   },
   "status" : "passed",
   "severity" : "normal"

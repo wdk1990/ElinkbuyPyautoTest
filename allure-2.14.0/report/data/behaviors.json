@@ -2,21 +2,8 @@
   "uid" : "b1a8273437954620fa374b796ffaacdd",
   "name" : "behaviors",
   "children" : [ {
-    "name" : "test_popup_show_case",
-    "uid" : "3b7b0ec1aa63999a",
-    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
-    "status" : "failed",
-    "time" : {
-      "start" : 1626768768316,
-      "stop" : 1626768788170,
-      "duration" : 19854
-    },
-    "flaky" : false,
-    "newFailed" : false,
-    "parameters" : [ ]
-  }, {
     "name" : "test_login_case[data0]",
-    "uid" : "8bdfa24c30ebcd8",
+    "uid" : "3e42a3658bc147b4",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
@@ -29,7 +16,7 @@
     "parameters" : [ "{'user': '唐静', 'pwd': '', 'expected': '请输入密码'}" ]
   }, {
     "name" : "test_login_case[data1]",
-    "uid" : "68b7d5b5050fe58d",
+    "uid" : "108f16aeab5e03cb",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
@@ -42,7 +29,7 @@
     "parameters" : [ "{'user': '', 'pwd': 'sh987654', 'expected': '请输入用户名'}" ]
   }, {
     "name" : "test_login_case[data2]",
-    "uid" : "dbc25ae09bff403a",
+    "uid" : "cb034f6be9768b6a",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
@@ -55,7 +42,7 @@
     "parameters" : [ "{'user': 'error_user_name', 'pwd': 'error_password', 'expected': '用户名错误或用户已失效'}" ]
   }, {
     "name" : "test_login_case[data3]",
-    "uid" : "c4ddc6aeab0b4062",
+    "uid" : "e14094eaceb7ec5d",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
@@ -66,5 +53,31 @@
     "flaky" : false,
     "newFailed" : false,
     "parameters" : [ "{'user': '唐静', 'pwd': 'sh987654', 'expected': '登录成功'}" ]
+  }, {
+    "name" : "test_popup_show_case",
+    "uid" : "742c201349a5fa68",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1626847727080,
+      "stop" : 1626847752253,
+      "duration" : 25173
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "test_wait_visit_case",
+    "uid" : "9a7f4eaeb8da8b25",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1626847752285,
+      "stop" : 1626847753805,
+      "duration" : 1520
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
   } ]
 }

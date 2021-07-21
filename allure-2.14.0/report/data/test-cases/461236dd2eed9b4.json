@@ -1,0 +1,152 @@
+{
+  "uid" : "461236dd2eed9b4",
+  "name" : "test_popup_show_case",
+  "fullName" : "test_dir.test_popup.TestPopup#test_popup_show_case",
+  "historyId" : "b76382b248c9ab9fa69ae7a36c0f5bd9",
+  "time" : {
+    "start" : 1626839026980,
+    "stop" : 1626839027256,
+    "duration" : 276
+  },
+  "description" : "\n        检测弹窗弹出：\n        步骤：\n        1.检测弹层是否正常弹出\n        2.检测点击信息图标是否正常出现下拉菜单\n        ",
+  "descriptionHtml" : "<pre><code>    检测弹窗弹出：\n    步骤：\n    1.检测弹层是否正常弹出\n    2.检测点击信息图标是否正常出现下拉菜单\n</code></pre>\n",
+  "status" : "broken",
+  "statusMessage" : "AttributeError: 'PopupPage' object has no attribute 'gete_url'",
+  "statusTrace" : "self = <test_dir.test_popup.TestPopup object at 0x00000000047F2370>, browser = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"9a4d41c2e2bb6e6c844e7ea51878d13f\")>, base_url = 'http://newtest.elinkbuy.cn'\n\n    def test_popup_show_case(self, browser, base_url):\n        \"\"\"\n        检测弹窗弹出：\n        步骤：\n        1.检测弹层是否正常弹出\n        2.检测点击信息图标是否正常出现下拉菜单\n        \"\"\"\n>       self.login(browser, base_url)\n\ntest_dir\\test_popup.py:39: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <test_dir.test_popup.TestPopup object at 0x00000000047F2370>, browser = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"9a4d41c2e2bb6e6c844e7ea51878d13f\")>, base_url = 'http://newtest.elinkbuy.cn'\n\n    def login(self, browser, base_url):\n        self.page = PopupPage(browser)\n        self.page.get(base_url + '/index.php/employform/index')\n>       print(self.page.gete_url())\nE       AttributeError: 'PopupPage' object has no attribute 'gete_url'\n\ntest_dir\\test_popup.py:24: AttributeError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "browser",
+    "time" : {
+      "start" : 1626839023041,
+      "stop" : 1626839024841,
+      "duration" : 1800
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "browser_close",
+    "time" : {
+      "start" : 1626839024842,
+      "stop" : 1626839024842,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1626839026980,
+      "stop" : 1626839026980,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "testStage" : {
+    "description" : "\n        检测弹窗弹出：\n        步骤：\n        1.检测弹层是否正常弹出\n        2.检测点击信息图标是否正常出现下拉菜单\n        ",
+    "status" : "broken",
+    "statusMessage" : "AttributeError: 'PopupPage' object has no attribute 'gete_url'",
+    "statusTrace" : "self = <test_dir.test_popup.TestPopup object at 0x00000000047F2370>, browser = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"9a4d41c2e2bb6e6c844e7ea51878d13f\")>, base_url = 'http://newtest.elinkbuy.cn'\n\n    def test_popup_show_case(self, browser, base_url):\n        \"\"\"\n        检测弹窗弹出：\n        步骤：\n        1.检测弹层是否正常弹出\n        2.检测点击信息图标是否正常出现下拉菜单\n        \"\"\"\n>       self.login(browser, base_url)\n\ntest_dir\\test_popup.py:39: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <test_dir.test_popup.TestPopup object at 0x00000000047F2370>, browser = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"9a4d41c2e2bb6e6c844e7ea51878d13f\")>, base_url = 'http://newtest.elinkbuy.cn'\n\n    def login(self, browser, base_url):\n        self.page = PopupPage(browser)\n        self.page.get(base_url + '/index.php/employform/index')\n>       print(self.page.gete_url())\nE       AttributeError: 'PopupPage' object has no attribute 'gete_url'\n\ntest_dir\\test_popup.py:24: AttributeError",
+    "steps" : [ {
+      "name" : "添加失败截图...",
+      "time" : {
+        "start" : 1626839027557,
+        "stop" : 1626839027824,
+        "duration" : 267
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "f09b9a015724c963",
+        "name" : "失败截图",
+        "source" : "f09b9a015724c963.png",
+        "type" : "image/png",
+        "size" : 25310
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 1,
+    "hasContent" : true,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : true
+  },
+  "afterStages" : [ {
+    "name" : "browser_close::0",
+    "time" : {
+      "start" : 1626839028560,
+      "stop" : 1626839030997,
+      "duration" : 2437
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_dir"
+  }, {
+    "name" : "suite",
+    "value" : "test_popup"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPopup"
+  }, {
+    "name" : "host",
+    "value" : "Win7-2019MNTZRK"
+  }, {
+    "name" : "thread",
+    "value" : "6832-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_dir.test_popup"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "461236dd2eed9b4.json",
+  "parameterValues" : [ ]
+}

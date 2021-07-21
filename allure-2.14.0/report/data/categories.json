@@ -1,26 +1,5 @@
 {
   "uid" : "4b4757e66a1912dae1a509f688f20b0f",
   "name" : "categories",
-  "children" : [ {
-    "name" : "Product defects",
-    "children" : [ {
-      "name" : "AssertionError: assert True is False",
-      "children" : [ {
-        "name" : "test_popup_show_case",
-        "uid" : "3b7b0ec1aa63999a",
-        "parentUid" : "50d3165325d7fea52200aab18846204c",
-        "status" : "failed",
-        "time" : {
-          "start" : 1626768768316,
-          "stop" : 1626768788170,
-          "duration" : 19854
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ ]
-      } ],
-      "uid" : "50d3165325d7fea52200aab18846204c"
-    } ],
-    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
-  } ]
+  "children" : [ ]
 }

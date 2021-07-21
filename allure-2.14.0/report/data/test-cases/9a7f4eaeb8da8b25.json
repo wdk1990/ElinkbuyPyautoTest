@@ -1,0 +1,287 @@
+{
+  "uid" : "9a7f4eaeb8da8b25",
+  "name" : "test_wait_visit_case",
+  "fullName" : "test_dir.test_popup.TestPopup#test_wait_visit_case",
+  "historyId" : "1d978a18544ed26dc79f18bec5477ca3",
+  "time" : {
+    "start" : 1626847752285,
+    "stop" : 1626847753805,
+    "duration" : 1520
+  },
+  "description" : "\n        模拟业务员待回访数据验证:\n        1.查询业务员待回访数据\n        2.点击信息图标获取信息下拉菜单中的待回访客户数据\n        3.验证待回访数据\n        ",
+  "descriptionHtml" : "<pre><code>    模拟业务员待回访数据验证:\n    1.查询业务员待回访数据\n    2.点击信息图标获取信息下拉菜单中的待回访客户数据\n    3.验证待回访数据\n</code></pre>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "browser_close",
+    "time" : {
+      "start" : 1626847727078,
+      "stop" : 1626847727078,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "browser",
+    "time" : {
+      "start" : 1626847725258,
+      "stop" : 1626847727078,
+      "duration" : 1820
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1626847752284,
+      "stop" : 1626847752284,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "testStage" : {
+    "description" : "\n        模拟业务员待回访数据验证:\n        1.查询业务员待回访数据\n        2.点击信息图标获取信息下拉菜单中的待回访客户数据\n        3.验证待回访数据\n        ",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "6e7c65b2a79e6232",
+      "name" : "stdout",
+      "source" : "6e7c65b2a79e6232.txt",
+      "type" : "text/plain",
+      "size" : 2132
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : true,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false
+  },
+  "afterStages" : [ {
+    "name" : "browser_close::0",
+    "time" : {
+      "start" : 1626847753807,
+      "stop" : 1626847755903,
+      "duration" : 2096
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_dir"
+  }, {
+    "name" : "suite",
+    "value" : "test_popup"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPopup"
+  }, {
+    "name" : "host",
+    "value" : "Win7-2019MNTZRK"
+  }, {
+    "name" : "thread",
+    "value" : "3808-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_dir.test_popup"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "c273cd580912eef5",
+      "status" : "passed",
+      "time" : {
+        "start" : 1626839782710,
+        "stop" : 1626839784282,
+        "duration" : 1572
+      }
+    }, {
+      "uid" : "abd8046d5dd60650",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'str' object has no attribute 'connDb'",
+      "time" : {
+        "start" : 1626839565667,
+        "stop" : 1626839586116,
+        "duration" : 20449
+      }
+    }, {
+      "uid" : "a33dd52f9ebd7b77",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'str' object has no attribute 'connDb'",
+      "time" : {
+        "start" : 1626839558900,
+        "stop" : 1626839560745,
+        "duration" : 1845
+      }
+    }, {
+      "uid" : "2a9fb530746a286f",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'str' object has no attribute 'cur'",
+      "time" : {
+        "start" : 1626839326027,
+        "stop" : 1626839346300,
+        "duration" : 20273
+      }
+    }, {
+      "uid" : "4ff9443a3b1cb8f6",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'str' object has no attribute 'cur'",
+      "time" : {
+        "start" : 1626839319635,
+        "stop" : 1626839321290,
+        "duration" : 1655
+      }
+    }, {
+      "uid" : "7ef785d6de1bf16",
+      "status" : "broken",
+      "statusDetails" : "SystemExit: None",
+      "time" : {
+        "start" : 1626839216885,
+        "stop" : 1626839218141,
+        "duration" : 1256
+      }
+    }, {
+      "uid" : "4276dbf7fc0ed65f",
+      "status" : "broken",
+      "statusDetails" : "SystemExit: None",
+      "time" : {
+        "start" : 1626839212210,
+        "stop" : 1626839212395,
+        "duration" : 185
+      }
+    }, {
+      "uid" : "e7318017bfcd7d95",
+      "status" : "broken",
+      "statusDetails" : "TypeError: 'str' object is not callable",
+      "time" : {
+        "start" : 1626839068428,
+        "stop" : 1626839069746,
+        "duration" : 1318
+      }
+    }, {
+      "uid" : "3e7b3d62328a5488",
+      "status" : "broken",
+      "statusDetails" : "TypeError: 'str' object is not callable",
+      "time" : {
+        "start" : 1626839063811,
+        "stop" : 1626839063983,
+        "duration" : 172
+      }
+    }, {
+      "uid" : "887f4a251685d2fb",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'PopupPage' object has no attribute 'gete_url'",
+      "time" : {
+        "start" : 1626839032803,
+        "stop" : 1626839033699,
+        "duration" : 896
+      }
+    }, {
+      "uid" : "46502bedf7965f95",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'PopupPage' object has no attribute 'gete_url'",
+      "time" : {
+        "start" : 1626839027842,
+        "stop" : 1626839028011,
+        "duration" : 169
+      }
+    }, {
+      "uid" : "97b464867bd0a0fb",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'PopupPage' object has no attribute 'gete_url'",
+      "time" : {
+        "start" : 1626838978031,
+        "stop" : 1626838978913,
+        "duration" : 882
+      }
+    }, {
+      "uid" : "d3f9dec6ae16cec0",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'PopupPage' object has no attribute 'gete_url'",
+      "time" : {
+        "start" : 1626838973603,
+        "stop" : 1626838973766,
+        "duration" : 163
+      }
+    }, {
+      "uid" : "9cbe87793088ecd7",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'str' object has no attribute 'cur'",
+      "time" : {
+        "start" : 1626838131451,
+        "stop" : 1626838149238,
+        "duration" : 17787
+      }
+    }, {
+      "uid" : "e0393ff1e5bfd91e",
+      "status" : "broken",
+      "statusDetails" : "selenium.common.exceptions.NoSuchElementException: Message: ❌ Find 0 elements through: name=staff_name",
+      "time" : {
+        "start" : 1626838100189,
+        "stop" : 1626838109335,
+        "duration" : 9146
+      }
+    }, {
+      "uid" : "338a6a449a8f6214",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'str' object has no attribute 'execute'",
+      "time" : {
+        "start" : 1626835023489,
+        "stop" : 1626835040299,
+        "duration" : 16810
+      }
+    }, {
+      "uid" : "2b88b853ed13380c",
+      "status" : "broken",
+      "statusDetails" : "selenium.common.exceptions.NoSuchElementException: Message: ❌ Find 0 elements through: name=staff_name",
+      "time" : {
+        "start" : 1626834992108,
+        "stop" : 1626835001218,
+        "duration" : 9110
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "9a7f4eaeb8da8b25.json",
+  "parameterValues" : [ ]
+}

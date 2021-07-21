@@ -49,13 +49,13 @@ def run(m):
                      "--reruns", RunConfig.rerun])
         os.system('allure generate ./temp -o ./allure-2.14.0/report --clean')
 
-        zipDir(RunConfig.NEW_REPORT, RunConfig.NEW_REPORT + '.zip')  # 压缩测试报告目录
-        html_report_zip = RunConfig.NEW_REPORT + '.zip'
-        yag = yagmail.SMTP(user="513411425@qq.com", password="xilwsmpslpzjbijf", host='smtp.qq.com')
-        yag.send(['513411425@qq.com', '445140615@qq.com'], now_time + "_易联购测试报告", ["请查看附件"],
-                 [html_report_zip])
-        yag.close()
-        print("测试报告邮件发送成功！")
+        # 发送测试报告邮件通知
+        # zipDir(RunConfig.NEW_REPORT, RunConfig.NEW_REPORT + '.zip')  # 压缩测试报告目录
+        # html_report_zip = RunConfig.NEW_REPORT + '.zip'
+        # yag = yagmail.SMTP(user="513411425@qq.com", password="xilwsmpslpzjbijf", host='smtp.qq.com')
+        # yag.send(['513411425@qq.com'], now_time + "_易联购测试报告", ["请查看附件"], [html_report_zip])
+        # yag.close()
+        # print("测试报告邮件发送成功！")
 
         logger.info("运行结束，生成测试报告♥❤！")
     elif m == "debug":
