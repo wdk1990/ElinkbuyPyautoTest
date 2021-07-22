@@ -97,12 +97,14 @@ class TestPopup:
         visits = db_conn.query(sql)
 
         # 获取客户并加上最新的访问时间和下次访问时间
-        clients=[]
+        clients = []
         if visits:
             for visit in visits:
-
-
-
+                client_id = visit['client_id']
+                if client_id:
+                    clients[client_id] = client_id
+                else:
+                   
         return visits
 
         # return res
