@@ -100,7 +100,7 @@ class TestPopup:
         clients=[]
         if visits:
             for visit in visits:
-                
+
 
 
         return visits
