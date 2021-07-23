@@ -4,11 +4,11 @@
 @function 易联购页头弹窗测试
 """
 import sys
-import json
-from time import sleep
+import time
 import pytest
 import csv
 import codecs
+from time import sleep
 from os.path import dirname, abspath
 
 base_path = dirname(dirname(abspath(__file__)))
@@ -83,7 +83,6 @@ class TestPopup:
         assert 1 > 0
 
     def get_wait_visit_total(self, session_role_id, session_staff_id):
-        res = 0
         db_conn = DB(ip='47.103.83.160', user='root', passwd='c587024e9ec3ea0a', db='ylg')
         sql = "select v.visit_id,v.client_id,CAST(v.visit_time AS CHAR) as visit_time,CAST(v.next_visit_time AS CHAR) as next_visit_time from xy_visit v"
         sql += " inner join xy_client c on c.client_id=v.client_id"
@@ -97,17 +96,43 @@ class TestPopup:
         visits = db_conn.query(sql)
 
         # 获取客户并加上最新的访问时间和下次访问时间
-        clients = []
+        clients = {}
         if visits:
             for visit in visits:
                 client_id = visit['client_id']
-                if client_id:
-                    clients[client_id] = client_id
+                v_visit_time = (visit['visit_time'] if visit['visit_time'] != '0000-00-00' else None)
+                v_next_visit_time = (visit['next_visit_time'] if visit['next_visit_time'] != '0000-00-00' else None)
+                clients[client_id] = {}
+                if not clients[client_id]:
+                    visit['visit_time'] = v_visit_time
+                    visit['next_visit_time'] = v_next_visit_time
+                    clients[client_id] = visit
                 else:
-                   
-        return visits
+                    c_visit_time = (
+                        clients[client_id]['visit_time'] if clients[client_id]['visit_time'] != '0000-00-00' else None)
+                    c_next_visit_time = (clients[client_id]['next_visit_time'] if clients[client_id][
+                                                                                      'next_visit_time'] != '0000-00-00' else None)
+                    if 'c_visit_time' in dir() and 'v_next_visit_time' in dir():
+                        continue
+                    elif c_visit_time is None and 'v_visit_time' in dir():
+                        clients[client_id]['visit_time'] = v_visit_time
+                    elif c_next_visit_time is None and 'v_next_visit_time' in dir():
+                        clients[client_id]['next_visit_time'] = v_next_visit_time
+        # print(json.dumps(clients, indent=4, ensure_ascii=False, sort_keys=False, separators=(',', ':')))
 
-        # return res
+        # 根据最新的访问日期小于最新的下次访问日期，下次访问日期小于等于现在日期，筛选待访问客户数量
+        visit_count = 0
+        if clients:
+            for key, client in clients.items():
+                # print(client)
+                visit_date = time.strftime("%Y-%m-%d", time.localtime(
+                    int(time.mktime(time.strptime(client['visit_time'], "%Y-%m-%d %H:%M:%S")))))
+                next_visit_date = client['next_visit_time']
+                now_date = time.strftime("%Y-%m-%d", time.localtime(time.time()))
+                if next_visit_date is not None and (visit_date < next_visit_date) and (next_visit_date <= now_date):
+                    visit_count += 1
+
+        return visit_count
 
 
 if __name__ == '__main__':
