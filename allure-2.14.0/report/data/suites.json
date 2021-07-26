@@ -9,13 +9,13 @@
         "name" : "TestPopup",
         "children" : [ {
           "name" : "test_wait_visit_case",
-          "uid" : "f0e62be1443958d0",
+          "uid" : "aa2b67c64ef1dc3e",
           "parentUid" : "351c8d4cb291bc90d0d1aa00e11af232",
           "status" : "passed",
           "time" : {
-            "start" : 1626933792529,
-            "stop" : 1626933817301,
-            "duration" : 24772
+            "start" : 1627286891407,
+            "stop" : 1627286921476,
+            "duration" : 30069
           },
           "flaky" : false,
           "newFailed" : false,

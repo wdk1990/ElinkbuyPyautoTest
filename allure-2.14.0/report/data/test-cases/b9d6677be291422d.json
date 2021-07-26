@@ -1,0 +1,139 @@
+{
+  "uid" : "b9d6677be291422d",
+  "name" : "test_wait_visit_case",
+  "fullName" : "test_dir.test_popup.TestPopup#test_wait_visit_case",
+  "historyId" : "1d978a18544ed26dc79f18bec5477ca3",
+  "time" : {
+    "start" : 1627285432611,
+    "stop" : 1627285462181,
+    "duration" : 29570
+  },
+  "description" : "\n        模拟业务员待回访数据验证:\n        1.查询业务员待回访数据\n        2.点击信息图标获取信息下拉菜单中的待回访客户数据\n        3.验证待回访数据\n        ",
+  "descriptionHtml" : "<pre><code>    模拟业务员待回访数据验证:\n    1.查询业务员待回访数据\n    2.点击信息图标获取信息下拉菜单中的待回访客户数据\n    3.验证待回访数据\n</code></pre>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "browser_close",
+    "time" : {
+      "start" : 1627285432609,
+      "stop" : 1627285432609,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "browser",
+    "time" : {
+      "start" : 1627285430840,
+      "stop" : 1627285432609,
+      "duration" : 1769
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1627285432609,
+      "stop" : 1627285432609,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "description" : "\n        模拟业务员待回访数据验证:\n        1.查询业务员待回访数据\n        2.点击信息图标获取信息下拉菜单中的待回访客户数据\n        3.验证待回访数据\n        ",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "9bbc8daff9057a13",
+      "name" : "log",
+      "source" : "9bbc8daff9057a13.txt",
+      "type" : "text/plain",
+      "size" : 1121
+    }, {
+      "uid" : "f95fc2951845a4b",
+      "name" : "stdout",
+      "source" : "f95fc2951845a4b.txt",
+      "type" : "text/plain",
+      "size" : 982
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "browser_close::0",
+    "time" : {
+      "start" : 1627285462183,
+      "stop" : 1627285464299,
+      "duration" : 2116
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_dir"
+  }, {
+    "name" : "suite",
+    "value" : "test_popup"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPopup"
+  }, {
+    "name" : "host",
+    "value" : "Win7-2019MNTZRK"
+  }, {
+    "name" : "thread",
+    "value" : "10932-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_dir.test_popup"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "b9d6677be291422d.json",
+  "parameterValues" : [ ]
+}

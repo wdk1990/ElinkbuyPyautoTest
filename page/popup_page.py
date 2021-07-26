@@ -10,3 +10,7 @@ class PopupPage(Page):
     layer_divs = Elements(class_name="layui-m-layer", describe="layer弹窗")
     layer_shades = Elements(class_name="layui-m-layershade", describe="layer弹窗蒙层")
     message_box = Element(id_="messageBox", describe="信息下拉菜单")
+    wait_visit_count = Element(
+        xpath="//a[@id='waitVisitCount']/span[@class='dropdown-item-desc']/span[@class='message-num']",
+        describe="待回访数据总计"
+    )

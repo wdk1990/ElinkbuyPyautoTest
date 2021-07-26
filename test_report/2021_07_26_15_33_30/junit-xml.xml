@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="69.107" timestamp="2021-07-26T15:33:31.030401" hostname="Win7-2019MNTZRK"><testcase classname="test_dir.test_popup.TestPopup" name="test_wait_visit_case" time="65.744"><failure message="TypeError: 'str' object is not callable">self = &lt;test_dir.test_popup.TestPopup object at 0x0000000004A3E820&gt;, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="8910c57cf0ac0ef5005256e6bf3a6ede")&gt;, base_url = 'http://newtest.elinkbuy.cn'
+
+    def test_wait_visit_case(self, browser, base_url):
+        """
+        模拟业务员待回访数据验证:
+        1.查询业务员待回访数据
+        2.点击信息图标获取信息下拉菜单中的待回访客户数据
+        3.验证待回访数据
+        """
+        self.login(browser, base_url)
+    
+        layer_shades = self.page.layer_shades
+        for layer_shade in layer_shades:
+            self.page.execute_script('arguments[0].click()', layer_shade)  # 关闭弹窗
+        sleep(3)
+    
+        total = self.get_wait_visit_total(self.staff_info['roles_str'], self.staff_info['staff_id'])
+        sleep(3)
+    
+        self.page.message_button.click()  # 点击信息图标
+        is_display = self.page.message_box.is_displayed()  # 信息下拉菜单
+        if is_display is True:
+&gt;           print(self.page.wait_visit_count.text())
+E           TypeError: 'str' object is not callable
+
+test_dir\test_popup.py:92: TypeError</failure></testcase></testsuite></testsuites>

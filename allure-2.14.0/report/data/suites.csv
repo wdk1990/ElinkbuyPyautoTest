@@ -1,5 +1,5 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Thu Jul 22 14:03:12 CST 2021","Thu Jul 22 14:03:37 CST 2021","24772","test_dir","test_popup","TestPopup","","","test_wait_visit_case","
+"passed","Mon Jul 26 16:08:11 CST 2021","Mon Jul 26 16:08:41 CST 2021","30069","test_dir","test_popup","TestPopup","","","test_wait_visit_case","
         模拟业务员待回访数据验证:
         1.查询业务员待回访数据
         2.点击信息图标获取信息下拉菜单中的待回访客户数据

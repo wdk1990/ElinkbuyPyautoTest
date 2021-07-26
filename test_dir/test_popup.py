@@ -77,17 +77,32 @@ class TestPopup:
         3.验证待回访数据
         """
         self.login(browser, base_url)
-        total = self.get_wait_visit_total(self.staff_info['roles_str'], self.staff_info['staff_id'])
-        print(total)
+        wait_visit_total = self.get_wait_visit_total(self.staff_info['roles_str'], self.staff_info['staff_id'])
+        # print(wait_visit_total)
+        sleep(2)
 
-        assert 1 > 0
+        layer_shades = self.page.layer_shades
+        for layer_shade in layer_shades:
+            self.page.execute_script('arguments[0].click()', layer_shade)  # 关闭弹窗
+        sleep(2)
 
+        self.page.message_button.click()  # 点击信息图标
+        is_display = self.page.message_box.is_displayed()  # 信息下拉菜单
+        wait_visit_text =0
+        if is_display is True:
+            # print(self.page.wait_visit_count.text)
+            wait_visit_text = int(self.page.wait_visit_count.text)
+        else:
+            print("打开信息下拉框失败！")
+
+        assert wait_visit_total == wait_visit_text
+
+    # 获取待回访客户总计数据
     def get_wait_visit_total(self, session_role_id, session_staff_id):
         db_conn = DB(ip='47.103.83.160', user='root', passwd='c587024e9ec3ea0a', db='ylg')
         sql = "select v.visit_id,v.client_id,CAST(v.visit_time AS CHAR) as visit_time,CAST(v.next_visit_time AS CHAR) as next_visit_time from xy_visit v"
         sql += " inner join xy_client c on c.client_id=v.client_id"
-        sql += " where v.staff_id=" + str(
-            session_staff_id) + " and (v.staff_id=c.staff_id or v.staff_id=c.valid_allot_staff)"
+        sql += " where v.staff_id=" + str(session_staff_id) + " and (v.staff_id=c.staff_id or v.staff_id=c.valid_allot_staff)"
         sql += " and v.type='report' and v.wait_visit_status=1"
         if session_role_id in [87, 91]:
             sql += " and c.high_quality = 0"
@@ -95,43 +110,30 @@ class TestPopup:
         sql += " order by v.client_id desc,v.visit_time desc,v.next_visit_time desc"
         visits = db_conn.query(sql)
 
-        # 获取客户并加上最新的访问时间和下次访问时间
-        clients = {}
-        if visits:
-            for visit in visits:
-                client_id = visit['client_id']
-                v_visit_time = (visit['visit_time'] if visit['visit_time'] != '0000-00-00' else None)
-                v_next_visit_time = (visit['next_visit_time'] if visit['next_visit_time'] != '0000-00-00' else None)
-                clients[client_id] = {}
-                if not clients[client_id]:
-                    visit['visit_time'] = v_visit_time
-                    visit['next_visit_time'] = v_next_visit_time
-                    clients[client_id] = visit
-                else:
-                    c_visit_time = (
-                        clients[client_id]['visit_time'] if clients[client_id]['visit_time'] != '0000-00-00' else None)
-                    c_next_visit_time = (clients[client_id]['next_visit_time'] if clients[client_id][
-                                                                                      'next_visit_time'] != '0000-00-00' else None)
-                    if 'c_visit_time' in dir() and 'v_next_visit_time' in dir():
-                        continue
-                    elif c_visit_time is None and 'v_visit_time' in dir():
-                        clients[client_id]['visit_time'] = v_visit_time
-                    elif c_next_visit_time is None and 'v_next_visit_time' in dir():
-                        clients[client_id]['next_visit_time'] = v_next_visit_time
-        # print(json.dumps(clients, indent=4, ensure_ascii=False, sort_keys=False, separators=(',', ':')))
+        # 获取最近回访客户去重
+        clients = []
+        new_dict = {}
+        new_list = []
+        for visit in visits:
+            if visit['client_id'] not in new_list:
+                new_dict['visit_id'] = visit['visit_id']
+                new_dict['client_id'] = visit['client_id']
+                new_dict['visit_time'] = visit['visit_time']
+                new_dict['next_visit_time'] = visit['next_visit_time']
+                clients.append(new_dict)
+                new_list.append(visit['client_id'])
+                new_dict = {}
 
         # 根据最新的访问日期小于最新的下次访问日期，下次访问日期小于等于现在日期，筛选待访问客户数量
         visit_count = 0
         if clients:
-            for key, client in clients.items():
-                # print(client)
-                visit_date = time.strftime("%Y-%m-%d", time.localtime(
-                    int(time.mktime(time.strptime(client['visit_time'], "%Y-%m-%d %H:%M:%S")))))
+            for client in clients:
+                visit_date = time.strftime("%Y-%m-%d", time.localtime(int(time.mktime(time.strptime(client['visit_time'], "%Y-%m-%d %H:%M:%S")))))
                 next_visit_date = client['next_visit_time']
                 now_date = time.strftime("%Y-%m-%d", time.localtime(time.time()))
-                if next_visit_date is not None and (visit_date < next_visit_date) and (next_visit_date <= now_date):
-                    visit_count += 1
-
+                if next_visit_date is not None:
+                    if (visit_date < next_visit_date) and (next_visit_date <= now_date):
+                        visit_count += 1
         return visit_count
 
 
