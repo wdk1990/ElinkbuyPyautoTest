@@ -1,0 +1,12 @@
+2021-07-27 11:37:20,017 [32mINFO ✅ Find element: name=staff_name [0m
+2021-07-27 11:37:21,226 [32mINFO 🖋 input element: 登录用户名[0m
+2021-07-27 11:37:21,309 [32mINFO ✅ Find element: name=password [0m
+2021-07-27 11:37:22,257 [32mINFO 🖋 input element: 登录密码[0m
+2021-07-27 11:37:22,324 [32mINFO ✅ Find element: css selector=.card-body>form>div.form-group>button.btn [0m
+2021-07-27 11:37:23,259 [32mINFO 🖱 click element: 登录按钮[0m
+待回访客户：240
+2021-07-27 11:37:41,990 [32mINFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层[0m
+2021-07-27 11:37:44,142 [32mINFO ✅ Find element: id=message_warn [0m
+2021-07-27 11:37:45,109 [32mINFO 🖱 click element: 信息图标按钮[0m
+2021-07-27 11:37:45,241 [32mINFO ✅ Find element: id=messageBox [0m
+2021-07-27 11:37:46,267 [32mINFO ✅ Find element: xpath=//a[@id='waitVisitCount']/span[@class='dropdown-item-desc']/span[@class='message-num'] [0m

@@ -1,10 +1,20 @@
 [ {
-  "uid" : "aa2b67c64ef1dc3e",
+  "uid" : "d5130c012882d7e2",
   "name" : "test_wait_visit_case",
   "time" : {
-    "start" : 1627286891407,
-    "stop" : 1627286921476,
-    "duration" : 30069
+    "start" : 1627357038612,
+    "stop" : 1627357067276,
+    "duration" : 28664
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "69b9997d29c4ed97",
+  "name" : "test_wait_visit_quality_case",
+  "time" : {
+    "start" : 1627357067293,
+    "stop" : 1627357078729,
+    "duration" : 11436
   },
   "status" : "passed",
   "severity" : "normal"

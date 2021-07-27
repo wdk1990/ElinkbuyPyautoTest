@@ -8,6 +8,8 @@ import time
 import pytest
 import csv
 import codecs
+import datetime
+from dateutil.relativedelta import relativedelta
 from time import sleep
 from os.path import dirname, abspath
 
@@ -35,8 +37,8 @@ class TestPopup:
     def login(self, browser, base_url):
         self.page = PopupPage(browser)
         self.page.get(base_url + '/index.php/employform/index')
+        self.staff_info = self.get_staff_info()
         if self.page.get_url == base_url + '/index.php/employform/login/index':
-            self.staff_info = self.get_staff_info()
             self.page.input_staff_name = self.staff_info['name']
             self.page.input_password = self.staff_info['password']
             self.page.login_button.click()
@@ -71,14 +73,14 @@ class TestPopup:
 
     def test_wait_visit_case(self, browser, base_url):
         """
-        模拟业务员待回访数据验证:
+        模拟业务员待回访弹窗数据验证:
         1.查询业务员待回访数据
-        2.点击信息图标获取信息下拉菜单中的待回访客户数据
+        2.点击信息图标获取信息下拉菜单中的待回访客户菜单
         3.验证待回访数据
         """
         self.login(browser, base_url)
         wait_visit_total = self.get_wait_visit_total(self.staff_info['roles_str'], self.staff_info['staff_id'])
-        # print(wait_visit_total)
+        print('待回访客户：'+str(wait_visit_total))
         sleep(2)
 
         layer_shades = self.page.layer_shades
@@ -88,23 +90,21 @@ class TestPopup:
 
         self.page.message_button.click()  # 点击信息图标
         is_display = self.page.message_box.is_displayed()  # 信息下拉菜单
-        wait_visit_text =0
+        wait_visit_text = 0
         if is_display is True:
-            # print(self.page.wait_visit_count.text)
             wait_visit_text = int(self.page.wait_visit_count.text)
         else:
             print("打开信息下拉框失败！")
-
         assert wait_visit_total == wait_visit_text
 
-    # 获取待回访客户总计数据
-    def get_wait_visit_total(self, session_role_id, session_staff_id):
+    # 获取待回访客户数据
+    def get_wait_visit_total(self, role_id, staff_id):
         db_conn = DB(ip='47.103.83.160', user='root', passwd='c587024e9ec3ea0a', db='ylg')
         sql = "select v.visit_id,v.client_id,CAST(v.visit_time AS CHAR) as visit_time,CAST(v.next_visit_time AS CHAR) as next_visit_time from xy_visit v"
         sql += " inner join xy_client c on c.client_id=v.client_id"
-        sql += " where v.staff_id=" + str(session_staff_id) + " and (v.staff_id=c.staff_id or v.staff_id=c.valid_allot_staff)"
+        sql += " where v.staff_id=" + str(staff_id) + " and (v.staff_id=c.staff_id or v.staff_id=c.valid_allot_staff)"
         sql += " and v.type='report' and v.wait_visit_status=1"
-        if session_role_id in [87, 91]:
+        if role_id in [87, 91]:
             sql += " and c.high_quality = 0"
             sql += " and c.client_rank <> 'D'"
         sql += " order by v.client_id desc,v.visit_time desc,v.next_visit_time desc"
@@ -135,6 +135,42 @@ class TestPopup:
                     if (visit_date < next_visit_date) and (next_visit_date <= now_date):
                         visit_count += 1
         return visit_count
+
+    def test_wait_visit_quality_case(self, browser, base_url):
+        """
+        模拟业务员待回访优质客户弹窗数据验证
+        1.查询业务员待回访优质客户数据
+        2.点击信息下拉框下待回访优质客户菜单
+        3.验证待回访优质客户数据
+        """
+        self.login(browser, base_url)
+        wait_visit_quality_total = 0
+        if self.staff_info['roles_str'] not in [87, 97]:
+            db_conn = DB(ip='47.103.83.160', user='root', passwd='c587024e9ec3ea0a', db='ylg')
+            clients = db_conn.query("select code,name,client_id,clientid,staff_id from xy_client where clientid> 0  and staff_id='" + str(self.staff_info['staff_id']) + "'and high_quality=1")
+            if clients:
+                for client in clients:
+                    begin_date = datetime.date.today() - relativedelta(months=+2)
+                    status = db_conn.query("select visit_id from xy_visit where client_id=" + str(
+                        client['client_id']) + " and type='report' and visit_time>'" + str(begin_date) + "' limit 1")
+                    if not status:
+                        wait_visit_quality_total += 1
+        print('待回访优质客户：' + str(wait_visit_quality_total))
+        sleep(2)
+
+        layer_shades = self.page.layer_shades
+        for layer_shade in layer_shades:
+            self.page.execute_script('arguments[0].click()', layer_shade)  # 关闭弹窗
+        sleep(2)
+
+        self.page.message_button.click()  # 点击信息图标
+        is_display = self.page.message_box.is_displayed()  # 信息下拉菜单
+        wait_visit_quality_text = 0
+        if is_display is True:
+            wait_visit_quality_text = int(self.page.wait_visit_quality_count.text)
+        else:
+            print("打开信息下拉框失败！")
+        assert wait_visit_quality_total == wait_visit_quality_text
 
 
 if __name__ == '__main__':

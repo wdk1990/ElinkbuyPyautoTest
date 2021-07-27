@@ -1,7 +1,13 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Mon Jul 26 16:08:11 CST 2021","Mon Jul 26 16:08:41 CST 2021","30069","test_dir","test_popup","TestPopup","","","test_wait_visit_case","
-        模拟业务员待回访数据验证:
+"passed","Tue Jul 27 11:37:18 CST 2021","Tue Jul 27 11:37:47 CST 2021","28664","test_dir","test_popup","TestPopup","","","test_wait_visit_case","
+        模拟业务员待回访弹窗数据验证:
         1.查询业务员待回访数据
-        2.点击信息图标获取信息下拉菜单中的待回访客户数据
+        2.点击信息图标获取信息下拉菜单中的待回访客户菜单
         3.验证待回访数据
+        "
+"passed","Tue Jul 27 11:37:47 CST 2021","Tue Jul 27 11:37:58 CST 2021","11436","test_dir","test_popup","TestPopup","","","test_wait_visit_quality_case","
+        模拟业务员待回访优质客户弹窗数据验证
+        1.查询业务员待回访优质客户数据
+        2.点击信息下拉框下待回访优质客户菜单
+        3.验证待回访优质客户数据
         "
