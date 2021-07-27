@@ -1,0 +1,20 @@
+待回访优质客户：132
+2021-07-27 15:51:40,822 [32mINFO ✨ Find 1 elements through: class_name=layui-m-layer, describe:layer弹窗[0m
+2021-07-27 15:51:40,836 [32mINFO ✨ Find 1 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层[0m
+2021-07-27 15:51:40,865 [32mINFO ✅ Find element: id=message_warn [0m
+2021-07-27 15:51:41,825 [32mINFO 🖱 click element: 信息图标按钮[0m
+test end!
+2021-07-27 15:51:49,097 [32mINFO ✅ Find element: name=staff_name [0m
+2021-07-27 15:51:50,206 [32mINFO 🖋 input element: 登录用户名[0m
+2021-07-27 15:51:50,307 [32mINFO ✅ Find element: name=password [0m
+2021-07-27 15:51:51,267 [32mINFO 🖋 input element: 登录密码[0m
+2021-07-27 15:51:51,332 [32mINFO ✅ Find element: css selector=.card-body>form>div.form-group>button.btn [0m
+2021-07-27 15:51:52,261 [32mINFO 🖱 click element: 登录按钮[0m
+待回访优质客户：132
+2021-07-27 15:52:17,433 [32mINFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗[0m
+2021-07-27 15:52:17,450 [32mINFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层[0m
+2021-07-27 15:52:17,552 [32mINFO ✅ Find element: id=message_warn [0m
+2021-07-27 15:52:18,518 [32mINFO 🖱 click element: 信息图标按钮[0m
+2021-07-27 15:52:18,637 [32mINFO ✅ Find element: id=messageBox [0m
+2021-07-27 15:52:19,653 [32mINFO ✅ Find element: xpath=//a[@id='qualityVisitData']/span[@class='dropdown-item-desc']/span[@class='message-num'] [0m
+test end!

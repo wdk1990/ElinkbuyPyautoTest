@@ -6,8 +6,6 @@
 import sys
 import time
 import pytest
-import csv
-import codecs
 import datetime
 from dateutil.relativedelta import relativedelta
 from time import sleep
@@ -23,26 +21,29 @@ from .base import Base
 class TestPopup(Base):
     """弹窗相关功能测试"""
 
-    def test_popup_show_case(self, browser, base_url):
-        """
-        检测弹窗弹出：
-        步骤：
-        1.检测弹层是否正常弹出
-        2.检测点击信息图标是否正常出现下拉菜单
-        """
-        self.login(browser, base_url)
-        flag = False
-        self.page = PopupPage(browser)
-        flag = self.close_layer()  # 关闭弹层
-        self.page.message_button.click()  # 点击信息图标
-        is_display = self.page.message_box.is_displayed()  # 信息下拉菜单
-        if flag is True and is_display is True:
-            flag = True
-        else:
-            print('找不到信息弹窗!')
-            flag = False
-        assert flag is True
-        
+    # def test_popup_show_case(self, browser, base_url):
+    #     """
+    #     检测弹窗弹出：
+    #     步骤：
+    #     1.检测弹层是否正常弹出
+    #     2.检测点击信息图标是否正常出现下拉菜单
+    #     """
+    #     self.login(browser, base_url)
+    #     flag = False
+    #     self.page = PopupPage(browser)
+    #     flag = self.close_layer()  # 关闭弹层
+    #     if flag:
+    #         self.page.message_button.click()  # 点击信息图标
+    #     else:
+    #         print("弹层关闭失败")
+    #     is_display = self.page.message_box.is_displayed()  # 信息下拉菜单
+    #     if is_display is True:
+    #         flag = True
+    #     else:
+    #         print('找不到信息框')
+    #         flag = False
+    #     assert flag is True
+
     # def test_wait_visit_case(self, browser, base_url):
     #     """
     #     模拟业务员待回访弹窗数据验证:
@@ -51,23 +52,26 @@ class TestPopup(Base):
     #     3.验证待回访数据
     #     """
     #     self.login(browser, base_url)
-    #     wait_visit_total = self.get_wait_visit_total(self.staff_info['roles_str'], self.staff_info['staff_id'])
-    #     print('待回访客户：'+str(wait_visit_total))
+    #     self.user = self.get_user()
+    #     wait_visit_total = self.get_wait_visit_total(self.user['roles_str'], self.user['staff_id'])
+    #     print('待回访客户：' + str(wait_visit_total))
     #     sleep(2)
     #
-    #     layer_shades = self.page.layer_shades
-    #     for layer_shade in layer_shades:
-    #         self.page.execute_script('arguments[0].click()', layer_shade)  # 关闭弹窗
-    #     sleep(2)
+    #     self.page = PopupPage(browser)
+    #     flag = self.close_layer()  # 关闭弹层
+    #     if flag:
+    #         self.page.message_button.click()  # 点击信息图标
+    #     else:
+    #         print("弹层关闭失败")
     #
-    #     self.page.message_button.click()  # 点击信息图标
     #     is_display = self.page.message_box.is_displayed()  # 信息下拉菜单
     #     wait_visit_text = 0
     #     if is_display is True:
     #         wait_visit_text = int(self.page.wait_visit_count.text)
     #     else:
-    #         print("打开信息下拉框失败！")
+    #         print("找不到信息框")
     #     assert wait_visit_total == wait_visit_text
+    #     sleep(2)
 
     # 获取待回访客户数据
     # def get_wait_visit_total(self, role_id, staff_id):
@@ -117,9 +121,10 @@ class TestPopup(Base):
     #     """
     #     self.login(browser, base_url)
     #     wait_visit_quality_total = 0
-    #     if self.staff_info['roles_str'] not in [87, 97]:
+    #     self.user = self.get_user()
+    #     if self.user['roles_str'] not in [87, 97]:
     #         db_conn = DB(ip='47.103.83.160', user='root', passwd='c587024e9ec3ea0a', db='ylg')
-    #         clients = db_conn.query("select code,name,client_id,clientid,staff_id from xy_client where clientid> 0  and staff_id='" + str(self.staff_info['staff_id']) + "'and high_quality=1")
+    #         clients = db_conn.query("select code,name,client_id,clientid,staff_id from xy_client where clientid> 0  and staff_id='" + str(self.user['staff_id']) + "'and high_quality=1")
     #         if clients:
     #             for client in clients:
     #                 begin_date = datetime.date.today() - relativedelta(months=+2)
@@ -130,19 +135,20 @@ class TestPopup(Base):
     #     print('待回访优质客户：' + str(wait_visit_quality_total))
     #     sleep(2)
     #
-    #     layer_shades = self.page.layer_shades
-    #     for layer_shade in layer_shades:
-    #         self.page.execute_script('arguments[0].click()', layer_shade)  # 关闭弹窗
-    #     sleep(2)
-    #
-    #     self.page.message_button.click()  # 点击信息图标
+    #     self.page = PopupPage(browser)
+    #     flag=self.close_layer()  # 关闭弹层
+    #     if flag:
+    #        self.page.message_button.click()  # 点击信息图标
+    #     else:
+    #         print('弹层关闭失败')
     #     is_display = self.page.message_box.is_displayed()  # 信息下拉菜单
     #     wait_visit_quality_text = 0
     #     if is_display is True:
     #         wait_visit_quality_text = int(self.page.wait_visit_quality_count.text)
     #     else:
-    #         print("打开信息下拉框失败！")
+    #         print("找不到信息框")
     #     assert wait_visit_quality_total == wait_visit_quality_text
+    #     sleep(2)
 
 
 if __name__ == '__main__':

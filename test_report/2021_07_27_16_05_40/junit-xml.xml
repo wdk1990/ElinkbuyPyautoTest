@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="4" time="49.076" timestamp="2021-07-27T16:05:40.706400" hostname="Win7-2019MNTZRK"><testcase classname="test_dir.test_login.TestLogin" name="test_login_case[data0]" time="14.059"><failure message="NameError: name 'page' is not defined">self = &lt;test_dir.test_login.TestLogin object at 0x0000000004789EE0&gt;, data = {'expected': '请输入密码', 'pwd': '', 'user': '唐静'}, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="5abad0c199812f7a4284d3bc19452d83")&gt;
+base_url = 'http://newtest.elinkbuy.cn'
+
+    @pytest.mark.parametrize(
+        "data",
+        get_data(base_path + "/test_dir/data/test_login_data.json")
+    )
+    def test_login_case(self, data, browser, base_url):
+        """
+        模拟登录
+        步骤：
+        1，输入用户名
+        2.输入密码
+        3.点击登录按钮
+        检查点：
+        *检查输入用户名和密码是否为空
+        """
+        self.page = LoginPage(browser)
+        self.page.get(base_url + "/index.php/employform/Login/index")
+        self.page.input_staff_name = data["user"]
+        self.page.input_password = data["pwd"]
+        self.page.login_button.click()
+        sleep(2)
+    
+        if data['user'] == '' and page.user_error.text != '':
+            result = page.user_error.text
+&gt;       elif data['pwd'] == '' and page.pwd_error.text != '':
+E       NameError: name 'page' is not defined
+
+test_dir\test_login.py:53: NameError</failure></testcase><testcase classname="test_dir.test_login.TestLogin" name="test_login_case[data1]" time="10.880"><failure message="NameError: name 'page' is not defined">self = &lt;test_dir.test_login.TestLogin object at 0x0000000004789B80&gt;, data = {'expected': '请输入用户名', 'pwd': 'sh987654', 'user': ''}, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="5abad0c199812f7a4284d3bc19452d83")&gt;
+base_url = 'http://newtest.elinkbuy.cn'
+
+    @pytest.mark.parametrize(
+        "data",
+        get_data(base_path + "/test_dir/data/test_login_data.json")
+    )
+    def test_login_case(self, data, browser, base_url):
+        """
+        模拟登录
+        步骤：
+        1，输入用户名
+        2.输入密码
+        3.点击登录按钮
+        检查点：
+        *检查输入用户名和密码是否为空
+        """
+        self.page = LoginPage(browser)
+        self.page.get(base_url + "/index.php/employform/Login/index")
+        self.page.input_staff_name = data["user"]
+        self.page.input_password = data["pwd"]
+        self.page.login_button.click()
+        sleep(2)
+    
+&gt;       if data['user'] == '' and page.user_error.text != '':
+E       NameError: name 'page' is not defined
+
+test_dir\test_login.py:51: NameError</failure></testcase><testcase classname="test_dir.test_login.TestLogin" name="test_login_case[data2]" time="11.127"><failure message="NameError: name 'page' is not defined">self = &lt;test_dir.test_login.TestLogin object at 0x00000000047BEE50&gt;, data = {'expected': '用户名错误或用户已失效', 'pwd': 'error_password', 'user': 'error_user_name'}, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="5abad0c199812f7a4284d3bc19452d83")&gt;
+base_url = 'http://newtest.elinkbuy.cn'
+
+    @pytest.mark.parametrize(
+        "data",
+        get_data(base_path + "/test_dir/data/test_login_data.json")
+    )
+    def test_login_case(self, data, browser, base_url):
+        """
+        模拟登录
+        步骤：
+        1，输入用户名
+        2.输入密码
+        3.点击登录按钮
+        检查点：
+        *检查输入用户名和密码是否为空
+        """
+        self.page = LoginPage(browser)
+        self.page.get(base_url + "/index.php/employform/Login/index")
+        self.page.input_staff_name = data["user"]
+        self.page.input_password = data["pwd"]
+        self.page.login_button.click()
+        sleep(2)
+    
+        if data['user'] == '' and page.user_error.text != '':
+            result = page.user_error.text
+        elif data['pwd'] == '' and page.pwd_error.text != '':
+            result = page.pwd_error.text
+&gt;       elif data['user'] == 'error_user_name' and data['pwd'] == 'error_password' and page.all_error.text != '':
+E       NameError: name 'page' is not defined
+
+test_dir\test_login.py:55: NameError</failure></testcase><testcase classname="test_dir.test_login.TestLogin" name="test_login_case[data3]" time="10.504" /></testsuite></testsuites>
