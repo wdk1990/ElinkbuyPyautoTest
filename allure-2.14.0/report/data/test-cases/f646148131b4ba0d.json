@@ -1,5 +1,5 @@
 {
-  "uid" : "f5d548cbde0dd611",
+  "uid" : "f646148131b4ba0d",
   "name" : "test_wait_visit_quality_case",
   "fullName" : "test_dir.test_popup.TestPopup#test_wait_visit_quality_case",
   "historyId" : "47601cc59f6fd45d8d76749b53ace323",
@@ -26,10 +26,10 @@
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   }, {
     "name" : "browser",
     "time" : {
@@ -41,10 +41,10 @@
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   }, {
     "name" : "browser_close",
     "time" : {
@@ -56,10 +56,10 @@
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   } ],
   "testStage" : {
     "description" : "\n        模拟业务员待回访优质客户弹窗数据验证\n        1.查询业务员待回访优质客户数据\n        2.点击信息下拉框下待回访优质客户菜单\n        3.验证待回访优质客户数据\n        ",
@@ -76,36 +76,36 @@
       "status" : "passed",
       "steps" : [ ],
       "attachments" : [ {
-        "uid" : "67d35ca25eee8efb",
+        "uid" : "4d0b1d1ae9b9270b",
         "name" : "失败截图",
-        "source" : "67d35ca25eee8efb.png",
+        "source" : "4d0b1d1ae9b9270b.png",
         "type" : "image/png",
         "size" : 99035
       } ],
       "parameters" : [ ],
-      "stepsCount" : 0,
-      "hasContent" : true,
       "attachmentsCount" : 1,
-      "shouldDisplayMessage" : false
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : true
     } ],
     "attachments" : [ {
-      "uid" : "b494a80fb63dbde2",
+      "uid" : "ab597efdd37ddffd",
       "name" : "log",
-      "source" : "b494a80fb63dbde2.txt",
+      "source" : "ab597efdd37ddffd.txt",
       "type" : "text/plain",
       "size" : 444
     }, {
-      "uid" : "e6c1261d07cc15c",
+      "uid" : "a61fd74114cf799a",
       "name" : "stdout",
-      "source" : "e6c1261d07cc15c.txt",
+      "source" : "a61fd74114cf799a.txt",
       "type" : "text/plain",
       "size" : 427
     } ],
     "parameters" : [ ],
-    "stepsCount" : 1,
-    "hasContent" : true,
     "attachmentsCount" : 3,
-    "shouldDisplayMessage" : true
+    "shouldDisplayMessage" : true,
+    "stepsCount" : 1,
+    "hasContent" : true
   },
   "afterStages" : [ {
     "name" : "browser_close::0",
@@ -118,10 +118,10 @@
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   } ],
   "labels" : [ {
     "name" : "parentSuite",
@@ -159,6 +159,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "f5d548cbde0dd611.json",
+  "source" : "f646148131b4ba0d.json",
   "parameterValues" : [ ]
 }

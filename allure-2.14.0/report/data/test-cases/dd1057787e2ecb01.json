@@ -1,12 +1,12 @@
 {
-  "uid" : "b2a811a4cd9e73d4",
+  "uid" : "dd1057787e2ecb01",
   "name" : "test_wait_visit_quality_case",
   "fullName" : "test_dir.test_popup.TestPopup#test_wait_visit_quality_case",
   "historyId" : "47601cc59f6fd45d8d76749b53ace323",
   "time" : {
-    "start" : 1627372307811,
-    "stop" : 1627372340653,
-    "duration" : 32842
+    "start" : 1627372731273,
+    "stop" : 1627372740465,
+    "duration" : 9192
   },
   "description" : "\n        模拟业务员待回访优质客户弹窗数据验证\n        1.查询业务员待回访优质客户数据\n        2.点击信息下拉框下待回访优质客户菜单\n        3.验证待回访优质客户数据\n        ",
   "descriptionHtml" : "<pre><code>    模拟业务员待回访优质客户弹窗数据验证\n    1.查询业务员待回访优质客户数据\n    2.点击信息下拉框下待回访优质客户菜单\n    3.验证待回访优质客户数据\n</code></pre>\n",
@@ -14,89 +14,89 @@
   "flaky" : false,
   "newFailed" : false,
   "beforeStages" : [ {
-    "name" : "browser_close",
+    "name" : "browser",
     "time" : {
-      "start" : 1627372307810,
-      "stop" : 1627372307810,
-      "duration" : 0
+      "start" : 1627372698016,
+      "stop" : 1627372699822,
+      "duration" : 1806
     },
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   }, {
     "name" : "base_url",
     "time" : {
-      "start" : 1627372307810,
-      "stop" : 1627372307810,
+      "start" : 1627372731272,
+      "stop" : 1627372731272,
       "duration" : 0
     },
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   }, {
-    "name" : "browser",
+    "name" : "browser_close",
     "time" : {
-      "start" : 1627372305888,
-      "stop" : 1627372307810,
-      "duration" : 1922
+      "start" : 1627372699822,
+      "stop" : 1627372699822,
+      "duration" : 0
     },
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   } ],
   "testStage" : {
     "description" : "\n        模拟业务员待回访优质客户弹窗数据验证\n        1.查询业务员待回访优质客户数据\n        2.点击信息下拉框下待回访优质客户菜单\n        3.验证待回访优质客户数据\n        ",
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ {
-      "uid" : "d74e4ed862e067d3",
+      "uid" : "49372e58e7007ac5",
       "name" : "log",
-      "source" : "d74e4ed862e067d3.txt",
+      "source" : "49372e58e7007ac5.txt",
       "type" : "text/plain",
-      "size" : 1696
+      "size" : 695
     }, {
-      "uid" : "409864579e393bef",
+      "uid" : "f77dca54070a71f0",
       "name" : "stdout",
-      "source" : "409864579e393bef.txt",
+      "source" : "f77dca54070a71f0.txt",
       "type" : "text/plain",
-      "size" : 1549
+      "size" : 650
     } ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : true,
     "attachmentsCount" : 2,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : true
   },
   "afterStages" : [ {
     "name" : "browser_close::0",
     "time" : {
-      "start" : 1627372340655,
-      "stop" : 1627372342773,
-      "duration" : 2118
+      "start" : 1627372740467,
+      "stop" : 1627372742587,
+      "duration" : 2120
     },
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   } ],
   "labels" : [ {
     "name" : "parentSuite",
@@ -112,7 +112,7 @@
     "value" : "Win7-2019MNTZRK"
   }, {
     "name" : "thread",
-    "value" : "12180-MainThread"
+    "value" : "6640-MainThread"
   }, {
     "name" : "framework",
     "value" : "pytest"
@@ -128,12 +128,31 @@
   } ],
   "parameters" : [ ],
   "links" : [ ],
-  "hidden" : true,
-  "retry" : true,
+  "hidden" : false,
+  "retry" : false,
   "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "f110c5cbff9e356b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1627372307811,
+        "stop" : 1627372340653,
+        "duration" : 32842
+      }
+    }, {
+      "uid" : "f646148131b4ba0d",
+      "status" : "broken",
+      "statusDetails" : "selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element <li class=\"dropdown dropdown-list-toggle\" id=\"message_warn\" style=\"\">...</li> is not clickable at point (1775, 53). Other element would receive the click: <div class=\"layui-m-layershade\"></div>\n  (Session info: chrome=91.0.4472.114)",
+      "time" : {
+        "start" : 1627372290074,
+        "stop" : 1627372302928,
+        "duration" : 12854
+      }
+    } ],
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "b2a811a4cd9e73d4.json",
+  "source" : "dd1057787e2ecb01.json",
   "parameterValues" : [ ]
 }

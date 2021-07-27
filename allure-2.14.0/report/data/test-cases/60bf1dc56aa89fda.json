@@ -1,5 +1,5 @@
 {
-  "uid" : "68a605767b49e071",
+  "uid" : "60bf1dc56aa89fda",
   "name" : "test_wait_visit_case",
   "fullName" : "test_dir.test_popup.TestPopup#test_wait_visit_case",
   "historyId" : "1d978a18544ed26dc79f18bec5477ca3",
@@ -24,10 +24,10 @@
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   }, {
     "name" : "browser_close",
     "time" : {
@@ -39,10 +39,10 @@
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   }, {
     "name" : "base_url",
     "time" : {
@@ -54,33 +54,33 @@
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   } ],
   "testStage" : {
     "description" : "\n        模拟业务员待回访弹窗数据验证:\n        1.查询业务员待回访数据\n        2.点击信息图标获取信息下拉菜单中的待回访客户菜单\n        3.验证待回访数据\n        ",
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ {
-      "uid" : "9e78610ffc7fab24",
+      "uid" : "a9cb7570a13e84e8",
       "name" : "log",
-      "source" : "9e78610ffc7fab24.txt",
+      "source" : "a9cb7570a13e84e8.txt",
       "type" : "text/plain",
       "size" : 1249
     }, {
-      "uid" : "b1964e0e961a1ad4",
+      "uid" : "81d5834e9db0c075",
       "name" : "stdout",
-      "source" : "b1964e0e961a1ad4.txt",
+      "source" : "81d5834e9db0c075.txt",
       "type" : "text/plain",
       "size" : 1104
     } ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : true,
     "attachmentsCount" : 2,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : true
   },
   "afterStages" : [ {
     "name" : "browser_close::0",
@@ -93,10 +93,10 @@
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   } ],
   "labels" : [ {
     "name" : "parentSuite",
@@ -134,6 +134,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "68a605767b49e071.json",
+  "source" : "60bf1dc56aa89fda.json",
   "parameterValues" : [ ]
 }

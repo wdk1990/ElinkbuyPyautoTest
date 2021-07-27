@@ -1,5 +1,5 @@
 {
-  "uid" : "4eba99a4e2d858cc",
+  "uid" : "df2616b98796bba",
   "name" : "test_login_case[data0]",
   "fullName" : "test_dir.test_login.TestLogin#test_login_case",
   "historyId" : "3239f3306e0387e67f92fd02042a2e0d",
@@ -26,10 +26,10 @@
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   }, {
     "name" : "browser_close",
     "time" : {
@@ -41,10 +41,10 @@
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   }, {
     "name" : "browser",
     "time" : {
@@ -56,10 +56,10 @@
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   } ],
   "testStage" : {
     "description" : "\n        模拟登录\n        步骤：\n        1，输入用户名\n        2.输入密码\n        3.点击登录按钮\n        检查点：\n        *检查输入用户名和密码是否为空\n        ",
@@ -76,36 +76,36 @@
       "status" : "passed",
       "steps" : [ ],
       "attachments" : [ {
-        "uid" : "6aee084b47e20bd1",
+        "uid" : "151be8df94432fc9",
         "name" : "失败截图",
-        "source" : "6aee084b47e20bd1.png",
+        "source" : "151be8df94432fc9.png",
         "type" : "image/png",
         "size" : 26692
       } ],
       "parameters" : [ ],
-      "stepsCount" : 0,
-      "hasContent" : true,
       "attachmentsCount" : 1,
-      "shouldDisplayMessage" : false
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : true
     } ],
     "attachments" : [ {
-      "uid" : "dce53e4ab2173679",
+      "uid" : "76bdff3097abf1d9",
       "name" : "log",
-      "source" : "dce53e4ab2173679.txt",
+      "source" : "76bdff3097abf1d9.txt",
       "type" : "text/plain",
       "size" : 1111
     }, {
-      "uid" : "10a7b2bd2c885110",
+      "uid" : "595216e3275329bd",
       "name" : "stdout",
-      "source" : "10a7b2bd2c885110.txt",
+      "source" : "595216e3275329bd.txt",
       "type" : "text/plain",
       "size" : 944
     } ],
     "parameters" : [ ],
-    "stepsCount" : 1,
-    "hasContent" : true,
     "attachmentsCount" : 3,
-    "shouldDisplayMessage" : true
+    "shouldDisplayMessage" : true,
+    "stepsCount" : 1,
+    "hasContent" : true
   },
   "afterStages" : [ {
     "name" : "browser_close::0",
@@ -118,10 +118,10 @@
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   } ],
   "labels" : [ {
     "name" : "parentSuite",
@@ -162,6 +162,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "4eba99a4e2d858cc.json",
+  "source" : "df2616b98796bba.json",
   "parameterValues" : [ "{'user': '唐静', 'pwd': '', 'expected': '请输入密码'}" ]
 }

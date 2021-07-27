@@ -1,7 +1,7 @@
 """
 @author:  吴登科
 @data: 2021-07-12
-@function 易联购登录页面
+@function 易联购登录页面测试用例类
 """
 import sys
 import json

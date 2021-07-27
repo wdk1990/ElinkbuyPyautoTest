@@ -1,11 +1,5 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Tue Jul 27 15:58:19 CST 2021","Tue Jul 27 15:58:51 CST 2021","31426","test_dir","test_popup","TestPopup","","","test_wait_visit_case","
-        模拟业务员待回访弹窗数据验证:
-        1.查询业务员待回访数据
-        2.点击信息图标获取信息下拉菜单中的待回访客户菜单
-        3.验证待回访数据
-        "
-"passed","Tue Jul 27 16:08:15 CST 2021","Tue Jul 27 16:08:25 CST 2021","9768","test_dir","test_login","TestLogin","","","test_login_case[data2]","
+"passed","Tue Jul 27 16:07:55 CST 2021","Tue Jul 27 16:08:06 CST 2021","10421","test_dir","test_login","TestLogin","","","test_login_case[data0]","
         模拟登录
         步骤：
         1，输入用户名
@@ -14,19 +8,7 @@
         检查点：
         *检查输入用户名和密码是否为空
         "
-"passed","Tue Jul 27 14:56:43 CST 2021","Tue Jul 27 14:57:14 CST 2021","30960","test_dir","test_popup","TestPopup","","","test_popup_show_case","
-        检测弹窗弹出：
-        步骤：
-        1.检测弹层是否正常弹出
-        2.检测点击信息图标是否正常出现下拉菜单
-        "
-"passed","Tue Jul 27 15:58:51 CST 2021","Tue Jul 27 15:59:00 CST 2021","9192","test_dir","test_popup","TestPopup","","","test_wait_visit_quality_case","
-        模拟业务员待回访优质客户弹窗数据验证
-        1.查询业务员待回访优质客户数据
-        2.点击信息下拉框下待回访优质客户菜单
-        3.验证待回访优质客户数据
-        "
-"passed","Tue Jul 27 16:07:55 CST 2021","Tue Jul 27 16:08:06 CST 2021","10421","test_dir","test_login","TestLogin","","","test_login_case[data0]","
+"passed","Tue Jul 27 16:08:15 CST 2021","Tue Jul 27 16:08:25 CST 2021","9768","test_dir","test_login","TestLogin","","","test_login_case[data2]","
         模拟登录
         步骤：
         1，输入用户名
@@ -44,6 +26,12 @@
         检查点：
         *检查输入用户名和密码是否为空
         "
+"passed","Tue Jul 27 15:58:19 CST 2021","Tue Jul 27 15:58:51 CST 2021","31426","test_dir","test_popup","TestPopup","","","test_wait_visit_case","
+        模拟业务员待回访弹窗数据验证:
+        1.查询业务员待回访数据
+        2.点击信息图标获取信息下拉菜单中的待回访客户菜单
+        3.验证待回访数据
+        "
 "passed","Tue Jul 27 16:08:06 CST 2021","Tue Jul 27 16:08:15 CST 2021","9439","test_dir","test_login","TestLogin","","","test_login_case[data1]","
         模拟登录
         步骤：
@@ -52,4 +40,16 @@
         3.点击登录按钮
         检查点：
         *检查输入用户名和密码是否为空
+        "
+"passed","Tue Jul 27 15:58:51 CST 2021","Tue Jul 27 15:59:00 CST 2021","9192","test_dir","test_popup","TestPopup","","","test_wait_visit_quality_case","
+        模拟业务员待回访优质客户弹窗数据验证
+        1.查询业务员待回访优质客户数据
+        2.点击信息下拉框下待回访优质客户菜单
+        3.验证待回访优质客户数据
+        "
+"passed","Tue Jul 27 14:56:43 CST 2021","Tue Jul 27 14:57:14 CST 2021","30960","test_dir","test_popup","TestPopup","","","test_popup_show_case","
+        检测弹窗弹出：
+        步骤：
+        1.检测弹层是否正常弹出
+        2.检测点击信息图标是否正常出现下拉菜单
         "

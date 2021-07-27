@@ -3,7 +3,7 @@
   "name" : "behaviors",
   "children" : [ {
     "name" : "test_popup_show_case",
-    "uid" : "e6911934fc1af0f",
+    "uid" : "e9e8dff02b50300c",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
@@ -16,7 +16,7 @@
     "parameters" : [ ]
   }, {
     "name" : "test_wait_visit_case",
-    "uid" : "e567c6ac9d9c6d8b",
+    "uid" : "f797caccb26b479a",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
@@ -29,7 +29,7 @@
     "parameters" : [ ]
   }, {
     "name" : "test_wait_visit_quality_case",
-    "uid" : "3887cb13e60a3d22",
+    "uid" : "dd1057787e2ecb01",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
@@ -42,7 +42,7 @@
     "parameters" : [ ]
   }, {
     "name" : "test_login_case[data0]",
-    "uid" : "905ecbd86498d0f9",
+    "uid" : "250f6605bf0402cb",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
@@ -55,7 +55,7 @@
     "parameters" : [ "{'user': '唐静', 'pwd': '', 'expected': '请输入密码'}" ]
   }, {
     "name" : "test_login_case[data1]",
-    "uid" : "f85a5cb5d68a3f06",
+    "uid" : "12330c3f1ebf8cf0",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
@@ -68,7 +68,7 @@
     "parameters" : [ "{'user': '', 'pwd': 'sh987654', 'expected': '请输入用户名'}" ]
   }, {
     "name" : "test_login_case[data2]",
-    "uid" : "244c10507a8513c7",
+    "uid" : "45b252a4e81f3e16",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
@@ -81,7 +81,7 @@
     "parameters" : [ "{'user': 'error_user_name', 'pwd': 'error_password', 'expected': '用户名错误或用户已失效'}" ]
   }, {
     "name" : "test_login_case[data3]",
-    "uid" : "524d06afa94da633",
+    "uid" : "570c90a1ff995f91",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {

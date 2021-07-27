@@ -1,25 +1,5 @@
 [ {
-  "uid" : "524d06afa94da633",
-  "name" : "test_login_case[data3]",
-  "time" : {
-    "start" : 1627373305315,
-    "stop" : 1627373313744,
-    "duration" : 8429
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "905ecbd86498d0f9",
-  "name" : "test_login_case[data0]",
-  "time" : {
-    "start" : 1627373275603,
-    "stop" : 1627373286024,
-    "duration" : 10421
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "3887cb13e60a3d22",
+  "uid" : "dd1057787e2ecb01",
   "name" : "test_wait_visit_quality_case",
   "time" : {
     "start" : 1627372731273,
@@ -29,27 +9,7 @@
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "e6911934fc1af0f",
-  "name" : "test_popup_show_case",
-  "time" : {
-    "start" : 1627369003749,
-    "stop" : 1627369034709,
-    "duration" : 30960
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "e567c6ac9d9c6d8b",
-  "name" : "test_wait_visit_case",
-  "time" : {
-    "start" : 1627372699823,
-    "stop" : 1627372731249,
-    "duration" : 31426
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "244c10507a8513c7",
+  "uid" : "45b252a4e81f3e16",
   "name" : "test_login_case[data2]",
   "time" : {
     "start" : 1627373295528,
@@ -59,7 +19,47 @@
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "f85a5cb5d68a3f06",
+  "uid" : "f797caccb26b479a",
+  "name" : "test_wait_visit_case",
+  "time" : {
+    "start" : 1627372699823,
+    "stop" : 1627372731249,
+    "duration" : 31426
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "570c90a1ff995f91",
+  "name" : "test_login_case[data3]",
+  "time" : {
+    "start" : 1627373305315,
+    "stop" : 1627373313744,
+    "duration" : 8429
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "250f6605bf0402cb",
+  "name" : "test_login_case[data0]",
+  "time" : {
+    "start" : 1627373275603,
+    "stop" : 1627373286024,
+    "duration" : 10421
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e9e8dff02b50300c",
+  "name" : "test_popup_show_case",
+  "time" : {
+    "start" : 1627369003749,
+    "stop" : 1627369034709,
+    "duration" : 30960
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "12330c3f1ebf8cf0",
   "name" : "test_login_case[data1]",
   "time" : {
     "start" : 1627373286071,
