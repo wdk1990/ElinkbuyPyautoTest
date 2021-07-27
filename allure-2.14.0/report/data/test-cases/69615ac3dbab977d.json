@@ -1,0 +1,139 @@
+{
+  "uid" : "69615ac3dbab977d",
+  "name" : "test_popup_show_case",
+  "fullName" : "test_dir.test_popup.TestPopup#test_popup_show_case",
+  "historyId" : "b76382b248c9ab9fa69ae7a36c0f5bd9",
+  "time" : {
+    "start" : 1627367530168,
+    "stop" : 1627367557925,
+    "duration" : 27757
+  },
+  "description" : "\n        检测弹窗弹出：\n        步骤：\n        1.检测弹层是否正常弹出\n        2.检测点击信息图标是否正常出现下拉菜单\n        ",
+  "descriptionHtml" : "<pre><code>    检测弹窗弹出：\n    步骤：\n    1.检测弹层是否正常弹出\n    2.检测点击信息图标是否正常出现下拉菜单\n</code></pre>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1627367530167,
+      "stop" : 1627367530167,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "browser",
+    "time" : {
+      "start" : 1627367528413,
+      "stop" : 1627367530166,
+      "duration" : 1753
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "browser_close",
+    "time" : {
+      "start" : 1627367530167,
+      "stop" : 1627367530167,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "testStage" : {
+    "description" : "\n        检测弹窗弹出：\n        步骤：\n        1.检测弹层是否正常弹出\n        2.检测点击信息图标是否正常出现下拉菜单\n        ",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "a55e4493e5443c94",
+      "name" : "log",
+      "source" : "a55e4493e5443c94.txt",
+      "type" : "text/plain",
+      "size" : 1085
+    }, {
+      "uid" : "61cbf09559003483",
+      "name" : "stdout",
+      "source" : "61cbf09559003483.txt",
+      "type" : "text/plain",
+      "size" : 942
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : true,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false
+  },
+  "afterStages" : [ {
+    "name" : "browser_close::0",
+    "time" : {
+      "start" : 1627367557926,
+      "stop" : 1627367560064,
+      "duration" : 2138
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_dir"
+  }, {
+    "name" : "suite",
+    "value" : "test_popup"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPopup"
+  }, {
+    "name" : "host",
+    "value" : "Win7-2019MNTZRK"
+  }, {
+    "name" : "thread",
+    "value" : "14120-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_dir.test_popup"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "69615ac3dbab977d.json",
+  "parameterValues" : [ ]
+}

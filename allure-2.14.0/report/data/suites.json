@@ -8,27 +8,14 @@
       "children" : [ {
         "name" : "TestPopup",
         "children" : [ {
-          "name" : "test_wait_visit_case",
-          "uid" : "d5130c012882d7e2",
+          "name" : "test_popup_show_case",
+          "uid" : "270a4af628a08588",
           "parentUid" : "351c8d4cb291bc90d0d1aa00e11af232",
           "status" : "passed",
           "time" : {
-            "start" : 1627357038612,
-            "stop" : 1627357067276,
-            "duration" : 28664
-          },
-          "flaky" : false,
-          "newFailed" : false,
-          "parameters" : [ ]
-        }, {
-          "name" : "test_wait_visit_quality_case",
-          "uid" : "69b9997d29c4ed97",
-          "parentUid" : "351c8d4cb291bc90d0d1aa00e11af232",
-          "status" : "passed",
-          "time" : {
-            "start" : 1627357067293,
-            "stop" : 1627357078729,
-            "duration" : 11436
+            "start" : 1627369003749,
+            "stop" : 1627369034709,
+            "duration" : 30960
           },
           "flaky" : false,
           "newFailed" : false,

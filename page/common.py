@@ -1,0 +1,14 @@
+from poium import Page, Element, Elements
+
+
+class Common(Page):
+    input_staff_name = Element(name='staff_name', describe="登录用户名")
+    input_password = Element(name='password', describe="登录密码")
+    login_button = Element(css=".card-body>form>div.form-group>button.btn", describe="登录按钮")
+
+    layer_divs = Elements(class_name="layui-m-layer", describe="layer弹窗")
+    layer_shades = Elements(class_name="layui-m-layershade", describe="layer弹窗蒙层")
+
+    avatar_warn = Element(id_='avatarWarn', describe="右上角用户头像")
+    avatar_box = Element(id_='avatarBox', describe="右上角用户头像下拉框")
+    logout_btn = Element(id_='logoutBtn', describe="退出登录按钮")
