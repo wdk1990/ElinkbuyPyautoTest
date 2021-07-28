@@ -61,6 +61,7 @@ def get_wait_visit_total(role_id, staff_id):
 class TestPopup(Base):
     """弹窗相关功能测试"""
 
+    # @pytest.mark.run(order=1)
     def test_popup_show_case(self, browser, base_url):
         """
         检测弹窗弹出：
@@ -84,6 +85,7 @@ class TestPopup(Base):
             flag = False
         assert flag is True
 
+    # @pytest.mark.run(order=2)
     def test_wait_visit_case(self, browser, base_url):
         """
         模拟业务员待回访弹窗数据验证:
@@ -113,6 +115,7 @@ class TestPopup(Base):
         assert wait_visit_total == wait_visit_text
         sleep(2)
 
+    # @pytest.mark.run(order=3)
     def test_wait_visit_quality_case(self, browser, base_url):
         """
         模拟业务员待回访优质客户弹窗数据验证

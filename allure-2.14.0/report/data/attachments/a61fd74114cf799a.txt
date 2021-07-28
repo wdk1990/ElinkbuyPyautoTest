@@ -1,6 +1,0 @@
-待回访优质客户：132
-2021-07-27 15:51:40,822 [32mINFO ✨ Find 1 elements through: class_name=layui-m-layer, describe:layer弹窗[0m
-2021-07-27 15:51:40,836 [32mINFO ✨ Find 1 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层[0m
-2021-07-27 15:51:40,865 [32mINFO ✅ Find element: id=message_warn [0m
-2021-07-27 15:51:41,825 [32mINFO 🖱 click element: 信息图标按钮[0m
-test end!
