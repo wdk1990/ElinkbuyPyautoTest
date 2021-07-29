@@ -10,3 +10,6 @@
 [32mINFO    [0m poium:logging.py:18 [32mINFO 🖱 click element: 客户管理菜单栏[0m
 [32mINFO    [0m poium:logging.py:18 [32mINFO ✅ Find element: id=pytestCustomerList [0m
 [32mINFO    [0m poium:logging.py:18 [32mINFO 🖱 click element: 客户列表/我的客户菜单[0m
+[32mINFO    [0m poium:logging.py:18 [32mINFO ✅ Find element: xpath=//td[@id='pytestCustomerListPage']/ul[@class='pagination']/li[last()-1] [0m
+[32mINFO    [0m poium:logging.py:18 [32mINFO 🖱 click element: 最后一页[0m
+[32mINFO    [0m poium:logging.py:18 [32mINFO ✅ Find element: xpath=//div[@class='table-responsive']/table/tbody[@id='content']/tr[last()]/td[@id='pytestCustomerListSort'] [0m

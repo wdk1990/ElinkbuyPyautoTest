@@ -9,13 +9,13 @@
         "name" : "TestCustomer",
         "children" : [ {
           "name" : "test_customer_list_case",
-          "uid" : "f29e74a09ed1ae2c",
+          "uid" : "17718c4808dcdd6d",
           "parentUid" : "b04495d8f8fa72017986428a42bdc98d",
           "status" : "passed",
           "time" : {
-            "start" : 1627457529854,
-            "stop" : 1627457565341,
-            "duration" : 35487
+            "start" : 1627523011811,
+            "stop" : 1627523055434,
+            "duration" : 43623
           },
           "flaky" : false,
           "newFailed" : false,

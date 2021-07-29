@@ -94,8 +94,8 @@ class TestPopup(Base):
         3.验证待回访数据
         """
         self.login(browser, base_url)
-        self.user = self.get_user()
-        wait_visit_total = get_wait_visit_total(self.user['roles_str'], self.user['staff_id'])
+        user = self.get_user()
+        wait_visit_total = get_wait_visit_total(user['roles_str'], user['staff_id'])
         print('待回访客户：' + str(wait_visit_total))
         sleep(2)
 

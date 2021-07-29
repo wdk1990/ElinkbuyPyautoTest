@@ -1,102 +1,102 @@
 {
-  "uid" : "f29e74a09ed1ae2c",
+  "uid" : "17718c4808dcdd6d",
   "name" : "test_customer_list_case",
   "fullName" : "test_dir.test_customer.TestCustomer#test_customer_list_case",
   "historyId" : "0043fe995204959df5b24b050e10ed48",
   "time" : {
-    "start" : 1627457529854,
-    "stop" : 1627457565341,
-    "duration" : 35487
+    "start" : 1627523011811,
+    "stop" : 1627523055434,
+    "duration" : 43623
   },
-  "description" : "\n        模拟点击客户列表或我的客户子菜单进入客户列表页\n        1.验证当前登录员工所属全部客户\n        ",
-  "descriptionHtml" : "<pre><code>    模拟点击客户列表或我的客户子菜单进入客户列表页\n    1.验证当前登录员工所属全部客户\n</code></pre>\n",
+  "description" : "\n        模拟点击客户列表或我的客户子菜单进入客户列表页\n        1.点击最后一页最后的序号获取总记录数\n        2.查询当前员工所属客户总数\n        3.验证当前登录员工客户数\n        ",
+  "descriptionHtml" : "<pre><code>    模拟点击客户列表或我的客户子菜单进入客户列表页\n    1.点击最后一页最后的序号获取总记录数\n    2.查询当前员工所属客户总数\n    3.验证当前登录员工客户数\n</code></pre>\n",
   "status" : "passed",
   "flaky" : false,
   "newFailed" : false,
   "beforeStages" : [ {
-    "name" : "browser_close",
-    "time" : {
-      "start" : 1627457529849,
-      "stop" : 1627457529849,
-      "duration" : 0
-    },
-    "status" : "passed",
-    "steps" : [ ],
-    "attachments" : [ ],
-    "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
-    "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
-  }, {
     "name" : "browser",
     "time" : {
-      "start" : 1627457527672,
-      "stop" : 1627457529849,
-      "duration" : 2177
+      "start" : 1627523007604,
+      "stop" : 1627523011809,
+      "duration" : 4205
     },
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   }, {
     "name" : "base_url",
     "time" : {
-      "start" : 1627457529850,
-      "stop" : 1627457529850,
+      "start" : 1627523011809,
+      "stop" : 1627523011809,
       "duration" : 0
     },
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "browser_close",
+    "time" : {
+      "start" : 1627523011809,
+      "stop" : 1627523011809,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   } ],
   "testStage" : {
-    "description" : "\n        模拟点击客户列表或我的客户子菜单进入客户列表页\n        1.验证当前登录员工所属全部客户\n        ",
+    "description" : "\n        模拟点击客户列表或我的客户子菜单进入客户列表页\n        1.点击最后一页最后的序号获取总记录数\n        2.查询当前员工所属客户总数\n        3.验证当前登录员工客户数\n        ",
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ {
-      "uid" : "919ec6f6d9fbd05",
+      "uid" : "d15c3109bb7e0ccd",
       "name" : "log",
-      "source" : "919ec6f6d9fbd05.txt",
+      "source" : "d15c3109bb7e0ccd.txt",
       "type" : "text/plain",
-      "size" : 1206
+      "size" : 1621
     }, {
-      "uid" : "62ae2c8c96049877",
+      "uid" : "3fda66ad065c70f1",
       "name" : "stdout",
-      "source" : "62ae2c8c96049877.txt",
+      "source" : "3fda66ad065c70f1.txt",
       "type" : "text/plain",
-      "size" : 1049
+      "size" : 1422
     } ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : true,
     "attachmentsCount" : 2,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : true
   },
   "afterStages" : [ {
     "name" : "browser_close::0",
     "time" : {
-      "start" : 1627457565344,
-      "stop" : 1627457567492,
-      "duration" : 2148
+      "start" : 1627523055436,
+      "stop" : 1627523057593,
+      "duration" : 2157
     },
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   } ],
   "labels" : [ {
     "name" : "parentSuite",
@@ -112,7 +112,7 @@
     "value" : "Win7-2019MNTZRK"
   }, {
     "name" : "thread",
-    "value" : "13800-MainThread"
+    "value" : "5780-MainThread"
   }, {
     "name" : "framework",
     "value" : "pytest"
@@ -136,6 +136,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "f29e74a09ed1ae2c.json",
+  "source" : "17718c4808dcdd6d.json",
   "parameterValues" : [ ]
 }

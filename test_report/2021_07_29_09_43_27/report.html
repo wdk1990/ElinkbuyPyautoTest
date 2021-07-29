@@ -428,7 +428,7 @@ function filter_table(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>report.html</h1>
-    <p>Report generated on 28-Jul-2021 at 15:32:47 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.0.0</p>
+    <p>Report generated on 29-Jul-2021 at 09:44:17 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.0.0</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -447,7 +447,7 @@ function filter_table(elem) { // eslint-disable-line no-unused-vars
         <td>Python</td>
         <td>3.8.1</td></tr></table>
     <h2>Summary</h2>
-    <p>1 tests ran in 40.02 seconds. </p>
+    <p>1 tests ran in 50.15 seconds. </p>
     <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">1 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>, <input checked="true" class="filter" data-test-result="rerun" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="rerun">0 rerun</span>
     <h2>Results</h2>
     <table id="results-table">
@@ -469,25 +469,30 @@ function filter_table(elem) { // eslint-disable-line no-unused-vars
                 <meta name="Content-Type" value="text/html; charset=latin1"/></head>
               <body>
                 <p>        模拟点击客户列表或我的客户子菜单进入客户列表页</p>
-                <p>        1.验证当前登录员工所属全部客户</p>
+                <p>        1.点击最后一页最后的序号获取总记录数</p>
+                <p>        2.查询当前员工所属客户总数</p>
+                <p>        3.验证当前登录员工客户数</p>
                 <p>        </p></body></html></td>
           <td class="col-name">test_dir/test_customer.py::TestCustomer::test_customer_list_case</td>
-          <td class="col-duration">39.82</td>
+          <td class="col-duration">49.99</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="5">
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>2021-07-28 15:32:12,523 INFO ✅ Find element: name=staff_name 
-2021-07-28 15:32:13,733 INFO 🖋 input element: 登录用户名
-2021-07-28 15:32:13,802 INFO ✅ Find element: name=password 
-2021-07-28 15:32:14,765 INFO 🖋 input element: 登录密码
-2021-07-28 15:32:14,872 INFO ✅ Find element: css selector=.card-body&gt;form&gt;div.form-group&gt;button.btn 
-2021-07-28 15:32:15,828 INFO 🖱 click element: 登录按钮
-2021-07-28 15:32:36,811 INFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗
-2021-07-28 15:32:36,824 INFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层
-2021-07-28 15:32:36,921 INFO ✅ Find element: id=pytestCustomerMenu 
-2021-07-28 15:32:37,883 INFO 🖱 click element: 客户管理菜单栏
-2021-07-28 15:32:37,994 INFO ✅ Find element: id=pytestCustomerList 
-2021-07-28 15:32:38,952 INFO 🖱 click element: 客户列表/我的客户菜单
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>2021-07-29 09:43:32,414 INFO ✅ Find element: name=staff_name 
+2021-07-29 09:43:33,573 INFO 🖋 input element: 登录用户名
+2021-07-29 09:43:33,654 INFO ✅ Find element: name=password 
+2021-07-29 09:43:34,620 INFO 🖋 input element: 登录密码
+2021-07-29 09:43:34,713 INFO ✅ Find element: css selector=.card-body&gt;form&gt;div.form-group&gt;button.btn 
+2021-07-29 09:43:35,678 INFO 🖱 click element: 登录按钮
+2021-07-29 09:43:56,712 INFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗
+2021-07-29 09:43:56,725 INFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层
+2021-07-29 09:43:56,849 INFO ✅ Find element: id=pytestCustomerMenu 
+2021-07-29 09:43:57,810 INFO 🖱 click element: 客户管理菜单栏
+2021-07-29 09:43:57,913 INFO ✅ Find element: id=pytestCustomerList 
+2021-07-29 09:43:58,874 INFO 🖱 click element: 客户列表/我的客户菜单
+2021-07-29 09:44:05,445 INFO ✅ Find element: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li[last()-1] 
+2021-07-29 09:44:06,432 INFO 🖱 click element: 最后一页
+2021-07-29 09:44:11,190 INFO ✅ Find element: xpath=//div[@class=&#x27;table-responsive&#x27;]/table/tbody[@id=&#x27;content&#x27;]/tr[last()]/td[@id=&#x27;pytestCustomerListSort&#x27;] 
 <br/> -------------------------------Captured log call-------------------------------- <br/>INFO     poium:logging.py:18 INFO ✅ Find element: name=staff_name 
 INFO     poium:logging.py:18 INFO 🖋 input element: 登录用户名
 INFO     poium:logging.py:18 INFO ✅ Find element: name=password 
@@ -499,5 +504,8 @@ INFO     poium:logging.py:18 INFO ✨ Find 8 elements through: class_name=layui-
 INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerMenu 
 INFO     poium:logging.py:18 INFO 🖱 click element: 客户管理菜单栏
 INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerList 
-INFO     poium:logging.py:18 INFO 🖱 click element: 客户列表/我的客户菜单<br/> ----------------------------Captured stdout teardown---------------------------- <br/>test end!
+INFO     poium:logging.py:18 INFO 🖱 click element: 客户列表/我的客户菜单
+INFO     poium:logging.py:18 INFO ✅ Find element: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li[last()-1] 
+INFO     poium:logging.py:18 INFO 🖱 click element: 最后一页
+INFO     poium:logging.py:18 INFO ✅ Find element: xpath=//div[@class=&#x27;table-responsive&#x27;]/table/tbody[@id=&#x27;content&#x27;]/tr[last()]/td[@id=&#x27;pytestCustomerListSort&#x27;] <br/> ----------------------------Captured stdout teardown---------------------------- <br/>test end!
 <br/></div></td></tr></tbody></table></body></html>

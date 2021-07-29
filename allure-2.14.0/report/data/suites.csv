@@ -1,5 +1,7 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Wed Jul 28 15:32:09 CST 2021","Wed Jul 28 15:32:45 CST 2021","35487","test_dir","test_customer","TestCustomer","","","test_customer_list_case","
+"passed","Thu Jul 29 09:43:31 CST 2021","Thu Jul 29 09:44:15 CST 2021","43623","test_dir","test_customer","TestCustomer","","","test_customer_list_case","
         模拟点击客户列表或我的客户子菜单进入客户列表页
-        1.验证当前登录员工所属全部客户
+        1.点击最后一页最后的序号获取总记录数
+        2.查询当前员工所属客户总数
+        3.验证当前登录员工客户数
         "

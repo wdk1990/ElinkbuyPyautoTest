@@ -31,10 +31,10 @@ class Base:
     def login(self, browser, base_url):
         self.common_page = Common(browser)
         self.common_page.get(base_url + '/index.php/employform/index')
-        self.user = self.get_user()
+        user = self.get_user()
         if self.common_page.get_url == base_url + '/index.php/employform/login/index':
-            self.common_page.input_staff_name = self.user['name']
-            self.common_page.input_password = self.user['password']
+            self.common_page.input_staff_name = user['name']
+            self.common_page.input_password = user['password']
             self.common_page.login_button.click()
         sleep(20)
 
