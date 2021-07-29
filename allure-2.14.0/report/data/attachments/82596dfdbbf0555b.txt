@@ -1,0 +1,26 @@
+2021-07-29 16:29:55,441 [32mINFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗[0m
+2021-07-29 16:29:55,469 [32mINFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层[0m
+2021-07-29 16:29:55,587 [32mINFO ✅ Find element: id=pytestCustomerMenu [0m
+2021-07-29 16:29:56,542 [32mINFO 🖱 click element: 客户管理菜单栏[0m
+2021-07-29 16:29:56,624 [32mINFO ✅ Find element: id=pytestCustomerList [0m
+2021-07-29 16:29:57,589 [32mINFO 🖱 click element: 客户列表/我的客户菜单[0m
+2021-07-29 16:30:01,243 [32mINFO ✅ Find element: name=search_client_rank [0m
+2021-07-29 16:30:02,577 [32mINFO ✅ Find element: id=pytestCustomerSearchBtn [0m
+2021-07-29 16:30:03,533 [32mINFO 🖱 click element: 搜索按钮[0m
+2021-07-29 16:30:08,267 [32mINFO ✨ Find 13 elements through: xpath=//td[@id='pytestCustomerListPage']/ul[@class='pagination']/li, describe:分页[0m
+2021-07-29 16:30:08,314 [32mINFO ✅ Find element: xpath=//td[@id='pytestCustomerListPage']/ul[@class='pagination']/li[last()-1] [0m
+2021-07-29 16:30:09,292 [32mINFO 🖱 click element: 最后一页[0m
+2021-07-29 16:30:15,778 [32mINFO ✅ Find element: xpath=//div[@class='table-responsive']/table/tbody[@id='content']/tr[last()]/td[@id='pytestCustomerListSort'] [0m
+2021-07-29 16:30:34,558 [32mINFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗[0m
+2021-07-29 16:30:34,570 [32mINFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层[0m
+2021-07-29 16:30:34,664 [32mINFO ✅ Find element: id=pytestCustomerMenu [0m
+2021-07-29 16:30:35,619 [32mINFO 🖱 click element: 客户管理菜单栏[0m
+2021-07-29 16:30:35,707 [32mINFO ✅ Find element: id=pytestCustomerList [0m
+2021-07-29 16:30:36,656 [32mINFO 🖱 click element: 客户列表/我的客户菜单[0m
+2021-07-29 16:30:40,181 [32mINFO ✅ Find element: name=search_client_rank [0m
+2021-07-29 16:30:41,513 [32mINFO ✅ Find element: id=pytestCustomerSearchBtn [0m
+2021-07-29 16:30:42,476 [32mINFO 🖱 click element: 搜索按钮[0m
+2021-07-29 16:30:47,258 [32mINFO ✨ Find 13 elements through: xpath=//td[@id='pytestCustomerListPage']/ul[@class='pagination']/li, describe:分页[0m
+2021-07-29 16:30:47,273 [32mINFO ✅ Find element: xpath=//td[@id='pytestCustomerListPage']/ul[@class='pagination']/li[last()-1] [0m
+2021-07-29 16:30:48,265 [32mINFO 🖱 click element: 最后一页[0m
+2021-07-29 16:30:51,841 [32mINFO ✅ Find element: xpath=//div[@class='table-responsive']/table/tbody[@id='content']/tr[last()]/td[@id='pytestCustomerListSort'] [0m

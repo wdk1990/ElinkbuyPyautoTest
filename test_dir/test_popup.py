@@ -125,10 +125,10 @@ class TestPopup(Base):
         """
         self.login(browser, base_url)
         wait_visit_quality_total = 0
-        self.user = self.get_user()
-        if self.user['roles_str'] not in [87, 97]:
+        user = self.get_user()
+        if user['roles_str'] not in [87, 97]:
             db_conn = DB(ip='47.103.83.160', user='root', passwd='c587024e9ec3ea0a', db='ylg')
-            clients = db_conn.query("select code,name,client_id,clientid,staff_id from xy_client where clientid> 0  and staff_id='" + str( self.user['staff_id']) + "'and high_quality=1")
+            clients = db_conn.query("select code,name,client_id,clientid,staff_id from xy_client where clientid> 0  and staff_id='" + str(user['staff_id']) + "'and high_quality=1")
             if clients:
                 for client in clients:
                     begin_date = datetime.date.today() - relativedelta(months=+2)

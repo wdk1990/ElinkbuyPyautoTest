@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Test Report</title>
+    <style>body {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	/* do not increase min-width as some may use split screens */
+	min-width: 800px;
+	color: #999;
+}
+
+h1 {
+	font-size: 24px;
+	color: black;
+}
+
+h2 {
+	font-size: 16px;
+	color: black;
+}
+
+p {
+    color: black;
+}
+
+a {
+	color: #999;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+/******************************
+ * SUMMARY INFORMATION
+ ******************************/
+
+#environment td {
+	padding: 5px;
+	border: 1px solid #E6E6E6;
+}
+
+#environment tr:nth-child(odd) {
+	background-color: #f6f6f6;
+}
+
+/******************************
+ * TEST RESULT COLORS
+ ******************************/
+span.passed, .passed .col-result {
+	color: green;
+}
+span.skipped, span.xfailed, span.rerun, .skipped .col-result, .xfailed .col-result, .rerun .col-result {
+	color: orange;
+}
+span.error, span.failed, span.xpassed, .error .col-result, .failed .col-result, .xpassed .col-result  {
+	color: red;
+}
+
+
+/******************************
+ * RESULTS TABLE
+ *
+ * 1. Table Layout
+ * 2. Extra
+ * 3. Sorting items
+ *
+ ******************************/
+
+/*------------------
+ * 1. Table Layout
+ *------------------*/
+
+#results-table {
+	border: 1px solid #e6e6e6;
+	color: #999;
+	font-size: 12px;
+	width: 100%
+}
+
+#results-table th, #results-table td {
+	padding: 5px;
+	border: 1px solid #E6E6E6;
+	text-align: left
+}
+#results-table th {
+	font-weight: bold
+}
+
+/*------------------
+ * 2. Extra
+ *------------------*/
+
+.log:only-child {
+	height: inherit
+}
+.log {
+	background-color: #e6e6e6;
+	border: 1px solid #e6e6e6;
+	color: black;
+	display: block;
+	font-family: "Courier New", Courier, monospace;
+	height: 230px;
+	overflow-y: scroll;
+	padding: 5px;
+	white-space: pre-wrap
+}
+div.image {
+	border: 1px solid #e6e6e6;
+	float: right;
+	height: 240px;
+	margin-left: 5px;
+	overflow: hidden;
+	width: 320px
+}
+div.image img {
+	width: 320px
+}
+div.video {
+	border: 1px solid #e6e6e6;
+	float: right;
+	height: 240px;
+	margin-left: 5px;
+	overflow: hidden;
+	width: 320px
+}
+div.video video {
+	overflow: hidden;
+	width: 320px;
+    height: 240px;
+}
+.collapsed {
+	display: none;
+}
+.expander::after {
+	content: " (show details)";
+	color: #BBB;
+	font-style: italic;
+	cursor: pointer;
+}
+.collapser::after {
+	content: " (hide details)";
+	color: #BBB;
+	font-style: italic;
+	cursor: pointer;
+}
+
+/*------------------
+ * 3. Sorting items
+ *------------------*/
+.sortable {
+	cursor: pointer;
+}
+
+.sort-icon {
+	font-size: 0px;
+	float: left;
+	margin-right: 5px;
+	margin-top: 5px;
+	/*triangle*/
+	width: 0;
+	height: 0;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+}
+
+.inactive .sort-icon {
+	/*finish triangle*/
+	border-top: 8px solid #E6E6E6;
+}
+
+.asc.active .sort-icon {
+	/*finish triangle*/
+	border-bottom: 8px solid #999;
+}
+
+.desc.active .sort-icon {
+	/*finish triangle*/
+	border-top: 8px solid #999;
+}
+</style></head>
+  <body onLoad="init()">
+    <script>/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+
+function toArray(iter) {
+    if (iter === null) {
+        return null;
+    }
+    return Array.prototype.slice.call(iter);
+}
+
+function find(selector, elem) { // eslint-disable-line no-redeclare
+    if (!elem) {
+        elem = document;
+    }
+    return elem.querySelector(selector);
+}
+
+function find_all(selector, elem) {
+    if (!elem) {
+        elem = document;
+    }
+    return toArray(elem.querySelectorAll(selector));
+}
+
+function sort_column(elem) {
+    toggle_sort_states(elem);
+    const colIndex = toArray(elem.parentNode.childNodes).indexOf(elem);
+    let key;
+    if (elem.classList.contains('numeric')) {
+        key = key_num;
+    } else if (elem.classList.contains('result')) {
+        key = key_result;
+    } else if (elem.classList.contains('links')) {
+        key = key_link;
+    } else {
+        key = key_alpha;
+    }
+    sort_table(elem, key(colIndex));
+}
+
+function show_all_extras() { // eslint-disable-line no-unused-vars
+    find_all('.col-result').forEach(show_extras);
+}
+
+function hide_all_extras() { // eslint-disable-line no-unused-vars
+    find_all('.col-result').forEach(hide_extras);
+}
+
+function show_extras(colresult_elem) {
+    const extras = colresult_elem.parentNode.nextElementSibling;
+    const expandcollapse = colresult_elem.firstElementChild;
+    extras.classList.remove('collapsed');
+    expandcollapse.classList.remove('expander');
+    expandcollapse.classList.add('collapser');
+}
+
+function hide_extras(colresult_elem) {
+    const extras = colresult_elem.parentNode.nextElementSibling;
+    const expandcollapse = colresult_elem.firstElementChild;
+    extras.classList.add('collapsed');
+    expandcollapse.classList.remove('collapser');
+    expandcollapse.classList.add('expander');
+}
+
+function show_filters() {
+    const filter_items = document.getElementsByClassName('filter');
+    for (let i = 0; i < filter_items.length; i++)
+        filter_items[i].hidden = false;
+}
+
+function add_collapse() {
+    // Add links for show/hide all
+    const resulttable = find('table#results-table');
+    const showhideall = document.createElement('p');
+    showhideall.innerHTML = '<a href="javascript:show_all_extras()">Show all details</a> / ' +
+                            '<a href="javascript:hide_all_extras()">Hide all details</a>';
+    resulttable.parentElement.insertBefore(showhideall, resulttable);
+
+    // Add show/hide link to each result
+    find_all('.col-result').forEach(function(elem) {
+        const collapsed = get_query_parameter('collapsed') || 'Passed';
+        const extras = elem.parentNode.nextElementSibling;
+        const expandcollapse = document.createElement('span');
+        if (extras.classList.contains('collapsed')) {
+            expandcollapse.classList.add('expander');
+        } else if (collapsed.includes(elem.innerHTML)) {
+            extras.classList.add('collapsed');
+            expandcollapse.classList.add('expander');
+        } else {
+            expandcollapse.classList.add('collapser');
+        }
+        elem.appendChild(expandcollapse);
+
+        elem.addEventListener('click', function(event) {
+            if (event.currentTarget.parentNode.nextElementSibling.classList.contains('collapsed')) {
+                show_extras(event.currentTarget);
+            } else {
+                hide_extras(event.currentTarget);
+            }
+        });
+    });
+}
+
+function get_query_parameter(name) {
+    const match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
+
+function init () { // eslint-disable-line no-unused-vars
+    reset_sort_headers();
+
+    add_collapse();
+
+    show_filters();
+
+    sort_column(find('.initial-sort'));
+
+    find_all('.sortable').forEach(function(elem) {
+        elem.addEventListener('click',
+            function() {
+                sort_column(elem);
+            }, false);
+    });
+}
+
+function sort_table(clicked, key_func) {
+    const rows = find_all('.results-table-row');
+    const reversed = !clicked.classList.contains('asc');
+    const sorted_rows = sort(rows, key_func, reversed);
+    /* Whole table is removed here because browsers acts much slower
+     * when appending existing elements.
+     */
+    const thead = document.getElementById('results-table-head');
+    document.getElementById('results-table').remove();
+    const parent = document.createElement('table');
+    parent.id = 'results-table';
+    parent.appendChild(thead);
+    sorted_rows.forEach(function(elem) {
+        parent.appendChild(elem);
+    });
+    document.getElementsByTagName('BODY')[0].appendChild(parent);
+}
+
+function sort(items, key_func, reversed) {
+    const sort_array = items.map(function(item, i) {
+        return [key_func(item), i];
+    });
+
+    sort_array.sort(function(a, b) {
+        const key_a = a[0];
+        const key_b = b[0];
+
+        if (key_a == key_b) return 0;
+
+        if (reversed) {
+            return key_a < key_b ? 1 : -1;
+        } else {
+            return key_a > key_b ? 1 : -1;
+        }
+    });
+
+    return sort_array.map(function(item) {
+        const index = item[1];
+        return items[index];
+    });
+}
+
+function key_alpha(col_index) {
+    return function(elem) {
+        return elem.childNodes[1].childNodes[col_index].firstChild.data.toLowerCase();
+    };
+}
+
+function key_num(col_index) {
+    return function(elem) {
+        return parseFloat(elem.childNodes[1].childNodes[col_index].firstChild.data);
+    };
+}
+
+function key_link(col_index) {
+    return function(elem) {
+        const dataCell = elem.childNodes[1].childNodes[col_index].firstChild;
+        return dataCell == null ? '' : dataCell.innerText.toLowerCase();
+    };
+}
+
+function key_result(col_index) {
+    return function(elem) {
+        const strings = ['Error', 'Failed', 'Rerun', 'XFailed', 'XPassed',
+            'Skipped', 'Passed'];
+        return strings.indexOf(elem.childNodes[1].childNodes[col_index].firstChild.data);
+    };
+}
+
+function reset_sort_headers() {
+    find_all('.sort-icon').forEach(function(elem) {
+        elem.parentNode.removeChild(elem);
+    });
+    find_all('.sortable').forEach(function(elem) {
+        const icon = document.createElement('div');
+        icon.className = 'sort-icon';
+        icon.textContent = 'vvv';
+        elem.insertBefore(icon, elem.firstChild);
+        elem.classList.remove('desc', 'active');
+        elem.classList.add('asc', 'inactive');
+    });
+}
+
+function toggle_sort_states(elem) {
+    //if active, toggle between asc and desc
+    if (elem.classList.contains('active')) {
+        elem.classList.toggle('asc');
+        elem.classList.toggle('desc');
+    }
+
+    //if inactive, reset all other functions and add ascending active
+    if (elem.classList.contains('inactive')) {
+        reset_sort_headers();
+        elem.classList.remove('inactive');
+        elem.classList.add('active');
+    }
+}
+
+function is_all_rows_hidden(value) {
+    return value.hidden == false;
+}
+
+function filter_table(elem) { // eslint-disable-line no-unused-vars
+    const outcome_att = 'data-test-result';
+    const outcome = elem.getAttribute(outcome_att);
+    const class_outcome = outcome + ' results-table-row';
+    const outcome_rows = document.getElementsByClassName(class_outcome);
+
+    for(let i = 0; i < outcome_rows.length; i++){
+        outcome_rows[i].hidden = !elem.checked;
+    }
+
+    const rows = find_all('.results-table-row').filter(is_all_rows_hidden);
+    const all_rows_hidden = rows.length == 0 ? true : false;
+    const not_found_message = document.getElementById('not-found-message');
+    not_found_message.hidden = !all_rows_hidden;
+}
+</script>
+    <h1>report.html</h1>
+    <p>Report generated on 29-Jul-2021 at 16:33:26 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.0.0</p>
+    <h2>Environment</h2>
+    <table id="environment">
+      <tr>
+        <td>JAVA_HOME</td>
+        <td>C:\Program Files\Java\jdk1.8.0_261</td></tr>
+      <tr>
+        <td>Packages</td>
+        <td>{"pluggy": "0.13.1", "py": "1.10.0", "pytest": "6.1.2"}</td></tr>
+      <tr>
+        <td>Platform</td>
+        <td>Windows-7-6.1.7601-SP1</td></tr>
+      <tr>
+        <td>Plugins</td>
+        <td>{"allure-pytest": "2.9.43", "assume": "2.4.3", "cov": "2.12.1", "forked": "1.3.0", "html": "3.0.0", "metadata": "1.11.0", "ordering": "0.6", "parallel": "0.1.0", "rerunfailures": "9.1.1", "xdist": "2.3.0"}</td></tr>
+      <tr>
+        <td>Python</td>
+        <td>3.8.1</td></tr></table>
+    <h2>Summary</h2>
+    <p>4 tests ran in 308.29 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">0 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">4 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>, <input checked="true" class="filter" data-test-result="rerun" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="rerun">4 rerun</span>
+    <h2>Results</h2>
+    <table id="results-table">
+      <thead id="results-table-head">
+        <tr>
+          <th class="sortable result initial-sort" col="result">Result</th>
+          <th>Description</th>
+          <th class="sortable" col="name">Test</th>
+          <th class="sortable numeric" col="duration">Duration</th>
+          <th class="sortable links" col="links">Links</th></tr>
+        <tr hidden="true" id="not-found-message">
+          <th colspan="5">No results found. Try to check the filters</th></tr></thead>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td>
+            <html>
+              <head>
+                <meta name="Content-Type" value="text/html; charset=latin1"/></head>
+              <body>
+                <p>        模拟点击客户等级下拉框筛选客户</p>
+                <p>        </p></body></html></td>
+          <td class="col-name">test_dir/test_customer.py::TestCustomer::test_customer_rank_case[A]</td>
+          <td class="col-duration">77.91</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="5">
+            <div><div><img src="image/test_customer.py_TestCustomer_test_customer_rank_case[A].png].png" alt="screenshot" style="width:304px;height:228px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div><div><img src="image/test_customer.py_TestCustomer_test_customer_rank_case[A].png].png" alt="screenshot" style="width:304px;height:228px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log">self = &lt;test_dir.test_customer.TestCustomer object at 0x0000000004943B20&gt;, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;afa25724283f58a8cebb964766c77ea6&quot;)&gt;, base_url = &#x27;http://newtest.elinkbuy.cn&#x27;, client_rank = &#x27;A&#x27;<br/><br/>    @pytest.mark.parametrize(<br/>        &quot;client_rank&quot;,<br/>        [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;]<br/>    )<br/>    def test_customer_rank_case(self, browser, base_url, client_rank):<br/>        &quot;&quot;&quot;<br/>        模拟点击客户等级下拉框筛选客户<br/>        &quot;&quot;&quot;<br/>        self.login(browser, base_url)<br/>        self.page = CustomerPage(browser)<br/>        flag = self.close_layer()  # 关闭弹层<br/>        if flag:<br/>            self.page.customer_menu.click()  # 点击客户管理菜单栏<br/>        else:<br/>            print(&quot;弹层关闭失败&quot;)<br/>        self.page.customer_list.click()  # 点击客户列表菜单<br/>        self.page.search_client_rank.select_by_visible_text(client_rank)  # 选择客户等级A<br/>        self.page.search_btn.click()  # 点击搜索按钮<br/>        sleep(2)<br/>    <br/>        pagination = self.page.pagination  # 分页<br/>        if len(pagination) &gt; 0:<br/>            self.page.window_scroll(None, 1000)<br/>            self.page.last_page.click()  # 点击最后一页<br/>            sleep(2)<br/>    <br/>        total_text = int(self.page.last_sort.text)<br/>        result = 0<br/>        db_conn = DB(ip=&#x27;47.103.83.160&#x27;, user=&#x27;root&#x27;, passwd=&#x27;c587024e9ec3ea0a&#x27;, db=&#x27;ylg&#x27;)<br/>        user = self.get_user()<br/>        sql = &quot;SELECT count(1) FROM `xy_client` WHERE  `staff_id` = 5  AND `clientkind` = 1  AND `tradekindid` &lt;&gt; 2  AND `closed` = &#x27;F&#x27;  AND `client_rank` =&#x27;&quot; + client_rank + &quot;&#x27;&quot;<br/>        if user[&#x27;roles_str&#x27;] in [87, 91]:<br/>            sql = &quot;SELECT count(1) total FROM `xy_client` WHERE  `staff_id` = 5  AND `clientkind` = 1  AND `tradekindid` &lt;&gt; 2  AND `closed` = &#x27;F&#x27;  AND `client_rank` =&#x27;&quot; + client_rank + &quot;&#x27; and `high_quality` = 0&quot;<br/>        clients = db_conn.query(sql)<br/>        if clients:<br/>&gt;           result = clients[0][&#x27;total&#x27;]<br/><span class="error">E           KeyError: &#x27;total&#x27;</span><br/><br/>test_dir\test_customer.py:106: KeyErrorself = &lt;test_dir.test_customer.TestCustomer object at 0x0000000004B54520&gt;, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;afa25724283f58a8cebb964766c77ea6&quot;)&gt;, base_url = &#x27;http://newtest.elinkbuy.cn&#x27;, client_rank = &#x27;A&#x27;<br/><br/>    @pytest.mark.parametrize(<br/>        &quot;client_rank&quot;,<br/>        [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;]<br/>    )<br/>    def test_customer_rank_case(self, browser, base_url, client_rank):<br/>        &quot;&quot;&quot;<br/>        模拟点击客户等级下拉框筛选客户<br/>        &quot;&quot;&quot;<br/>        self.login(browser, base_url)<br/>        self.page = CustomerPage(browser)<br/>        flag = self.close_layer()  # 关闭弹层<br/>        if flag:<br/>            self.page.customer_menu.click()  # 点击客户管理菜单栏<br/>        else:<br/>            print(&quot;弹层关闭失败&quot;)<br/>        self.page.customer_list.click()  # 点击客户列表菜单<br/>        self.page.search_client_rank.select_by_visible_text(client_rank)  # 选择客户等级A<br/>        self.page.search_btn.click()  # 点击搜索按钮<br/>        sleep(2)<br/>    <br/>        pagination = self.page.pagination  # 分页<br/>        if len(pagination) &gt; 0:<br/>            self.page.window_scroll(None, 1000)<br/>            self.page.last_page.click()  # 点击最后一页<br/>            sleep(2)<br/>    <br/>        total_text = int(self.page.last_sort.text)<br/>        result = 0<br/>        db_conn = DB(ip=&#x27;47.103.83.160&#x27;, user=&#x27;root&#x27;, passwd=&#x27;c587024e9ec3ea0a&#x27;, db=&#x27;ylg&#x27;)<br/>        user = self.get_user()<br/>        sql = &quot;SELECT count(1) FROM `xy_client` WHERE  `staff_id` = 5  AND `clientkind` = 1  AND `tradekindid` &lt;&gt; 2  AND `closed` = &#x27;F&#x27;  AND `client_rank` =&#x27;&quot; + client_rank + &quot;&#x27;&quot;<br/>        if user[&#x27;roles_str&#x27;] in [87, 91]:<br/>            sql = &quot;SELECT count(1) total FROM `xy_client` WHERE  `staff_id` = 5  AND `clientkind` = 1  AND `tradekindid` &lt;&gt; 2  AND `closed` = &#x27;F&#x27;  AND `client_rank` =&#x27;&quot; + client_rank + &quot;&#x27; and `high_quality` = 0&quot;<br/>        clients = db_conn.query(sql)<br/>        if clients:<br/>&gt;           result = clients[0][&#x27;total&#x27;]<br/><span class="error">E           KeyError: &#x27;total&#x27;</span><br/><br/>test_dir\test_customer.py:106: KeyError<br/> ------------------------------Captured stdout call------------------------------ <br/>2021-07-29 16:28:21,840 INFO ✅ Find element: name=staff_name 
+2021-07-29 16:28:22,995 INFO 🖋 input element: 登录用户名
+2021-07-29 16:28:23,080 INFO ✅ Find element: name=password 
+2021-07-29 16:28:24,057 INFO 🖋 input element: 登录密码
+2021-07-29 16:28:24,123 INFO ✅ Find element: css selector=.card-body&gt;form&gt;div.form-group&gt;button.btn 
+2021-07-29 16:28:25,065 INFO 🖱 click element: 登录按钮
+2021-07-29 16:28:41,148 INFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗
+2021-07-29 16:28:41,170 INFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层
+2021-07-29 16:28:41,285 INFO ✅ Find element: id=pytestCustomerMenu 
+2021-07-29 16:28:42,230 INFO 🖱 click element: 客户管理菜单栏
+2021-07-29 16:28:42,357 INFO ✅ Find element: id=pytestCustomerList 
+2021-07-29 16:28:43,315 INFO 🖱 click element: 客户列表/我的客户菜单
+2021-07-29 16:28:48,167 INFO ✅ Find element: name=search_client_rank 
+2021-07-29 16:28:49,461 INFO ✅ Find element: id=pytestCustomerSearchBtn 
+2021-07-29 16:28:50,406 INFO 🖱 click element: 搜索按钮
+2021-07-29 16:28:59,860 INFO ✨ Find 0 elements through: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li, describe:分页
+2021-07-29 16:28:59,891 INFO ✅ Find element: xpath=//div[@class=&#x27;table-responsive&#x27;]/table/tbody[@id=&#x27;content&#x27;]/tr[last()]/td[@id=&#x27;pytestCustomerListSort&#x27;] 
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     poium:logging.py:18 INFO ✅ Find element: name=staff_name 
+INFO     poium:logging.py:18 INFO 🖋 input element: 登录用户名
+INFO     poium:logging.py:18 INFO ✅ Find element: name=password 
+INFO     poium:logging.py:18 INFO 🖋 input element: 登录密码
+INFO     poium:logging.py:18 INFO ✅ Find element: css selector=.card-body&gt;form&gt;div.form-group&gt;button.btn 
+INFO     poium:logging.py:18 INFO 🖱 click element: 登录按钮
+INFO     poium:logging.py:18 INFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗
+INFO     poium:logging.py:18 INFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerMenu 
+INFO     poium:logging.py:18 INFO 🖱 click element: 客户管理菜单栏
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerList 
+INFO     poium:logging.py:18 INFO 🖱 click element: 客户列表/我的客户菜单
+INFO     poium:logging.py:18 INFO ✅ Find element: name=search_client_rank 
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerSearchBtn 
+INFO     poium:logging.py:18 INFO 🖱 click element: 搜索按钮
+INFO     poium:logging.py:18 INFO ✨ Find 0 elements through: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li, describe:分页
+INFO     poium:logging.py:18 INFO ✅ Find element: xpath=//div[@class=&#x27;table-responsive&#x27;]/table/tbody[@id=&#x27;content&#x27;]/tr[last()]/td[@id=&#x27;pytestCustomerListSort&#x27;] <br/> ------------------------------Captured stdout call------------------------------ <br/>2021-07-29 16:29:19,248 INFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗
+2021-07-29 16:29:19,279 INFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层
+2021-07-29 16:29:19,388 INFO ✅ Find element: id=pytestCustomerMenu 
+2021-07-29 16:29:20,348 INFO 🖱 click element: 客户管理菜单栏
+2021-07-29 16:29:20,416 INFO ✅ Find element: id=pytestCustomerList 
+2021-07-29 16:29:21,359 INFO 🖱 click element: 客户列表/我的客户菜单
+2021-07-29 16:29:24,733 INFO ✅ Find element: name=search_client_rank 
+2021-07-29 16:29:26,058 INFO ✅ Find element: id=pytestCustomerSearchBtn 
+2021-07-29 16:29:27,030 INFO 🖱 click element: 搜索按钮
+2021-07-29 16:29:36,447 INFO ✨ Find 0 elements through: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li, describe:分页
+2021-07-29 16:29:36,479 INFO ✅ Find element: xpath=//div[@class=&#x27;table-responsive&#x27;]/table/tbody[@id=&#x27;content&#x27;]/tr[last()]/td[@id=&#x27;pytestCustomerListSort&#x27;] 
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     poium:logging.py:18 INFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗
+INFO     poium:logging.py:18 INFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerMenu 
+INFO     poium:logging.py:18 INFO 🖱 click element: 客户管理菜单栏
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerList 
+INFO     poium:logging.py:18 INFO 🖱 click element: 客户列表/我的客户菜单
+INFO     poium:logging.py:18 INFO ✅ Find element: name=search_client_rank 
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerSearchBtn 
+INFO     poium:logging.py:18 INFO 🖱 click element: 搜索按钮
+INFO     poium:logging.py:18 INFO ✨ Find 0 elements through: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li, describe:分页
+INFO     poium:logging.py:18 INFO ✅ Find element: xpath=//div[@class=&#x27;table-responsive&#x27;]/table/tbody[@id=&#x27;content&#x27;]/tr[last()]/td[@id=&#x27;pytestCustomerListSort&#x27;] <br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td>
+            <html>
+              <head>
+                <meta name="Content-Type" value="text/html; charset=latin1"/></head>
+              <body>
+                <p>        模拟点击客户等级下拉框筛选客户</p>
+                <p>        </p></body></html></td>
+          <td class="col-name">test_dir/test_customer.py::TestCustomer::test_customer_rank_case[B]</td>
+          <td class="col-duration">74.59</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="5">
+            <div><div><img src="image/test_customer.py_TestCustomer_test_customer_rank_case[B].png].png" alt="screenshot" style="width:304px;height:228px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div><div><img src="image/test_customer.py_TestCustomer_test_customer_rank_case[B].png].png" alt="screenshot" style="width:304px;height:228px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log">self = &lt;test_dir.test_customer.TestCustomer object at 0x00000000049CB4F0&gt;, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;afa25724283f58a8cebb964766c77ea6&quot;)&gt;, base_url = &#x27;http://newtest.elinkbuy.cn&#x27;, client_rank = &#x27;B&#x27;<br/><br/>    @pytest.mark.parametrize(<br/>        &quot;client_rank&quot;,<br/>        [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;]<br/>    )<br/>    def test_customer_rank_case(self, browser, base_url, client_rank):<br/>        &quot;&quot;&quot;<br/>        模拟点击客户等级下拉框筛选客户<br/>        &quot;&quot;&quot;<br/>        self.login(browser, base_url)<br/>        self.page = CustomerPage(browser)<br/>        flag = self.close_layer()  # 关闭弹层<br/>        if flag:<br/>            self.page.customer_menu.click()  # 点击客户管理菜单栏<br/>        else:<br/>            print(&quot;弹层关闭失败&quot;)<br/>        self.page.customer_list.click()  # 点击客户列表菜单<br/>        self.page.search_client_rank.select_by_visible_text(client_rank)  # 选择客户等级A<br/>        self.page.search_btn.click()  # 点击搜索按钮<br/>        sleep(2)<br/>    <br/>        pagination = self.page.pagination  # 分页<br/>        if len(pagination) &gt; 0:<br/>            self.page.window_scroll(None, 1000)<br/>            self.page.last_page.click()  # 点击最后一页<br/>            sleep(2)<br/>    <br/>        total_text = int(self.page.last_sort.text)<br/>        result = 0<br/>        db_conn = DB(ip=&#x27;47.103.83.160&#x27;, user=&#x27;root&#x27;, passwd=&#x27;c587024e9ec3ea0a&#x27;, db=&#x27;ylg&#x27;)<br/>        user = self.get_user()<br/>        sql = &quot;SELECT count(1) FROM `xy_client` WHERE  `staff_id` = 5  AND `clientkind` = 1  AND `tradekindid` &lt;&gt; 2  AND `closed` = &#x27;F&#x27;  AND `client_rank` =&#x27;&quot; + client_rank + &quot;&#x27;&quot;<br/>        if user[&#x27;roles_str&#x27;] in [87, 91]:<br/>            sql = &quot;SELECT count(1) total FROM `xy_client` WHERE  `staff_id` = 5  AND `clientkind` = 1  AND `tradekindid` &lt;&gt; 2  AND `closed` = &#x27;F&#x27;  AND `client_rank` =&#x27;&quot; + client_rank + &quot;&#x27; and `high_quality` = 0&quot;<br/>        clients = db_conn.query(sql)<br/>        if clients:<br/>&gt;           result = clients[0][&#x27;total&#x27;]<br/><span class="error">E           KeyError: &#x27;total&#x27;</span><br/><br/>test_dir\test_customer.py:106: KeyErrorself = &lt;test_dir.test_customer.TestCustomer object at 0x0000000004B78DC0&gt;, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;afa25724283f58a8cebb964766c77ea6&quot;)&gt;, base_url = &#x27;http://newtest.elinkbuy.cn&#x27;, client_rank = &#x27;B&#x27;<br/><br/>    @pytest.mark.parametrize(<br/>        &quot;client_rank&quot;,<br/>        [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;]<br/>    )<br/>    def test_customer_rank_case(self, browser, base_url, client_rank):<br/>        &quot;&quot;&quot;<br/>        模拟点击客户等级下拉框筛选客户<br/>        &quot;&quot;&quot;<br/>        self.login(browser, base_url)<br/>        self.page = CustomerPage(browser)<br/>        flag = self.close_layer()  # 关闭弹层<br/>        if flag:<br/>            self.page.customer_menu.click()  # 点击客户管理菜单栏<br/>        else:<br/>            print(&quot;弹层关闭失败&quot;)<br/>        self.page.customer_list.click()  # 点击客户列表菜单<br/>        self.page.search_client_rank.select_by_visible_text(client_rank)  # 选择客户等级A<br/>        self.page.search_btn.click()  # 点击搜索按钮<br/>        sleep(2)<br/>    <br/>        pagination = self.page.pagination  # 分页<br/>        if len(pagination) &gt; 0:<br/>            self.page.window_scroll(None, 1000)<br/>            self.page.last_page.click()  # 点击最后一页<br/>            sleep(2)<br/>    <br/>        total_text = int(self.page.last_sort.text)<br/>        result = 0<br/>        db_conn = DB(ip=&#x27;47.103.83.160&#x27;, user=&#x27;root&#x27;, passwd=&#x27;c587024e9ec3ea0a&#x27;, db=&#x27;ylg&#x27;)<br/>        user = self.get_user()<br/>        sql = &quot;SELECT count(1) FROM `xy_client` WHERE  `staff_id` = 5  AND `clientkind` = 1  AND `tradekindid` &lt;&gt; 2  AND `closed` = &#x27;F&#x27;  AND `client_rank` =&#x27;&quot; + client_rank + &quot;&#x27;&quot;<br/>        if user[&#x27;roles_str&#x27;] in [87, 91]:<br/>            sql = &quot;SELECT count(1) total FROM `xy_client` WHERE  `staff_id` = 5  AND `clientkind` = 1  AND `tradekindid` &lt;&gt; 2  AND `closed` = &#x27;F&#x27;  AND `client_rank` =&#x27;&quot; + client_rank + &quot;&#x27; and `high_quality` = 0&quot;<br/>        clients = db_conn.query(sql)<br/>        if clients:<br/>&gt;           result = clients[0][&#x27;total&#x27;]<br/><span class="error">E           KeyError: &#x27;total&#x27;</span><br/><br/>test_dir\test_customer.py:106: KeyError<br/> ------------------------------Captured stdout call------------------------------ <br/>2021-07-29 16:29:55,441 INFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗
+2021-07-29 16:29:55,469 INFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层
+2021-07-29 16:29:55,587 INFO ✅ Find element: id=pytestCustomerMenu 
+2021-07-29 16:29:56,542 INFO 🖱 click element: 客户管理菜单栏
+2021-07-29 16:29:56,624 INFO ✅ Find element: id=pytestCustomerList 
+2021-07-29 16:29:57,589 INFO 🖱 click element: 客户列表/我的客户菜单
+2021-07-29 16:30:01,243 INFO ✅ Find element: name=search_client_rank 
+2021-07-29 16:30:02,577 INFO ✅ Find element: id=pytestCustomerSearchBtn 
+2021-07-29 16:30:03,533 INFO 🖱 click element: 搜索按钮
+2021-07-29 16:30:08,267 INFO ✨ Find 13 elements through: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li, describe:分页
+2021-07-29 16:30:08,314 INFO ✅ Find element: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li[last()-1] 
+2021-07-29 16:30:09,292 INFO 🖱 click element: 最后一页
+2021-07-29 16:30:15,778 INFO ✅ Find element: xpath=//div[@class=&#x27;table-responsive&#x27;]/table/tbody[@id=&#x27;content&#x27;]/tr[last()]/td[@id=&#x27;pytestCustomerListSort&#x27;] 
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     poium:logging.py:18 INFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗
+INFO     poium:logging.py:18 INFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerMenu 
+INFO     poium:logging.py:18 INFO 🖱 click element: 客户管理菜单栏
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerList 
+INFO     poium:logging.py:18 INFO 🖱 click element: 客户列表/我的客户菜单
+INFO     poium:logging.py:18 INFO ✅ Find element: name=search_client_rank 
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerSearchBtn 
+INFO     poium:logging.py:18 INFO 🖱 click element: 搜索按钮
+INFO     poium:logging.py:18 INFO ✨ Find 13 elements through: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li, describe:分页
+INFO     poium:logging.py:18 INFO ✅ Find element: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li[last()-1] 
+INFO     poium:logging.py:18 INFO 🖱 click element: 最后一页
+INFO     poium:logging.py:18 INFO ✅ Find element: xpath=//div[@class=&#x27;table-responsive&#x27;]/table/tbody[@id=&#x27;content&#x27;]/tr[last()]/td[@id=&#x27;pytestCustomerListSort&#x27;] <br/> ------------------------------Captured stdout call------------------------------ <br/>2021-07-29 16:30:34,558 INFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗
+2021-07-29 16:30:34,570 INFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层
+2021-07-29 16:30:34,664 INFO ✅ Find element: id=pytestCustomerMenu 
+2021-07-29 16:30:35,619 INFO 🖱 click element: 客户管理菜单栏
+2021-07-29 16:30:35,707 INFO ✅ Find element: id=pytestCustomerList 
+2021-07-29 16:30:36,656 INFO 🖱 click element: 客户列表/我的客户菜单
+2021-07-29 16:30:40,181 INFO ✅ Find element: name=search_client_rank 
+2021-07-29 16:30:41,513 INFO ✅ Find element: id=pytestCustomerSearchBtn 
+2021-07-29 16:30:42,476 INFO 🖱 click element: 搜索按钮
+2021-07-29 16:30:47,258 INFO ✨ Find 13 elements through: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li, describe:分页
+2021-07-29 16:30:47,273 INFO ✅ Find element: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li[last()-1] 
+2021-07-29 16:30:48,265 INFO 🖱 click element: 最后一页
+2021-07-29 16:30:51,841 INFO ✅ Find element: xpath=//div[@class=&#x27;table-responsive&#x27;]/table/tbody[@id=&#x27;content&#x27;]/tr[last()]/td[@id=&#x27;pytestCustomerListSort&#x27;] 
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     poium:logging.py:18 INFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗
+INFO     poium:logging.py:18 INFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerMenu 
+INFO     poium:logging.py:18 INFO 🖱 click element: 客户管理菜单栏
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerList 
+INFO     poium:logging.py:18 INFO 🖱 click element: 客户列表/我的客户菜单
+INFO     poium:logging.py:18 INFO ✅ Find element: name=search_client_rank 
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerSearchBtn 
+INFO     poium:logging.py:18 INFO 🖱 click element: 搜索按钮
+INFO     poium:logging.py:18 INFO ✨ Find 13 elements through: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li, describe:分页
+INFO     poium:logging.py:18 INFO ✅ Find element: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li[last()-1] 
+INFO     poium:logging.py:18 INFO 🖱 click element: 最后一页
+INFO     poium:logging.py:18 INFO ✅ Find element: xpath=//div[@class=&#x27;table-responsive&#x27;]/table/tbody[@id=&#x27;content&#x27;]/tr[last()]/td[@id=&#x27;pytestCustomerListSort&#x27;] <br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td>
+            <html>
+              <head>
+                <meta name="Content-Type" value="text/html; charset=latin1"/></head>
+              <body>
+                <p>        模拟点击客户等级下拉框筛选客户</p>
+                <p>        </p></body></html></td>
+          <td class="col-name">test_dir/test_customer.py::TestCustomer::test_customer_rank_case[C]</td>
+          <td class="col-duration">73.30</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="5">
+            <div><div><img src="image/test_customer.py_TestCustomer_test_customer_rank_case[C].png].png" alt="screenshot" style="width:304px;height:228px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div><div><img src="image/test_customer.py_TestCustomer_test_customer_rank_case[C].png].png" alt="screenshot" style="width:304px;height:228px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log">self = &lt;test_dir.test_customer.TestCustomer object at 0x00000000049CBDC0&gt;, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;afa25724283f58a8cebb964766c77ea6&quot;)&gt;, base_url = &#x27;http://newtest.elinkbuy.cn&#x27;, client_rank = &#x27;C&#x27;<br/><br/>    @pytest.mark.parametrize(<br/>        &quot;client_rank&quot;,<br/>        [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;]<br/>    )<br/>    def test_customer_rank_case(self, browser, base_url, client_rank):<br/>        &quot;&quot;&quot;<br/>        模拟点击客户等级下拉框筛选客户<br/>        &quot;&quot;&quot;<br/>        self.login(browser, base_url)<br/>        self.page = CustomerPage(browser)<br/>        flag = self.close_layer()  # 关闭弹层<br/>        if flag:<br/>            self.page.customer_menu.click()  # 点击客户管理菜单栏<br/>        else:<br/>            print(&quot;弹层关闭失败&quot;)<br/>        self.page.customer_list.click()  # 点击客户列表菜单<br/>        self.page.search_client_rank.select_by_visible_text(client_rank)  # 选择客户等级A<br/>        self.page.search_btn.click()  # 点击搜索按钮<br/>        sleep(2)<br/>    <br/>        pagination = self.page.pagination  # 分页<br/>        if len(pagination) &gt; 0:<br/>            self.page.window_scroll(None, 1000)<br/>            self.page.last_page.click()  # 点击最后一页<br/>            sleep(2)<br/>    <br/>        total_text = int(self.page.last_sort.text)<br/>        result = 0<br/>        db_conn = DB(ip=&#x27;47.103.83.160&#x27;, user=&#x27;root&#x27;, passwd=&#x27;c587024e9ec3ea0a&#x27;, db=&#x27;ylg&#x27;)<br/>        user = self.get_user()<br/>        sql = &quot;SELECT count(1) FROM `xy_client` WHERE  `staff_id` = 5  AND `clientkind` = 1  AND `tradekindid` &lt;&gt; 2  AND `closed` = &#x27;F&#x27;  AND `client_rank` =&#x27;&quot; + client_rank + &quot;&#x27;&quot;<br/>        if user[&#x27;roles_str&#x27;] in [87, 91]:<br/>            sql = &quot;SELECT count(1) total FROM `xy_client` WHERE  `staff_id` = 5  AND `clientkind` = 1  AND `tradekindid` &lt;&gt; 2  AND `closed` = &#x27;F&#x27;  AND `client_rank` =&#x27;&quot; + client_rank + &quot;&#x27; and `high_quality` = 0&quot;<br/>        clients = db_conn.query(sql)<br/>        if clients:<br/>&gt;           result = clients[0][&#x27;total&#x27;]<br/><span class="error">E           KeyError: &#x27;total&#x27;</span><br/><br/>test_dir\test_customer.py:106: KeyErrorself = &lt;test_dir.test_customer.TestCustomer object at 0x00000000049CBCA0&gt;, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;afa25724283f58a8cebb964766c77ea6&quot;)&gt;, base_url = &#x27;http://newtest.elinkbuy.cn&#x27;, client_rank = &#x27;C&#x27;<br/><br/>    @pytest.mark.parametrize(<br/>        &quot;client_rank&quot;,<br/>        [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;]<br/>    )<br/>    def test_customer_rank_case(self, browser, base_url, client_rank):<br/>        &quot;&quot;&quot;<br/>        模拟点击客户等级下拉框筛选客户<br/>        &quot;&quot;&quot;<br/>        self.login(browser, base_url)<br/>        self.page = CustomerPage(browser)<br/>        flag = self.close_layer()  # 关闭弹层<br/>        if flag:<br/>            self.page.customer_menu.click()  # 点击客户管理菜单栏<br/>        else:<br/>            print(&quot;弹层关闭失败&quot;)<br/>        self.page.customer_list.click()  # 点击客户列表菜单<br/>        self.page.search_client_rank.select_by_visible_text(client_rank)  # 选择客户等级A<br/>        self.page.search_btn.click()  # 点击搜索按钮<br/>        sleep(2)<br/>    <br/>        pagination = self.page.pagination  # 分页<br/>        if len(pagination) &gt; 0:<br/>            self.page.window_scroll(None, 1000)<br/>            self.page.last_page.click()  # 点击最后一页<br/>            sleep(2)<br/>    <br/>        total_text = int(self.page.last_sort.text)<br/>        result = 0<br/>        db_conn = DB(ip=&#x27;47.103.83.160&#x27;, user=&#x27;root&#x27;, passwd=&#x27;c587024e9ec3ea0a&#x27;, db=&#x27;ylg&#x27;)<br/>        user = self.get_user()<br/>        sql = &quot;SELECT count(1) FROM `xy_client` WHERE  `staff_id` = 5  AND `clientkind` = 1  AND `tradekindid` &lt;&gt; 2  AND `closed` = &#x27;F&#x27;  AND `client_rank` =&#x27;&quot; + client_rank + &quot;&#x27;&quot;<br/>        if user[&#x27;roles_str&#x27;] in [87, 91]:<br/>            sql = &quot;SELECT count(1) total FROM `xy_client` WHERE  `staff_id` = 5  AND `clientkind` = 1  AND `tradekindid` &lt;&gt; 2  AND `closed` = &#x27;F&#x27;  AND `client_rank` =&#x27;&quot; + client_rank + &quot;&#x27; and `high_quality` = 0&quot;<br/>        clients = db_conn.query(sql)<br/>        if clients:<br/>&gt;           result = clients[0][&#x27;total&#x27;]<br/><span class="error">E           KeyError: &#x27;total&#x27;</span><br/><br/>test_dir\test_customer.py:106: KeyError<br/> ------------------------------Captured stdout call------------------------------ <br/>2021-07-29 16:31:10,703 INFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗
+2021-07-29 16:31:10,723 INFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层
+2021-07-29 16:31:10,833 INFO ✅ Find element: id=pytestCustomerMenu 
+2021-07-29 16:31:11,783 INFO 🖱 click element: 客户管理菜单栏
+2021-07-29 16:31:11,855 INFO ✅ Find element: id=pytestCustomerList 
+2021-07-29 16:31:12,806 INFO 🖱 click element: 客户列表/我的客户菜单
+2021-07-29 16:31:16,349 INFO ✅ Find element: name=search_client_rank 
+2021-07-29 16:31:17,653 INFO ✅ Find element: id=pytestCustomerSearchBtn 
+2021-07-29 16:31:18,626 INFO 🖱 click element: 搜索按钮
+2021-07-29 16:31:24,112 INFO ✨ Find 13 elements through: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li, describe:分页
+2021-07-29 16:31:24,147 INFO ✅ Find element: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li[last()-1] 
+2021-07-29 16:31:25,118 INFO 🖱 click element: 最后一页
+2021-07-29 16:31:29,078 INFO ✅ Find element: xpath=//div[@class=&#x27;table-responsive&#x27;]/table/tbody[@id=&#x27;content&#x27;]/tr[last()]/td[@id=&#x27;pytestCustomerListSort&#x27;] 
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     poium:logging.py:18 INFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗
+INFO     poium:logging.py:18 INFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerMenu 
+INFO     poium:logging.py:18 INFO 🖱 click element: 客户管理菜单栏
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerList 
+INFO     poium:logging.py:18 INFO 🖱 click element: 客户列表/我的客户菜单
+INFO     poium:logging.py:18 INFO ✅ Find element: name=search_client_rank 
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerSearchBtn 
+INFO     poium:logging.py:18 INFO 🖱 click element: 搜索按钮
+INFO     poium:logging.py:18 INFO ✨ Find 13 elements through: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li, describe:分页
+INFO     poium:logging.py:18 INFO ✅ Find element: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li[last()-1] 
+INFO     poium:logging.py:18 INFO 🖱 click element: 最后一页
+INFO     poium:logging.py:18 INFO ✅ Find element: xpath=//div[@class=&#x27;table-responsive&#x27;]/table/tbody[@id=&#x27;content&#x27;]/tr[last()]/td[@id=&#x27;pytestCustomerListSort&#x27;] <br/> ------------------------------Captured stdout call------------------------------ <br/>2021-07-29 16:31:47,937 INFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗
+2021-07-29 16:31:47,956 INFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层
+2021-07-29 16:31:48,065 INFO ✅ Find element: id=pytestCustomerMenu 
+2021-07-29 16:31:49,017 INFO 🖱 click element: 客户管理菜单栏
+2021-07-29 16:31:49,130 INFO ✅ Find element: id=pytestCustomerList 
+2021-07-29 16:31:50,102 INFO 🖱 click element: 客户列表/我的客户菜单
+2021-07-29 16:31:53,555 INFO ✅ Find element: name=search_client_rank 
+2021-07-29 16:31:54,886 INFO ✅ Find element: id=pytestCustomerSearchBtn 
+2021-07-29 16:31:55,846 INFO 🖱 click element: 搜索按钮
+2021-07-29 16:32:01,160 INFO ✨ Find 13 elements through: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li, describe:分页
+2021-07-29 16:32:01,191 INFO ✅ Find element: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li[last()-1] 
+2021-07-29 16:32:02,172 INFO 🖱 click element: 最后一页
+2021-07-29 16:32:05,995 INFO ✅ Find element: xpath=//div[@class=&#x27;table-responsive&#x27;]/table/tbody[@id=&#x27;content&#x27;]/tr[last()]/td[@id=&#x27;pytestCustomerListSort&#x27;] 
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     poium:logging.py:18 INFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗
+INFO     poium:logging.py:18 INFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerMenu 
+INFO     poium:logging.py:18 INFO 🖱 click element: 客户管理菜单栏
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerList 
+INFO     poium:logging.py:18 INFO 🖱 click element: 客户列表/我的客户菜单
+INFO     poium:logging.py:18 INFO ✅ Find element: name=search_client_rank 
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerSearchBtn 
+INFO     poium:logging.py:18 INFO 🖱 click element: 搜索按钮
+INFO     poium:logging.py:18 INFO ✨ Find 13 elements through: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li, describe:分页
+INFO     poium:logging.py:18 INFO ✅ Find element: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li[last()-1] 
+INFO     poium:logging.py:18 INFO 🖱 click element: 最后一页
+INFO     poium:logging.py:18 INFO ✅ Find element: xpath=//div[@class=&#x27;table-responsive&#x27;]/table/tbody[@id=&#x27;content&#x27;]/tr[last()]/td[@id=&#x27;pytestCustomerListSort&#x27;] <br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td>
+            <html>
+              <head>
+                <meta name="Content-Type" value="text/html; charset=latin1"/></head>
+              <body>
+                <p>        模拟点击客户等级下拉框筛选客户</p>
+                <p>        </p></body></html></td>
+          <td class="col-name">test_dir/test_customer.py::TestCustomer::test_customer_rank_case[D]</td>
+          <td class="col-duration">76.03</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="5">
+            <div><div><img src="image/test_customer.py_TestCustomer_test_customer_rank_case[D].png].png" alt="screenshot" style="width:304px;height:228px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div><div><img src="image/test_customer.py_TestCustomer_test_customer_rank_case[D].png].png" alt="screenshot" style="width:304px;height:228px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log">self = &lt;test_dir.test_customer.TestCustomer object at 0x0000000004BA39D0&gt;, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;afa25724283f58a8cebb964766c77ea6&quot;)&gt;, base_url = &#x27;http://newtest.elinkbuy.cn&#x27;, client_rank = &#x27;D&#x27;<br/><br/>    @pytest.mark.parametrize(<br/>        &quot;client_rank&quot;,<br/>        [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;]<br/>    )<br/>    def test_customer_rank_case(self, browser, base_url, client_rank):<br/>        &quot;&quot;&quot;<br/>        模拟点击客户等级下拉框筛选客户<br/>        &quot;&quot;&quot;<br/>        self.login(browser, base_url)<br/>        self.page = CustomerPage(browser)<br/>        flag = self.close_layer()  # 关闭弹层<br/>        if flag:<br/>            self.page.customer_menu.click()  # 点击客户管理菜单栏<br/>        else:<br/>            print(&quot;弹层关闭失败&quot;)<br/>        self.page.customer_list.click()  # 点击客户列表菜单<br/>        self.page.search_client_rank.select_by_visible_text(client_rank)  # 选择客户等级A<br/>        self.page.search_btn.click()  # 点击搜索按钮<br/>        sleep(2)<br/>    <br/>        pagination = self.page.pagination  # 分页<br/>        if len(pagination) &gt; 0:<br/>            self.page.window_scroll(None, 1000)<br/>&gt;           self.page.last_page.click()  # 点击最后一页<br/><br/>test_dir\test_customer.py:94: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>C:\Program Files\Python38\lib\site-packages\poium\page_objects.py:234: in click<br/>    elem.click()<br/>C:\Program Files\Python38\lib\site-packages\selenium\webdriver\remote\webelement.py:80: in click<br/>    self._execute(Command.CLICK_ELEMENT)<br/>C:\Program Files\Python38\lib\site-packages\selenium\webdriver\remote\webelement.py:633: in _execute<br/>    return self._parent.execute(command, params)<br/>C:\Program Files\Python38\lib\site-packages\selenium\webdriver\remote\webdriver.py:321: in execute<br/>    self.error_handler.check_response(response)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x000000000496ECA0&gt;<br/>response = {&#x27;status&#x27;: 400, &#x27;value&#x27;: &#x27;{&quot;value&quot;:{&quot;error&quot;:&quot;element click intercepted&quot;,&quot;message&quot;:&quot;element click intercepted: Element ...x7653343D+18]\\n\\tRtlInitializeExceptionChain [0x77CF9802+99]\\n\\tRtlInitializeExceptionChain [0x77CF97D5+54]\\n&quot;}}&#x27;}<br/><br/>    def check_response(self, response):<br/>        &quot;&quot;&quot;<br/>        Checks that a JSON response from the WebDriver does not have an error.<br/>    <br/>        :Args:<br/>         - response - The JSON response from the WebDriver server as a dictionary<br/>           object.<br/>    <br/>        :Raises: If the response contains an error message.<br/>        &quot;&quot;&quot;<br/>        status = response.get(&#x27;status&#x27;, None)<br/>        if status is None or status == ErrorCode.SUCCESS:<br/>            return<br/>        value = None<br/>        message = response.get(&quot;message&quot;, &quot;&quot;)<br/>        screen = response.get(&quot;screen&quot;, &quot;&quot;)<br/>        stacktrace = None<br/>        if isinstance(status, int):<br/>            value_json = response.get(&#x27;value&#x27;, None)<br/>            if value_json and isinstance(value_json, basestring):<br/>                import json<br/>                try:<br/>                    value = json.loads(value_json)<br/>                    if len(value.keys()) == 1:<br/>                        value = value[&#x27;value&#x27;]<br/>                    status = value.get(&#x27;error&#x27;, None)<br/>                    if status is None:<br/>                        status = value[&quot;status&quot;]<br/>                        message = value[&quot;value&quot;]<br/>                        if not isinstance(message, basestring):<br/>                            value = message<br/>                            message = message.get(&#x27;message&#x27;)<br/>                    else:<br/>                        message = value.get(&#x27;message&#x27;, None)<br/>                except ValueError:<br/>                    pass<br/>    <br/>        exception_class = ErrorInResponseException<br/>        if status in ErrorCode.NO_SUCH_ELEMENT:<br/>            exception_class = NoSuchElementException<br/>        elif status in ErrorCode.NO_SUCH_FRAME:<br/>            exception_class = NoSuchFrameException<br/>        elif status in ErrorCode.NO_SUCH_WINDOW:<br/>            exception_class = NoSuchWindowException<br/>        elif status in ErrorCode.STALE_ELEMENT_REFERENCE:<br/>            exception_class = StaleElementReferenceException<br/>        elif status in ErrorCode.ELEMENT_NOT_VISIBLE:<br/>            exception_class = ElementNotVisibleException<br/>        elif status in ErrorCode.INVALID_ELEMENT_STATE:<br/>            exception_class = InvalidElementStateException<br/>        elif status in ErrorCode.INVALID_SELECTOR \<br/>                or status in ErrorCode.INVALID_XPATH_SELECTOR \<br/>                or status in ErrorCode.INVALID_XPATH_SELECTOR_RETURN_TYPER:<br/>            exception_class = InvalidSelectorException<br/>        elif status in ErrorCode.ELEMENT_IS_NOT_SELECTABLE:<br/>            exception_class = ElementNotSelectableException<br/>        elif status in ErrorCode.ELEMENT_NOT_INTERACTABLE:<br/>            exception_class = ElementNotInteractableException<br/>        elif status in ErrorCode.INVALID_COOKIE_DOMAIN:<br/>            exception_class = InvalidCookieDomainException<br/>        elif status in ErrorCode.UNABLE_TO_SET_COOKIE:<br/>            exception_class = UnableToSetCookieException<br/>        elif status in ErrorCode.TIMEOUT:<br/>            exception_class = TimeoutException<br/>        elif status in ErrorCode.SCRIPT_TIMEOUT:<br/>            exception_class = TimeoutException<br/>        elif status in ErrorCode.UNKNOWN_ERROR:<br/>            exception_class = WebDriverException<br/>        elif status in ErrorCode.UNEXPECTED_ALERT_OPEN:<br/>            exception_class = UnexpectedAlertPresentException<br/>        elif status in ErrorCode.NO_ALERT_OPEN:<br/>            exception_class = NoAlertPresentException<br/>        elif status in ErrorCode.IME_NOT_AVAILABLE:<br/>            exception_class = ImeNotAvailableException<br/>        elif status in ErrorCode.IME_ENGINE_ACTIVATION_FAILED:<br/>            exception_class = ImeActivationFailedException<br/>        elif status in ErrorCode.MOVE_TARGET_OUT_OF_BOUNDS:<br/>            exception_class = MoveTargetOutOfBoundsException<br/>        elif status in ErrorCode.JAVASCRIPT_ERROR:<br/>            exception_class = JavascriptException<br/>        elif status in ErrorCode.SESSION_NOT_CREATED:<br/>            exception_class = SessionNotCreatedException<br/>        elif status in ErrorCode.INVALID_ARGUMENT:<br/>            exception_class = InvalidArgumentException<br/>        elif status in ErrorCode.NO_SUCH_COOKIE:<br/>            exception_class = NoSuchCookieException<br/>        elif status in ErrorCode.UNABLE_TO_CAPTURE_SCREEN:<br/>            exception_class = ScreenshotException<br/>        elif status in ErrorCode.ELEMENT_CLICK_INTERCEPTED:<br/>            exception_class = ElementClickInterceptedException<br/>        elif status in ErrorCode.INSECURE_CERTIFICATE:<br/>            exception_class = InsecureCertificateException<br/>        elif status in ErrorCode.INVALID_COORDINATES:<br/>            exception_class = InvalidCoordinatesException<br/>        elif status in ErrorCode.INVALID_SESSION_ID:<br/>            exception_class = InvalidSessionIdException<br/>        elif status in ErrorCode.UNKNOWN_METHOD:<br/>            exception_class = UnknownMethodException<br/>        else:<br/>            exception_class = WebDriverException<br/>        if value == &#x27;&#x27; or value is None:<br/>            value = response[&#x27;value&#x27;]<br/>        if isinstance(value, basestring):<br/>            if exception_class == ErrorInResponseException:<br/>                raise exception_class(response, value)<br/>            raise exception_class(value)<br/>        if message == &quot;&quot; and &#x27;message&#x27; in value:<br/>            message = value[&#x27;message&#x27;]<br/>    <br/>        screen = None<br/>        if &#x27;screen&#x27; in value:<br/>            screen = value[&#x27;screen&#x27;]<br/>    <br/>        stacktrace = None<br/>        if &#x27;stackTrace&#x27; in value and value[&#x27;stackTrace&#x27;]:<br/>            stacktrace = []<br/>            try:<br/>                for frame in value[&#x27;stackTrace&#x27;]:<br/>                    line = self._value_or_default(frame, &#x27;lineNumber&#x27;, &#x27;&#x27;)<br/>                    file = self._value_or_default(frame, &#x27;fileName&#x27;, &#x27;&lt;anonymous&gt;&#x27;)<br/>                    if line:<br/>                        file = &quot;%s:%s&quot; % (file, line)<br/>                    meth = self._value_or_default(frame, &#x27;methodName&#x27;, &#x27;&lt;anonymous&gt;&#x27;)<br/>                    if &#x27;className&#x27; in frame:<br/>                        meth = &quot;%s.%s&quot; % (frame[&#x27;className&#x27;], meth)<br/>                    msg = &quot;    at %s (%s)&quot;<br/>                    msg = msg % (meth, file)<br/>                    stacktrace.append(msg)<br/>            except TypeError:<br/>                pass<br/>        if exception_class == ErrorInResponseException:<br/>            raise exception_class(response, message)<br/>        elif exception_class == UnexpectedAlertPresentException:<br/>            alert_text = None<br/>            if &#x27;data&#x27; in value:<br/>                alert_text = value[&#x27;data&#x27;].get(&#x27;text&#x27;)<br/>            elif &#x27;alert&#x27; in value:<br/>                alert_text = value[&#x27;alert&#x27;].get(&#x27;text&#x27;)<br/>            raise exception_class(message, screen, stacktrace, alert_text)<br/>&gt;       raise exception_class(message, screen, stacktrace)<br/><span class="error">E       selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element &lt;li class=&quot;page-item&quot; style=&quot;&quot;&gt;...&lt;/li&gt; is not clickable at point (809, 715). Other element would receive the click: &lt;div class=&quot;loader&quot; style=&quot;opacity: 0.941883;&quot;&gt;&lt;/div&gt;</span><br/><span class="error">E         (Session info: chrome=91.0.4472.114)</span><br/><br/>C:\Program Files\Python38\lib\site-packages\selenium\webdriver\remote\errorhandler.py:242: ElementClickInterceptedExceptionself = &lt;test_dir.test_customer.TestCustomer object at 0x0000000004BA3490&gt;, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;492c337df9b38dc130d28ad4b44d1af5&quot;)&gt;, base_url = &#x27;http://newtest.elinkbuy.cn&#x27;, client_rank = &#x27;D&#x27;<br/><br/>    @pytest.mark.parametrize(<br/>        &quot;client_rank&quot;,<br/>        [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;]<br/>    )<br/>    def test_customer_rank_case(self, browser, base_url, client_rank):<br/>        &quot;&quot;&quot;<br/>        模拟点击客户等级下拉框筛选客户<br/>        &quot;&quot;&quot;<br/>        self.login(browser, base_url)<br/>        self.page = CustomerPage(browser)<br/>        flag = self.close_layer()  # 关闭弹层<br/>        if flag:<br/>            self.page.customer_menu.click()  # 点击客户管理菜单栏<br/>        else:<br/>            print(&quot;弹层关闭失败&quot;)<br/>        self.page.customer_list.click()  # 点击客户列表菜单<br/>        self.page.search_client_rank.select_by_visible_text(client_rank)  # 选择客户等级A<br/>        self.page.search_btn.click()  # 点击搜索按钮<br/>        sleep(2)<br/>    <br/>        pagination = self.page.pagination  # 分页<br/>        if len(pagination) &gt; 0:<br/>            self.page.window_scroll(None, 1000)<br/>            self.page.last_page.click()  # 点击最后一页<br/>            sleep(2)<br/>    <br/>        total_text = int(self.page.last_sort.text)<br/>        result = 0<br/>        db_conn = DB(ip=&#x27;47.103.83.160&#x27;, user=&#x27;root&#x27;, passwd=&#x27;c587024e9ec3ea0a&#x27;, db=&#x27;ylg&#x27;)<br/>        user = self.get_user()<br/>        sql = &quot;SELECT count(1) FROM `xy_client` WHERE  `staff_id` = 5  AND `clientkind` = 1  AND `tradekindid` &lt;&gt; 2  AND `closed` = &#x27;F&#x27;  AND `client_rank` =&#x27;&quot; + client_rank + &quot;&#x27;&quot;<br/>        if user[&#x27;roles_str&#x27;] in [87, 91]:<br/>            sql = &quot;SELECT count(1) total FROM `xy_client` WHERE  `staff_id` = 5  AND `clientkind` = 1  AND `tradekindid` &lt;&gt; 2  AND `closed` = &#x27;F&#x27;  AND `client_rank` =&#x27;&quot; + client_rank + &quot;&#x27; and `high_quality` = 0&quot;<br/>        clients = db_conn.query(sql)<br/>        if clients:<br/>&gt;           result = clients[0][&#x27;total&#x27;]<br/><span class="error">E           KeyError: &#x27;total&#x27;</span><br/><br/>test_dir\test_customer.py:106: KeyError<br/> ------------------------------Captured stdout call------------------------------ <br/>2021-07-29 16:32:25,007 INFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗
+2021-07-29 16:32:25,036 INFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层
+2021-07-29 16:32:25,173 INFO ✅ Find element: id=pytestCustomerMenu 
+2021-07-29 16:32:26,119 INFO 🖱 click element: 客户管理菜单栏
+2021-07-29 16:32:26,178 INFO ✅ Find element: id=pytestCustomerList 
+2021-07-29 16:32:27,139 INFO 🖱 click element: 客户列表/我的客户菜单
+2021-07-29 16:32:30,579 INFO ✅ Find element: name=search_client_rank 
+2021-07-29 16:32:31,933 INFO ✅ Find element: id=pytestCustomerSearchBtn 
+2021-07-29 16:32:32,878 INFO 🖱 click element: 搜索按钮
+2021-07-29 16:32:36,925 INFO ✨ Find 13 elements through: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li, describe:分页
+2021-07-29 16:32:36,956 INFO ✅ Find element: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li[last()-1] 
+2021-07-29 16:32:37,939 INFO 🖱 click element: 最后一页
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     poium:logging.py:18 INFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗
+INFO     poium:logging.py:18 INFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerMenu 
+INFO     poium:logging.py:18 INFO 🖱 click element: 客户管理菜单栏
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerList 
+INFO     poium:logging.py:18 INFO 🖱 click element: 客户列表/我的客户菜单
+INFO     poium:logging.py:18 INFO ✅ Find element: name=search_client_rank 
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerSearchBtn 
+INFO     poium:logging.py:18 INFO 🖱 click element: 搜索按钮
+INFO     poium:logging.py:18 INFO ✨ Find 13 elements through: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li, describe:分页
+INFO     poium:logging.py:18 INFO ✅ Find element: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li[last()-1] 
+INFO     poium:logging.py:18 INFO 🖱 click element: 最后一页<br/> ----------------------------Captured stdout teardown---------------------------- <br/>test end!
+<br/> ------------------------------Captured stdout call------------------------------ <br/>2021-07-29 16:32:44,681 INFO ✅ Find element: name=staff_name 
+2021-07-29 16:32:45,850 INFO 🖋 input element: 登录用户名
+2021-07-29 16:32:45,952 INFO ✅ Find element: name=password 
+2021-07-29 16:32:46,914 INFO 🖋 input element: 登录密码
+2021-07-29 16:32:46,988 INFO ✅ Find element: css selector=.card-body&gt;form&gt;div.form-group&gt;button.btn 
+2021-07-29 16:32:47,929 INFO 🖱 click element: 登录按钮
+2021-07-29 16:33:03,852 INFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗
+2021-07-29 16:33:03,879 INFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层
+2021-07-29 16:33:03,999 INFO ✅ Find element: id=pytestCustomerMenu 
+2021-07-29 16:33:04,957 INFO 🖱 click element: 客户管理菜单栏
+2021-07-29 16:33:05,071 INFO ✅ Find element: id=pytestCustomerList 
+2021-07-29 16:33:06,014 INFO 🖱 click element: 客户列表/我的客户菜单
+2021-07-29 16:33:09,863 INFO ✅ Find element: name=search_client_rank 
+2021-07-29 16:33:11,209 INFO ✅ Find element: id=pytestCustomerSearchBtn 
+2021-07-29 16:33:12,188 INFO 🖱 click element: 搜索按钮
+2021-07-29 16:33:16,258 INFO ✨ Find 13 elements through: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li, describe:分页
+2021-07-29 16:33:16,284 INFO ✅ Find element: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li[last()-1] 
+2021-07-29 16:33:17,264 INFO 🖱 click element: 最后一页
+2021-07-29 16:33:23,252 INFO ✅ Find element: xpath=//div[@class=&#x27;table-responsive&#x27;]/table/tbody[@id=&#x27;content&#x27;]/tr[last()]/td[@id=&#x27;pytestCustomerListSort&#x27;] 
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     poium:logging.py:18 INFO ✅ Find element: name=staff_name 
+INFO     poium:logging.py:18 INFO 🖋 input element: 登录用户名
+INFO     poium:logging.py:18 INFO ✅ Find element: name=password 
+INFO     poium:logging.py:18 INFO 🖋 input element: 登录密码
+INFO     poium:logging.py:18 INFO ✅ Find element: css selector=.card-body&gt;form&gt;div.form-group&gt;button.btn 
+INFO     poium:logging.py:18 INFO 🖱 click element: 登录按钮
+INFO     poium:logging.py:18 INFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗
+INFO     poium:logging.py:18 INFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerMenu 
+INFO     poium:logging.py:18 INFO 🖱 click element: 客户管理菜单栏
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerList 
+INFO     poium:logging.py:18 INFO 🖱 click element: 客户列表/我的客户菜单
+INFO     poium:logging.py:18 INFO ✅ Find element: name=search_client_rank 
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerSearchBtn 
+INFO     poium:logging.py:18 INFO 🖱 click element: 搜索按钮
+INFO     poium:logging.py:18 INFO ✨ Find 13 elements through: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li, describe:分页
+INFO     poium:logging.py:18 INFO ✅ Find element: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li[last()-1] 
+INFO     poium:logging.py:18 INFO 🖱 click element: 最后一页
+INFO     poium:logging.py:18 INFO ✅ Find element: xpath=//div[@class=&#x27;table-responsive&#x27;]/table/tbody[@id=&#x27;content&#x27;]/tr[last()]/td[@id=&#x27;pytestCustomerListSort&#x27;] <br/> ----------------------------Captured stdout teardown---------------------------- <br/>test end!
+<br/></div></td></tr></tbody>
+      <tbody class="rerun results-table-row">
+        <tr>
+          <td class="col-result">Rerun</td>
+          <td>
+        模拟点击客户等级下拉框筛选客户
+        </td>
+          <td class="col-name">test_dir/test_customer.py::TestCustomer::test_customer_rank_case[A]</td>
+          <td class="col-duration">40.43</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="5">
+            <div><div><img src="image/test_customer.py_TestCustomer_test_customer_rank_case[A].png].png" alt="screenshot" style="width:304px;height:228px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log">self = &lt;test_dir.test_customer.TestCustomer object at 0x0000000004943B20&gt;, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;afa25724283f58a8cebb964766c77ea6&quot;)&gt;, base_url = &#x27;http://newtest.elinkbuy.cn&#x27;, client_rank = &#x27;A&#x27;<br/><br/>    @pytest.mark.parametrize(<br/>        &quot;client_rank&quot;,<br/>        [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;]<br/>    )<br/>    def test_customer_rank_case(self, browser, base_url, client_rank):<br/>        &quot;&quot;&quot;<br/>        模拟点击客户等级下拉框筛选客户<br/>        &quot;&quot;&quot;<br/>        self.login(browser, base_url)<br/>        self.page = CustomerPage(browser)<br/>        flag = self.close_layer()  # 关闭弹层<br/>        if flag:<br/>            self.page.customer_menu.click()  # 点击客户管理菜单栏<br/>        else:<br/>            print(&quot;弹层关闭失败&quot;)<br/>        self.page.customer_list.click()  # 点击客户列表菜单<br/>        self.page.search_client_rank.select_by_visible_text(client_rank)  # 选择客户等级A<br/>        self.page.search_btn.click()  # 点击搜索按钮<br/>        sleep(2)<br/>    <br/>        pagination = self.page.pagination  # 分页<br/>        if len(pagination) &gt; 0:<br/>            self.page.window_scroll(None, 1000)<br/>            self.page.last_page.click()  # 点击最后一页<br/>            sleep(2)<br/>    <br/>        total_text = int(self.page.last_sort.text)<br/>        result = 0<br/>        db_conn = DB(ip=&#x27;47.103.83.160&#x27;, user=&#x27;root&#x27;, passwd=&#x27;c587024e9ec3ea0a&#x27;, db=&#x27;ylg&#x27;)<br/>        user = self.get_user()<br/>        sql = &quot;SELECT count(1) FROM `xy_client` WHERE  `staff_id` = 5  AND `clientkind` = 1  AND `tradekindid` &lt;&gt; 2  AND `closed` = &#x27;F&#x27;  AND `client_rank` =&#x27;&quot; + client_rank + &quot;&#x27;&quot;<br/>        if user[&#x27;roles_str&#x27;] in [87, 91]:<br/>            sql = &quot;SELECT count(1) total FROM `xy_client` WHERE  `staff_id` = 5  AND `clientkind` = 1  AND `tradekindid` &lt;&gt; 2  AND `closed` = &#x27;F&#x27;  AND `client_rank` =&#x27;&quot; + client_rank + &quot;&#x27; and `high_quality` = 0&quot;<br/>        clients = db_conn.query(sql)<br/>        if clients:<br/>&gt;           result = clients[0][&#x27;total&#x27;]<br/><span class="error">E           KeyError: &#x27;total&#x27;</span><br/><br/>test_dir\test_customer.py:106: KeyError<br/> ------------------------------Captured stdout call------------------------------ <br/>2021-07-29 16:28:21,840 INFO ✅ Find element: name=staff_name 
+2021-07-29 16:28:22,995 INFO 🖋 input element: 登录用户名
+2021-07-29 16:28:23,080 INFO ✅ Find element: name=password 
+2021-07-29 16:28:24,057 INFO 🖋 input element: 登录密码
+2021-07-29 16:28:24,123 INFO ✅ Find element: css selector=.card-body&gt;form&gt;div.form-group&gt;button.btn 
+2021-07-29 16:28:25,065 INFO 🖱 click element: 登录按钮
+2021-07-29 16:28:41,148 INFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗
+2021-07-29 16:28:41,170 INFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层
+2021-07-29 16:28:41,285 INFO ✅ Find element: id=pytestCustomerMenu 
+2021-07-29 16:28:42,230 INFO 🖱 click element: 客户管理菜单栏
+2021-07-29 16:28:42,357 INFO ✅ Find element: id=pytestCustomerList 
+2021-07-29 16:28:43,315 INFO 🖱 click element: 客户列表/我的客户菜单
+2021-07-29 16:28:48,167 INFO ✅ Find element: name=search_client_rank 
+2021-07-29 16:28:49,461 INFO ✅ Find element: id=pytestCustomerSearchBtn 
+2021-07-29 16:28:50,406 INFO 🖱 click element: 搜索按钮
+2021-07-29 16:28:59,860 INFO ✨ Find 0 elements through: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li, describe:分页
+2021-07-29 16:28:59,891 INFO ✅ Find element: xpath=//div[@class=&#x27;table-responsive&#x27;]/table/tbody[@id=&#x27;content&#x27;]/tr[last()]/td[@id=&#x27;pytestCustomerListSort&#x27;] 
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     poium:logging.py:18 INFO ✅ Find element: name=staff_name 
+INFO     poium:logging.py:18 INFO 🖋 input element: 登录用户名
+INFO     poium:logging.py:18 INFO ✅ Find element: name=password 
+INFO     poium:logging.py:18 INFO 🖋 input element: 登录密码
+INFO     poium:logging.py:18 INFO ✅ Find element: css selector=.card-body&gt;form&gt;div.form-group&gt;button.btn 
+INFO     poium:logging.py:18 INFO 🖱 click element: 登录按钮
+INFO     poium:logging.py:18 INFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗
+INFO     poium:logging.py:18 INFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerMenu 
+INFO     poium:logging.py:18 INFO 🖱 click element: 客户管理菜单栏
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerList 
+INFO     poium:logging.py:18 INFO 🖱 click element: 客户列表/我的客户菜单
+INFO     poium:logging.py:18 INFO ✅ Find element: name=search_client_rank 
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerSearchBtn 
+INFO     poium:logging.py:18 INFO 🖱 click element: 搜索按钮
+INFO     poium:logging.py:18 INFO ✨ Find 0 elements through: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li, describe:分页
+INFO     poium:logging.py:18 INFO ✅ Find element: xpath=//div[@class=&#x27;table-responsive&#x27;]/table/tbody[@id=&#x27;content&#x27;]/tr[last()]/td[@id=&#x27;pytestCustomerListSort&#x27;] <br/></div></td></tr></tbody>
+      <tbody class="rerun results-table-row">
+        <tr>
+          <td class="col-result">Rerun</td>
+          <td>
+        模拟点击客户等级下拉框筛选客户
+        </td>
+          <td class="col-name">test_dir/test_customer.py::TestCustomer::test_customer_rank_case[B]</td>
+          <td class="col-duration">38.84</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="5">
+            <div><div><img src="image/test_customer.py_TestCustomer_test_customer_rank_case[B].png].png" alt="screenshot" style="width:304px;height:228px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log">self = &lt;test_dir.test_customer.TestCustomer object at 0x00000000049CB4F0&gt;, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;afa25724283f58a8cebb964766c77ea6&quot;)&gt;, base_url = &#x27;http://newtest.elinkbuy.cn&#x27;, client_rank = &#x27;B&#x27;<br/><br/>    @pytest.mark.parametrize(<br/>        &quot;client_rank&quot;,<br/>        [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;]<br/>    )<br/>    def test_customer_rank_case(self, browser, base_url, client_rank):<br/>        &quot;&quot;&quot;<br/>        模拟点击客户等级下拉框筛选客户<br/>        &quot;&quot;&quot;<br/>        self.login(browser, base_url)<br/>        self.page = CustomerPage(browser)<br/>        flag = self.close_layer()  # 关闭弹层<br/>        if flag:<br/>            self.page.customer_menu.click()  # 点击客户管理菜单栏<br/>        else:<br/>            print(&quot;弹层关闭失败&quot;)<br/>        self.page.customer_list.click()  # 点击客户列表菜单<br/>        self.page.search_client_rank.select_by_visible_text(client_rank)  # 选择客户等级A<br/>        self.page.search_btn.click()  # 点击搜索按钮<br/>        sleep(2)<br/>    <br/>        pagination = self.page.pagination  # 分页<br/>        if len(pagination) &gt; 0:<br/>            self.page.window_scroll(None, 1000)<br/>            self.page.last_page.click()  # 点击最后一页<br/>            sleep(2)<br/>    <br/>        total_text = int(self.page.last_sort.text)<br/>        result = 0<br/>        db_conn = DB(ip=&#x27;47.103.83.160&#x27;, user=&#x27;root&#x27;, passwd=&#x27;c587024e9ec3ea0a&#x27;, db=&#x27;ylg&#x27;)<br/>        user = self.get_user()<br/>        sql = &quot;SELECT count(1) FROM `xy_client` WHERE  `staff_id` = 5  AND `clientkind` = 1  AND `tradekindid` &lt;&gt; 2  AND `closed` = &#x27;F&#x27;  AND `client_rank` =&#x27;&quot; + client_rank + &quot;&#x27;&quot;<br/>        if user[&#x27;roles_str&#x27;] in [87, 91]:<br/>            sql = &quot;SELECT count(1) total FROM `xy_client` WHERE  `staff_id` = 5  AND `clientkind` = 1  AND `tradekindid` &lt;&gt; 2  AND `closed` = &#x27;F&#x27;  AND `client_rank` =&#x27;&quot; + client_rank + &quot;&#x27; and `high_quality` = 0&quot;<br/>        clients = db_conn.query(sql)<br/>        if clients:<br/>&gt;           result = clients[0][&#x27;total&#x27;]<br/><span class="error">E           KeyError: &#x27;total&#x27;</span><br/><br/>test_dir\test_customer.py:106: KeyError<br/> ------------------------------Captured stdout call------------------------------ <br/>2021-07-29 16:29:55,441 INFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗
+2021-07-29 16:29:55,469 INFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层
+2021-07-29 16:29:55,587 INFO ✅ Find element: id=pytestCustomerMenu 
+2021-07-29 16:29:56,542 INFO 🖱 click element: 客户管理菜单栏
+2021-07-29 16:29:56,624 INFO ✅ Find element: id=pytestCustomerList 
+2021-07-29 16:29:57,589 INFO 🖱 click element: 客户列表/我的客户菜单
+2021-07-29 16:30:01,243 INFO ✅ Find element: name=search_client_rank 
+2021-07-29 16:30:02,577 INFO ✅ Find element: id=pytestCustomerSearchBtn 
+2021-07-29 16:30:03,533 INFO 🖱 click element: 搜索按钮
+2021-07-29 16:30:08,267 INFO ✨ Find 13 elements through: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li, describe:分页
+2021-07-29 16:30:08,314 INFO ✅ Find element: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li[last()-1] 
+2021-07-29 16:30:09,292 INFO 🖱 click element: 最后一页
+2021-07-29 16:30:15,778 INFO ✅ Find element: xpath=//div[@class=&#x27;table-responsive&#x27;]/table/tbody[@id=&#x27;content&#x27;]/tr[last()]/td[@id=&#x27;pytestCustomerListSort&#x27;] 
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     poium:logging.py:18 INFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗
+INFO     poium:logging.py:18 INFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerMenu 
+INFO     poium:logging.py:18 INFO 🖱 click element: 客户管理菜单栏
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerList 
+INFO     poium:logging.py:18 INFO 🖱 click element: 客户列表/我的客户菜单
+INFO     poium:logging.py:18 INFO ✅ Find element: name=search_client_rank 
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerSearchBtn 
+INFO     poium:logging.py:18 INFO 🖱 click element: 搜索按钮
+INFO     poium:logging.py:18 INFO ✨ Find 13 elements through: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li, describe:分页
+INFO     poium:logging.py:18 INFO ✅ Find element: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li[last()-1] 
+INFO     poium:logging.py:18 INFO 🖱 click element: 最后一页
+INFO     poium:logging.py:18 INFO ✅ Find element: xpath=//div[@class=&#x27;table-responsive&#x27;]/table/tbody[@id=&#x27;content&#x27;]/tr[last()]/td[@id=&#x27;pytestCustomerListSort&#x27;] <br/></div></td></tr></tbody>
+      <tbody class="rerun results-table-row">
+        <tr>
+          <td class="col-result">Rerun</td>
+          <td>
+        模拟点击客户等级下拉框筛选客户
+        </td>
+          <td class="col-name">test_dir/test_customer.py::TestCustomer::test_customer_rank_case[C]</td>
+          <td class="col-duration">36.80</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="5">
+            <div><div><img src="image/test_customer.py_TestCustomer_test_customer_rank_case[C].png].png" alt="screenshot" style="width:304px;height:228px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log">self = &lt;test_dir.test_customer.TestCustomer object at 0x00000000049CBDC0&gt;, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;afa25724283f58a8cebb964766c77ea6&quot;)&gt;, base_url = &#x27;http://newtest.elinkbuy.cn&#x27;, client_rank = &#x27;C&#x27;<br/><br/>    @pytest.mark.parametrize(<br/>        &quot;client_rank&quot;,<br/>        [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;]<br/>    )<br/>    def test_customer_rank_case(self, browser, base_url, client_rank):<br/>        &quot;&quot;&quot;<br/>        模拟点击客户等级下拉框筛选客户<br/>        &quot;&quot;&quot;<br/>        self.login(browser, base_url)<br/>        self.page = CustomerPage(browser)<br/>        flag = self.close_layer()  # 关闭弹层<br/>        if flag:<br/>            self.page.customer_menu.click()  # 点击客户管理菜单栏<br/>        else:<br/>            print(&quot;弹层关闭失败&quot;)<br/>        self.page.customer_list.click()  # 点击客户列表菜单<br/>        self.page.search_client_rank.select_by_visible_text(client_rank)  # 选择客户等级A<br/>        self.page.search_btn.click()  # 点击搜索按钮<br/>        sleep(2)<br/>    <br/>        pagination = self.page.pagination  # 分页<br/>        if len(pagination) &gt; 0:<br/>            self.page.window_scroll(None, 1000)<br/>            self.page.last_page.click()  # 点击最后一页<br/>            sleep(2)<br/>    <br/>        total_text = int(self.page.last_sort.text)<br/>        result = 0<br/>        db_conn = DB(ip=&#x27;47.103.83.160&#x27;, user=&#x27;root&#x27;, passwd=&#x27;c587024e9ec3ea0a&#x27;, db=&#x27;ylg&#x27;)<br/>        user = self.get_user()<br/>        sql = &quot;SELECT count(1) FROM `xy_client` WHERE  `staff_id` = 5  AND `clientkind` = 1  AND `tradekindid` &lt;&gt; 2  AND `closed` = &#x27;F&#x27;  AND `client_rank` =&#x27;&quot; + client_rank + &quot;&#x27;&quot;<br/>        if user[&#x27;roles_str&#x27;] in [87, 91]:<br/>            sql = &quot;SELECT count(1) total FROM `xy_client` WHERE  `staff_id` = 5  AND `clientkind` = 1  AND `tradekindid` &lt;&gt; 2  AND `closed` = &#x27;F&#x27;  AND `client_rank` =&#x27;&quot; + client_rank + &quot;&#x27; and `high_quality` = 0&quot;<br/>        clients = db_conn.query(sql)<br/>        if clients:<br/>&gt;           result = clients[0][&#x27;total&#x27;]<br/><span class="error">E           KeyError: &#x27;total&#x27;</span><br/><br/>test_dir\test_customer.py:106: KeyError<br/> ------------------------------Captured stdout call------------------------------ <br/>2021-07-29 16:31:10,703 INFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗
+2021-07-29 16:31:10,723 INFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层
+2021-07-29 16:31:10,833 INFO ✅ Find element: id=pytestCustomerMenu 
+2021-07-29 16:31:11,783 INFO 🖱 click element: 客户管理菜单栏
+2021-07-29 16:31:11,855 INFO ✅ Find element: id=pytestCustomerList 
+2021-07-29 16:31:12,806 INFO 🖱 click element: 客户列表/我的客户菜单
+2021-07-29 16:31:16,349 INFO ✅ Find element: name=search_client_rank 
+2021-07-29 16:31:17,653 INFO ✅ Find element: id=pytestCustomerSearchBtn 
+2021-07-29 16:31:18,626 INFO 🖱 click element: 搜索按钮
+2021-07-29 16:31:24,112 INFO ✨ Find 13 elements through: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li, describe:分页
+2021-07-29 16:31:24,147 INFO ✅ Find element: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li[last()-1] 
+2021-07-29 16:31:25,118 INFO 🖱 click element: 最后一页
+2021-07-29 16:31:29,078 INFO ✅ Find element: xpath=//div[@class=&#x27;table-responsive&#x27;]/table/tbody[@id=&#x27;content&#x27;]/tr[last()]/td[@id=&#x27;pytestCustomerListSort&#x27;] 
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     poium:logging.py:18 INFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗
+INFO     poium:logging.py:18 INFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerMenu 
+INFO     poium:logging.py:18 INFO 🖱 click element: 客户管理菜单栏
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerList 
+INFO     poium:logging.py:18 INFO 🖱 click element: 客户列表/我的客户菜单
+INFO     poium:logging.py:18 INFO ✅ Find element: name=search_client_rank 
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerSearchBtn 
+INFO     poium:logging.py:18 INFO 🖱 click element: 搜索按钮
+INFO     poium:logging.py:18 INFO ✨ Find 13 elements through: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li, describe:分页
+INFO     poium:logging.py:18 INFO ✅ Find element: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li[last()-1] 
+INFO     poium:logging.py:18 INFO 🖱 click element: 最后一页
+INFO     poium:logging.py:18 INFO ✅ Find element: xpath=//div[@class=&#x27;table-responsive&#x27;]/table/tbody[@id=&#x27;content&#x27;]/tr[last()]/td[@id=&#x27;pytestCustomerListSort&#x27;] <br/></div></td></tr></tbody>
+      <tbody class="rerun results-table-row">
+        <tr>
+          <td class="col-result">Rerun</td>
+          <td>
+        模拟点击客户等级下拉框筛选客户
+        </td>
+          <td class="col-name">test_dir/test_customer.py::TestCustomer::test_customer_rank_case[D]</td>
+          <td class="col-duration">31.59</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="5">
+            <div><div><img src="image/test_customer.py_TestCustomer_test_customer_rank_case[D].png].png" alt="screenshot" style="width:304px;height:228px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log">self = &lt;test_dir.test_customer.TestCustomer object at 0x0000000004BA39D0&gt;, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;afa25724283f58a8cebb964766c77ea6&quot;)&gt;, base_url = &#x27;http://newtest.elinkbuy.cn&#x27;, client_rank = &#x27;D&#x27;<br/><br/>    @pytest.mark.parametrize(<br/>        &quot;client_rank&quot;,<br/>        [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;]<br/>    )<br/>    def test_customer_rank_case(self, browser, base_url, client_rank):<br/>        &quot;&quot;&quot;<br/>        模拟点击客户等级下拉框筛选客户<br/>        &quot;&quot;&quot;<br/>        self.login(browser, base_url)<br/>        self.page = CustomerPage(browser)<br/>        flag = self.close_layer()  # 关闭弹层<br/>        if flag:<br/>            self.page.customer_menu.click()  # 点击客户管理菜单栏<br/>        else:<br/>            print(&quot;弹层关闭失败&quot;)<br/>        self.page.customer_list.click()  # 点击客户列表菜单<br/>        self.page.search_client_rank.select_by_visible_text(client_rank)  # 选择客户等级A<br/>        self.page.search_btn.click()  # 点击搜索按钮<br/>        sleep(2)<br/>    <br/>        pagination = self.page.pagination  # 分页<br/>        if len(pagination) &gt; 0:<br/>            self.page.window_scroll(None, 1000)<br/>&gt;           self.page.last_page.click()  # 点击最后一页<br/><br/>test_dir\test_customer.py:94: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>C:\Program Files\Python38\lib\site-packages\poium\page_objects.py:234: in click<br/>    elem.click()<br/>C:\Program Files\Python38\lib\site-packages\selenium\webdriver\remote\webelement.py:80: in click<br/>    self._execute(Command.CLICK_ELEMENT)<br/>C:\Program Files\Python38\lib\site-packages\selenium\webdriver\remote\webelement.py:633: in _execute<br/>    return self._parent.execute(command, params)<br/>C:\Program Files\Python38\lib\site-packages\selenium\webdriver\remote\webdriver.py:321: in execute<br/>    self.error_handler.check_response(response)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x000000000496ECA0&gt;<br/>response = {&#x27;status&#x27;: 400, &#x27;value&#x27;: &#x27;{&quot;value&quot;:{&quot;error&quot;:&quot;element click intercepted&quot;,&quot;message&quot;:&quot;element click intercepted: Element ...x7653343D+18]\\n\\tRtlInitializeExceptionChain [0x77CF9802+99]\\n\\tRtlInitializeExceptionChain [0x77CF97D5+54]\\n&quot;}}&#x27;}<br/><br/>    def check_response(self, response):<br/>        &quot;&quot;&quot;<br/>        Checks that a JSON response from the WebDriver does not have an error.<br/>    <br/>        :Args:<br/>         - response - The JSON response from the WebDriver server as a dictionary<br/>           object.<br/>    <br/>        :Raises: If the response contains an error message.<br/>        &quot;&quot;&quot;<br/>        status = response.get(&#x27;status&#x27;, None)<br/>        if status is None or status == ErrorCode.SUCCESS:<br/>            return<br/>        value = None<br/>        message = response.get(&quot;message&quot;, &quot;&quot;)<br/>        screen = response.get(&quot;screen&quot;, &quot;&quot;)<br/>        stacktrace = None<br/>        if isinstance(status, int):<br/>            value_json = response.get(&#x27;value&#x27;, None)<br/>            if value_json and isinstance(value_json, basestring):<br/>                import json<br/>                try:<br/>                    value = json.loads(value_json)<br/>                    if len(value.keys()) == 1:<br/>                        value = value[&#x27;value&#x27;]<br/>                    status = value.get(&#x27;error&#x27;, None)<br/>                    if status is None:<br/>                        status = value[&quot;status&quot;]<br/>                        message = value[&quot;value&quot;]<br/>                        if not isinstance(message, basestring):<br/>                            value = message<br/>                            message = message.get(&#x27;message&#x27;)<br/>                    else:<br/>                        message = value.get(&#x27;message&#x27;, None)<br/>                except ValueError:<br/>                    pass<br/>    <br/>        exception_class = ErrorInResponseException<br/>        if status in ErrorCode.NO_SUCH_ELEMENT:<br/>            exception_class = NoSuchElementException<br/>        elif status in ErrorCode.NO_SUCH_FRAME:<br/>            exception_class = NoSuchFrameException<br/>        elif status in ErrorCode.NO_SUCH_WINDOW:<br/>            exception_class = NoSuchWindowException<br/>        elif status in ErrorCode.STALE_ELEMENT_REFERENCE:<br/>            exception_class = StaleElementReferenceException<br/>        elif status in ErrorCode.ELEMENT_NOT_VISIBLE:<br/>            exception_class = ElementNotVisibleException<br/>        elif status in ErrorCode.INVALID_ELEMENT_STATE:<br/>            exception_class = InvalidElementStateException<br/>        elif status in ErrorCode.INVALID_SELECTOR \<br/>                or status in ErrorCode.INVALID_XPATH_SELECTOR \<br/>                or status in ErrorCode.INVALID_XPATH_SELECTOR_RETURN_TYPER:<br/>            exception_class = InvalidSelectorException<br/>        elif status in ErrorCode.ELEMENT_IS_NOT_SELECTABLE:<br/>            exception_class = ElementNotSelectableException<br/>        elif status in ErrorCode.ELEMENT_NOT_INTERACTABLE:<br/>            exception_class = ElementNotInteractableException<br/>        elif status in ErrorCode.INVALID_COOKIE_DOMAIN:<br/>            exception_class = InvalidCookieDomainException<br/>        elif status in ErrorCode.UNABLE_TO_SET_COOKIE:<br/>            exception_class = UnableToSetCookieException<br/>        elif status in ErrorCode.TIMEOUT:<br/>            exception_class = TimeoutException<br/>        elif status in ErrorCode.SCRIPT_TIMEOUT:<br/>            exception_class = TimeoutException<br/>        elif status in ErrorCode.UNKNOWN_ERROR:<br/>            exception_class = WebDriverException<br/>        elif status in ErrorCode.UNEXPECTED_ALERT_OPEN:<br/>            exception_class = UnexpectedAlertPresentException<br/>        elif status in ErrorCode.NO_ALERT_OPEN:<br/>            exception_class = NoAlertPresentException<br/>        elif status in ErrorCode.IME_NOT_AVAILABLE:<br/>            exception_class = ImeNotAvailableException<br/>        elif status in ErrorCode.IME_ENGINE_ACTIVATION_FAILED:<br/>            exception_class = ImeActivationFailedException<br/>        elif status in ErrorCode.MOVE_TARGET_OUT_OF_BOUNDS:<br/>            exception_class = MoveTargetOutOfBoundsException<br/>        elif status in ErrorCode.JAVASCRIPT_ERROR:<br/>            exception_class = JavascriptException<br/>        elif status in ErrorCode.SESSION_NOT_CREATED:<br/>            exception_class = SessionNotCreatedException<br/>        elif status in ErrorCode.INVALID_ARGUMENT:<br/>            exception_class = InvalidArgumentException<br/>        elif status in ErrorCode.NO_SUCH_COOKIE:<br/>            exception_class = NoSuchCookieException<br/>        elif status in ErrorCode.UNABLE_TO_CAPTURE_SCREEN:<br/>            exception_class = ScreenshotException<br/>        elif status in ErrorCode.ELEMENT_CLICK_INTERCEPTED:<br/>            exception_class = ElementClickInterceptedException<br/>        elif status in ErrorCode.INSECURE_CERTIFICATE:<br/>            exception_class = InsecureCertificateException<br/>        elif status in ErrorCode.INVALID_COORDINATES:<br/>            exception_class = InvalidCoordinatesException<br/>        elif status in ErrorCode.INVALID_SESSION_ID:<br/>            exception_class = InvalidSessionIdException<br/>        elif status in ErrorCode.UNKNOWN_METHOD:<br/>            exception_class = UnknownMethodException<br/>        else:<br/>            exception_class = WebDriverException<br/>        if value == &#x27;&#x27; or value is None:<br/>            value = response[&#x27;value&#x27;]<br/>        if isinstance(value, basestring):<br/>            if exception_class == ErrorInResponseException:<br/>                raise exception_class(response, value)<br/>            raise exception_class(value)<br/>        if message == &quot;&quot; and &#x27;message&#x27; in value:<br/>            message = value[&#x27;message&#x27;]<br/>    <br/>        screen = None<br/>        if &#x27;screen&#x27; in value:<br/>            screen = value[&#x27;screen&#x27;]<br/>    <br/>        stacktrace = None<br/>        if &#x27;stackTrace&#x27; in value and value[&#x27;stackTrace&#x27;]:<br/>            stacktrace = []<br/>            try:<br/>                for frame in value[&#x27;stackTrace&#x27;]:<br/>                    line = self._value_or_default(frame, &#x27;lineNumber&#x27;, &#x27;&#x27;)<br/>                    file = self._value_or_default(frame, &#x27;fileName&#x27;, &#x27;&lt;anonymous&gt;&#x27;)<br/>                    if line:<br/>                        file = &quot;%s:%s&quot; % (file, line)<br/>                    meth = self._value_or_default(frame, &#x27;methodName&#x27;, &#x27;&lt;anonymous&gt;&#x27;)<br/>                    if &#x27;className&#x27; in frame:<br/>                        meth = &quot;%s.%s&quot; % (frame[&#x27;className&#x27;], meth)<br/>                    msg = &quot;    at %s (%s)&quot;<br/>                    msg = msg % (meth, file)<br/>                    stacktrace.append(msg)<br/>            except TypeError:<br/>                pass<br/>        if exception_class == ErrorInResponseException:<br/>            raise exception_class(response, message)<br/>        elif exception_class == UnexpectedAlertPresentException:<br/>            alert_text = None<br/>            if &#x27;data&#x27; in value:<br/>                alert_text = value[&#x27;data&#x27;].get(&#x27;text&#x27;)<br/>            elif &#x27;alert&#x27; in value:<br/>                alert_text = value[&#x27;alert&#x27;].get(&#x27;text&#x27;)<br/>            raise exception_class(message, screen, stacktrace, alert_text)<br/>&gt;       raise exception_class(message, screen, stacktrace)<br/><span class="error">E       selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element &lt;li class=&quot;page-item&quot; style=&quot;&quot;&gt;...&lt;/li&gt; is not clickable at point (809, 715). Other element would receive the click: &lt;div class=&quot;loader&quot; style=&quot;opacity: 0.941883;&quot;&gt;&lt;/div&gt;</span><br/><span class="error">E         (Session info: chrome=91.0.4472.114)</span><br/><br/>C:\Program Files\Python38\lib\site-packages\selenium\webdriver\remote\errorhandler.py:242: ElementClickInterceptedException<br/> ------------------------------Captured stdout call------------------------------ <br/>2021-07-29 16:32:25,007 INFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗
+2021-07-29 16:32:25,036 INFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层
+2021-07-29 16:32:25,173 INFO ✅ Find element: id=pytestCustomerMenu 
+2021-07-29 16:32:26,119 INFO 🖱 click element: 客户管理菜单栏
+2021-07-29 16:32:26,178 INFO ✅ Find element: id=pytestCustomerList 
+2021-07-29 16:32:27,139 INFO 🖱 click element: 客户列表/我的客户菜单
+2021-07-29 16:32:30,579 INFO ✅ Find element: name=search_client_rank 
+2021-07-29 16:32:31,933 INFO ✅ Find element: id=pytestCustomerSearchBtn 
+2021-07-29 16:32:32,878 INFO 🖱 click element: 搜索按钮
+2021-07-29 16:32:36,925 INFO ✨ Find 13 elements through: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li, describe:分页
+2021-07-29 16:32:36,956 INFO ✅ Find element: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li[last()-1] 
+2021-07-29 16:32:37,939 INFO 🖱 click element: 最后一页
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     poium:logging.py:18 INFO ✨ Find 8 elements through: class_name=layui-m-layer, describe:layer弹窗
+INFO     poium:logging.py:18 INFO ✨ Find 8 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerMenu 
+INFO     poium:logging.py:18 INFO 🖱 click element: 客户管理菜单栏
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerList 
+INFO     poium:logging.py:18 INFO 🖱 click element: 客户列表/我的客户菜单
+INFO     poium:logging.py:18 INFO ✅ Find element: name=search_client_rank 
+INFO     poium:logging.py:18 INFO ✅ Find element: id=pytestCustomerSearchBtn 
+INFO     poium:logging.py:18 INFO 🖱 click element: 搜索按钮
+INFO     poium:logging.py:18 INFO ✨ Find 13 elements through: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li, describe:分页
+INFO     poium:logging.py:18 INFO ✅ Find element: xpath=//td[@id=&#x27;pytestCustomerListPage&#x27;]/ul[@class=&#x27;pagination&#x27;]/li[last()-1] 
+INFO     poium:logging.py:18 INFO 🖱 click element: 最后一页<br/></div></td></tr></tbody></table></body></html>

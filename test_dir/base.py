@@ -36,7 +36,7 @@ class Base:
             self.common_page.input_staff_name = user['name']
             self.common_page.input_password = user['password']
             self.common_page.login_button.click()
-        sleep(20)
+        sleep(15)
 
     # 关闭全部弹窗
     def close_layer(self):

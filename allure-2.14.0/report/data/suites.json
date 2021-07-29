@@ -8,18 +8,57 @@
       "children" : [ {
         "name" : "TestCustomer",
         "children" : [ {
-          "name" : "test_customer_list_case",
-          "uid" : "17718c4808dcdd6d",
+          "name" : "test_customer_rank_case[A]",
+          "uid" : "57d16236441a7ac5",
           "parentUid" : "b04495d8f8fa72017986428a42bdc98d",
           "status" : "passed",
           "time" : {
-            "start" : 1627523011811,
-            "stop" : 1627523055434,
-            "duration" : 43623
+            "start" : 1627547711072,
+            "stop" : 1627547751711,
+            "duration" : 40639
           },
           "flaky" : false,
           "newFailed" : false,
-          "parameters" : [ ]
+          "parameters" : [ "'A'" ]
+        }, {
+          "name" : "test_customer_rank_case[B]",
+          "uid" : "8fe8546cd9436ee5",
+          "parentUid" : "b04495d8f8fa72017986428a42bdc98d",
+          "status" : "passed",
+          "time" : {
+            "start" : 1627547751758,
+            "stop" : 1627547789624,
+            "duration" : 37866
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "'B'" ]
+        }, {
+          "name" : "test_customer_rank_case[C]",
+          "uid" : "10f4116752eb5d63",
+          "parentUid" : "b04495d8f8fa72017986428a42bdc98d",
+          "status" : "passed",
+          "time" : {
+            "start" : 1627547789639,
+            "stop" : 1627547828372,
+            "duration" : 38733
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "'C'" ]
+        }, {
+          "name" : "test_customer_rank_case[D]",
+          "uid" : "9b0161ea2e5ec57",
+          "parentUid" : "b04495d8f8fa72017986428a42bdc98d",
+          "status" : "passed",
+          "time" : {
+            "start" : 1627547828387,
+            "stop" : 1627547873654,
+            "duration" : 45267
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "'D'" ]
         } ],
         "uid" : "b04495d8f8fa72017986428a42bdc98d"
       } ],
