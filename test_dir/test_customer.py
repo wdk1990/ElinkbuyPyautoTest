@@ -21,16 +21,8 @@ from .base import Base
 class TestCustomer(Base):
     """
     客户列表相关功能测试:
-        1.客户总数验证
-        2.客户等级筛选
-        3.注册方式筛选
-        4.客户状态筛选
-        5.合作状态筛选
-        6.vip等级筛选
-        7.无需维护筛选
-        8.回访状态筛选
-        9.手机号筛选
-        10.关键词筛选
+    不同条件筛选验证数据
+    完善资料功能验证
     """
 
     # def test_customer_list_case(self, browser, base_url):
@@ -68,45 +60,50 @@ class TestCustomer(Base):
     #     assert result == total_text
     #     sleep(2)
 
-    @pytest.mark.parametrize(
-        "client_rank",
-        ['A', 'B', 'C', 'D']
-    )
-    def test_customer_rank_case(self, browser, base_url, client_rank):
+    # @pytest.mark.parametrize(
+    #     "client_rank",
+    #     ['A', 'B', 'C', 'D']
+    # )
+    # def test_customer_rank_case(self, browser, base_url, client_rank):
+    #     """
+    #     模拟点击客户等级下拉框筛选客户
+    #     """
+    #     self.login(browser, base_url)
+    #     self.page = CustomerPage(browser)
+    #     flag = self.close_layer()  # 关闭弹层
+    #     if flag:
+    #         self.page.customer_menu.click()  # 点击客户管理菜单栏
+    #     else:
+    #         print("弹层关闭失败")
+    #     self.page.customer_list.click()  # 点击客户列表菜单
+    #     self.page.search_client_rank.select_by_visible_text(client_rank)  # 选择客户等级A
+    #     self.page.search_btn.click()  # 点击搜索按钮
+    #     sleep(2)
+    #
+    #     pagination = self.page.pagination  # 分页
+    #     if len(pagination) > 0:
+    #         self.page.window_scroll(None, 1000)
+    #         self.page.last_page.click()  # 点击最后一页
+    #         sleep(2)
+    #
+    #     total_text = int(self.page.last_sort.text)
+    #     result = 0
+    #     db_conn = DB(ip='47.103.83.160', user='root', passwd='c587024e9ec3ea0a', db='ylg')
+    #     user = self.get_user()
+    #     sql = "SELECT count(1) total FROM `xy_client` WHERE  `staff_id` = 5  AND `clientkind` = 1  AND `tradekindid` <> 2  AND `closed` = 'F'  AND `client_rank` ='" + client_rank + "'"
+    #     if user['roles_str'] in [87, 91]:
+    #         sql = "SELECT count(1) total FROM `xy_client` WHERE  `staff_id` = 5  AND `clientkind` = 1  AND `tradekindid` <> 2  AND `closed` = 'F'  AND `client_rank` ='" + client_rank + "' and `high_quality` = 0"
+    #     clients = db_conn.query(sql)
+    #     if clients:
+    #         result = clients[0]['total']
+    #
+    #     assert result == total_text
+    #     sleep(2)
+
+    def test_customer_info_update_case(self,browser,base_url):
         """
-        模拟点击客户等级下拉框筛选客户
+        模拟修改客户资料功能：
         """
-        self.login(browser, base_url)
-        self.page = CustomerPage(browser)
-        flag = self.close_layer()  # 关闭弹层
-        if flag:
-            self.page.customer_menu.click()  # 点击客户管理菜单栏
-        else:
-            print("弹层关闭失败")
-        self.page.customer_list.click()  # 点击客户列表菜单
-        self.page.search_client_rank.select_by_visible_text(client_rank)  # 选择客户等级A
-        self.page.search_btn.click()  # 点击搜索按钮
-        sleep(2)
-
-        pagination = self.page.pagination  # 分页
-        if len(pagination) > 0:
-            self.page.window_scroll(None, 1000)
-            self.page.last_page.click()  # 点击最后一页
-            sleep(2)
-
-        total_text = int(self.page.last_sort.text)
-        result = 0
-        db_conn = DB(ip='47.103.83.160', user='root', passwd='c587024e9ec3ea0a', db='ylg')
-        user = self.get_user()
-        sql = "SELECT count(1) total FROM `xy_client` WHERE  `staff_id` = 5  AND `clientkind` = 1  AND `tradekindid` <> 2  AND `closed` = 'F'  AND `client_rank` ='" + client_rank + "'"
-        if user['roles_str'] in [87, 91]:
-            sql = "SELECT count(1) total FROM `xy_client` WHERE  `staff_id` = 5  AND `clientkind` = 1  AND `tradekindid` <> 2  AND `closed` = 'F'  AND `client_rank` ='" + client_rank + "' and `high_quality` = 0"
-        clients = db_conn.query(sql)
-        if clients:
-            result = clients[0]['total']
-
-        assert result == total_text
-        sleep(2)
 
 
 if __name__ == '__main__':
