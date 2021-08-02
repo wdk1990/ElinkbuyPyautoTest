@@ -1,13 +1,4 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Thu Jul 29 16:37:08 CST 2021","Thu Jul 29 16:37:53 CST 2021","45267","test_dir","test_customer","TestCustomer","","","test_customer_rank_case[D]","
-        模拟点击客户等级下拉框筛选客户
-        "
-"passed","Thu Jul 29 16:36:29 CST 2021","Thu Jul 29 16:37:08 CST 2021","38733","test_dir","test_customer","TestCustomer","","","test_customer_rank_case[C]","
-        模拟点击客户等级下拉框筛选客户
-        "
-"passed","Thu Jul 29 16:35:51 CST 2021","Thu Jul 29 16:36:29 CST 2021","37866","test_dir","test_customer","TestCustomer","","","test_customer_rank_case[B]","
-        模拟点击客户等级下拉框筛选客户
-        "
-"passed","Thu Jul 29 16:35:11 CST 2021","Thu Jul 29 16:35:51 CST 2021","40639","test_dir","test_customer","TestCustomer","","","test_customer_rank_case[A]","
-        模拟点击客户等级下拉框筛选客户
+"passed","Mon Aug 02 11:27:18 CST 2021","Mon Aug 02 11:27:52 CST 2021","34828","test_dir","test_customer","TestCustomer","","","test_customer_info_update_case","
+        模拟修改客户资料功能验证：
         "

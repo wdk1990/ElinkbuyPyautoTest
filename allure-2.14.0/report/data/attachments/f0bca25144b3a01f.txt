@@ -1,0 +1,15 @@
+2021-08-02 09:59:07,304 [32mINFO ✅ Find element: name=staff_name [0m
+2021-08-02 09:59:08,471 [32mINFO 🖋 input element: 登录用户名[0m
+2021-08-02 09:59:08,578 [32mINFO ✅ Find element: name=password [0m
+2021-08-02 09:59:09,543 [32mINFO 🖋 input element: 登录密码[0m
+2021-08-02 09:59:09,665 [32mINFO ✅ Find element: css selector=.card-body>form>div.form-group>button.btn [0m
+2021-08-02 09:59:10,628 [32mINFO 🖱 click element: 登录按钮[0m
+2021-08-02 09:59:26,830 [32mINFO ✨ Find 7 elements through: class_name=layui-m-layer, describe:layer弹窗[0m
+2021-08-02 09:59:26,849 [32mINFO ✨ Find 7 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层[0m
+2021-08-02 09:59:26,959 [32mINFO ✅ Find element: id=pytestCustomerMenu [0m
+2021-08-02 09:59:27,913 [32mINFO 🖱 click element: 客户管理菜单栏[0m
+2021-08-02 09:59:27,999 [32mINFO ✅ Find element: id=pytestCustomerList [0m
+2021-08-02 09:59:28,951 [32mINFO 🖱 click element: 客户列表/我的客户菜单[0m
+2021-08-02 09:59:34,427 [32mINFO ✅ Find element: xpath=//div[@class='table-responsive']/table/tbody[@id='content']/tr[2]/td[last()]/a[@id='pytestEditCustomerBtn'] [0m
+2021-08-02 09:59:35,417 [32mINFO 🖱 click element: 完善资料按钮[0m
+test end!

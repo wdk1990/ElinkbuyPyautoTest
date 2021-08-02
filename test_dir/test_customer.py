@@ -100,9 +100,29 @@ class TestCustomer(Base):
     #     assert result == total_text
     #     sleep(2)
 
-    def test_customer_info_update_case(self,browser,base_url):
+    # def test_customer_info_update_case(self, browser, base_url):
+    #     """
+    #     模拟修改客户资料功能验证：
+    #     """
+    #     self.login(browser, base_url)
+    #     self.page = CustomerPage(browser)
+    #     flag = self.close_layer()  # 关闭弹层
+    #     if flag:
+    #         self.page.customer_menu.click()  # 点击客户管理菜单栏
+    #     else:
+    #         print("弹层关闭失败")
+    #     self.page.customer_list.click()  # 点击客户列表菜单
+    #     sleep(2)
+    #
+    #     self.page.edit_customer_btn.click()  # 点击完善资料按钮
+    #     sleep(2)
+    #
+    #     assert self.page.get_title == '完善资料-北京易联购科技有限公司'
+
+    def test_customer_offer_case(self):
         """
-        模拟修改客户资料功能：
+        客户报价功能验证：
+         
         """
 
 
