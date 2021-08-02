@@ -71,13 +71,13 @@ class TestPopup(Base):
         """
         self.login(browser, base_url)
         flag = False
-        self.page = PopupPage(browser)
+        page = PopupPage(browser)
         flag = self.close_layer()  # 关闭弹层
         if flag:
-            self.page.message_button.click()  # 点击信息图标
+            page.message_button.click()  # 点击信息图标
         else:
             print("弹层关闭失败")
-        is_display = self.page.message_box.is_displayed()  # 信息下拉菜单
+        is_display = page.message_box.is_displayed()  # 信息下拉菜单
         if is_display is True:
             flag = True
         else:
@@ -99,17 +99,17 @@ class TestPopup(Base):
         print('待回访客户：' + str(wait_visit_total))
         sleep(2)
 
-        self.page = PopupPage(browser)
+        page = PopupPage(browser)
         flag = self.close_layer()  # 关闭弹层
         if flag:
-            self.page.message_button.click()  # 点击信息图标
+            page.message_button.click()  # 点击信息图标
         else:
             print("弹层关闭失败")
 
-        is_display = self.page.message_box.is_displayed()  # 信息下拉菜单
+        is_display = page.message_box.is_displayed()  # 信息下拉菜单
         wait_visit_text = 0
         if is_display is True:
-            wait_visit_text = int(self.page.wait_visit_count.text)
+            wait_visit_text = int(page.wait_visit_count.text)
         else:
             print("找不到信息框")
         assert wait_visit_total == wait_visit_text
@@ -138,16 +138,16 @@ class TestPopup(Base):
         print('待回访优质客户：' + str(wait_visit_quality_total))
         sleep(2)
 
-        self.page = PopupPage(browser)
+        page = PopupPage(browser)
         flag = self.close_layer()  # 关闭弹层
         if flag:
-            self.page.message_button.click()  # 点击信息图标
+            page.message_button.click()  # 点击信息图标
         else:
             print('弹层关闭失败')
-        is_display = self.page.message_box.is_displayed()  # 信息下拉菜单
+        is_display = page.message_box.is_displayed()  # 信息下拉菜单
         wait_visit_quality_text = 0
         if is_display is True:
-            wait_visit_quality_text = int(self.page.wait_visit_quality_count.text)
+            wait_visit_quality_text = int(page.wait_visit_quality_count.text)
         else:
             print("找不到信息框")
         assert wait_visit_quality_total == wait_visit_quality_text

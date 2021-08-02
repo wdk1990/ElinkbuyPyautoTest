@@ -1,4 +1,7 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon Aug 02 14:10:47 CST 2021","Mon Aug 02 14:11:18 CST 2021","31279","test_dir","test_offer","TestOffer","","","test_offer_show_case","
+        验证报价页面是否正常打开
+        "
 "passed","Mon Aug 02 11:27:18 CST 2021","Mon Aug 02 11:27:52 CST 2021","34828","test_dir","test_customer","TestCustomer","","","test_customer_info_update_case","
         模拟修改客户资料功能验证：
         "

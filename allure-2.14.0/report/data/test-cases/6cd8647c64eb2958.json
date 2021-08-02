@@ -1,5 +1,5 @@
 {
-  "uid" : "abcfedbb362d69e9",
+  "uid" : "6cd8647c64eb2958",
   "name" : "test_customer_info_update_case",
   "fullName" : "test_dir.test_customer.TestCustomer#test_customer_info_update_case",
   "historyId" : "008ec00e15e19c7399166c740ed4b100",
@@ -24,10 +24,10 @@
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   }, {
     "name" : "base_url",
     "time" : {
@@ -39,10 +39,10 @@
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   }, {
     "name" : "browser_close",
     "time" : {
@@ -54,33 +54,33 @@
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   } ],
   "testStage" : {
     "description" : "\n        模拟修改客户资料功能：\n        ",
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ {
-      "uid" : "f4e66cbb76690ff2",
+      "uid" : "d9d5fb15ceb576c0",
       "name" : "log",
-      "source" : "f4e66cbb76690ff2.txt",
+      "source" : "d9d5fb15ceb576c0.txt",
       "type" : "text/plain",
       "size" : 1482
     }, {
-      "uid" : "e4ef7ce054eeb6b4",
+      "uid" : "6a28c230cab420b3",
       "name" : "stdout",
-      "source" : "e4ef7ce054eeb6b4.txt",
+      "source" : "6a28c230cab420b3.txt",
       "type" : "text/plain",
       "size" : 1297
     } ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : true,
     "attachmentsCount" : 2,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : true
   },
   "afterStages" : [ {
     "name" : "browser_close::0",
@@ -93,10 +93,10 @@
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   } ],
   "labels" : [ {
     "name" : "parentSuite",
@@ -134,6 +134,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "abcfedbb362d69e9.json",
+  "source" : "6cd8647c64eb2958.json",
   "parameterValues" : [ ]
 }

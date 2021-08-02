@@ -29,27 +29,32 @@ class Base:
 
     # 登录操作
     def login(self, browser, base_url):
-        self.common_page = Common(browser)
-        self.common_page.get(base_url + '/index.php/employform/index')
+        self.common = Common(browser)
+        self.common.get(base_url + '/index.php/employform/index')
         user = self.get_user()
-        if self.common_page.get_url == base_url + '/index.php/employform/login/index':
-            self.common_page.input_staff_name = user['name']
-            self.common_page.input_password = user['password']
-            self.common_page.login_button.click()
+        if self.common.get_url == base_url + '/index.php/employform/login/index':
+            self.common.input_staff_name = user['name']
+            self.common.input_password = user['password']
+            self.common.login_button.click()
         sleep(15)
 
     # 关闭全部弹窗
     def close_layer(self):
         flag = False
-        if len(self.common_page.layer_divs) > 0:  # 弹出弹窗
-            for layer_shade in self.common_page.layer_shades:
-                self.common_page.execute_script('arguments[0].click()', layer_shade)  # 关闭弹窗
+        if len(self.common.layer_divs) > 0:  # 弹出弹窗
+            for layer_shade in self.common.layer_shades:
+                self.common.execute_script('arguments[0].click()', layer_shade)  # 关闭弹窗
             flag = True
         return flag
 
     # 退出登录操作
     def logout(self):
-        self.common_page.avatar_warn.click()  # 点击右上角用户头像
-        is_display = self.common_page.avatar_box.is_displayed()  # 用户头像下拉框
+        self.common.avatar_warn.click()  # 点击右上角用户头像
+        is_display = self.common.avatar_box.is_displayed()  # 用户头像下拉框
         if is_display is True:
-            self.common_page.logout_btn.click()  # 点击退出登录
+            self.common.logout_btn.click()  # 点击退出登录
+
+    # 点击客户管理下客户菜单进入客户列表页
+    def customer_menu(self):
+        self.common.customer_menu.click()  # 点击客户管理菜单栏
+        self.common.customer_list.click()  # 点击客户列表菜单

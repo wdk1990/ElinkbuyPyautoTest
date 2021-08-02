@@ -1,12 +1,12 @@
 {
-  "uid" : "fbb711e3f6e9f31c",
+  "uid" : "c0d96a481c9f9953",
   "name" : "test_customer_info_update_case",
   "fullName" : "test_dir.test_customer.TestCustomer#test_customer_info_update_case",
   "historyId" : "008ec00e15e19c7399166c740ed4b100",
   "time" : {
-    "start" : 1627874838017,
-    "stop" : 1627874872845,
-    "duration" : 34828
+    "start" : 1627874650477,
+    "stop" : 1627874682963,
+    "duration" : 32486
   },
   "description" : "\n        模拟修改客户资料功能验证：\n        ",
   "descriptionHtml" : "<pre><code>    模拟修改客户资料功能验证：\n</code></pre>\n",
@@ -16,87 +16,87 @@
   "beforeStages" : [ {
     "name" : "base_url",
     "time" : {
-      "start" : 1627874838016,
-      "stop" : 1627874838016,
+      "start" : 1627874650450,
+      "stop" : 1627874650450,
       "duration" : 0
     },
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   }, {
     "name" : "browser_close",
     "time" : {
-      "start" : 1627874838016,
-      "stop" : 1627874838016,
+      "start" : 1627874650450,
+      "stop" : 1627874650450,
       "duration" : 0
     },
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   }, {
     "name" : "browser",
     "time" : {
-      "start" : 1627874836227,
-      "stop" : 1627874838016,
-      "duration" : 1789
+      "start" : 1627874643167,
+      "stop" : 1627874650450,
+      "duration" : 7283
     },
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   } ],
   "testStage" : {
     "description" : "\n        模拟修改客户资料功能验证：\n        ",
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ {
-      "uid" : "83a2fde0b47f3127",
+      "uid" : "67675e49d66a02c",
       "name" : "log",
-      "source" : "83a2fde0b47f3127.txt",
+      "source" : "67675e49d66a02c.txt",
       "type" : "text/plain",
       "size" : 1482
     }, {
-      "uid" : "9c58b990a2d2fa5d",
+      "uid" : "ac50876ca8171ffa",
       "name" : "stdout",
-      "source" : "9c58b990a2d2fa5d.txt",
+      "source" : "ac50876ca8171ffa.txt",
       "type" : "text/plain",
-      "size" : 1297
+      "size" : 1344
     } ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : true,
     "attachmentsCount" : 2,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : true
   },
   "afterStages" : [ {
     "name" : "browser_close::0",
     "time" : {
-      "start" : 1627874872846,
-      "stop" : 1627874875014,
-      "duration" : 2168
+      "start" : 1627874682964,
+      "stop" : 1627874685129,
+      "duration" : 2165
     },
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   } ],
   "labels" : [ {
     "name" : "parentSuite",
@@ -112,7 +112,7 @@
     "value" : "Win7-2019MNTZRK"
   }, {
     "name" : "thread",
-    "value" : "12008-MainThread"
+    "value" : "3768-MainThread"
   }, {
     "name" : "framework",
     "value" : "pytest"
@@ -128,38 +128,12 @@
   } ],
   "parameters" : [ ],
   "links" : [ ],
-  "hidden" : false,
-  "retry" : false,
+  "hidden" : true,
+  "retry" : true,
   "extra" : {
-    "severity" : "normal",
-    "retries" : [ {
-      "uid" : "3384b11de89a46ec",
-      "status" : "passed",
-      "time" : {
-        "start" : 1627874650477,
-        "stop" : 1627874682963,
-        "duration" : 32486
-      }
-    }, {
-      "uid" : "720a663df843f8d4",
-      "status" : "passed",
-      "time" : {
-        "start" : 1627869546163,
-        "stop" : 1627869578545,
-        "duration" : 32382
-      }
-    }, {
-      "uid" : "abcfedbb362d69e9",
-      "status" : "passed",
-      "time" : {
-        "start" : 1627869226047,
-        "stop" : 1627869258532,
-        "duration" : 32485
-      }
-    } ],
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "fbb711e3f6e9f31c.json",
+  "source" : "c0d96a481c9f9953.json",
   "parameterValues" : [ ]
 }

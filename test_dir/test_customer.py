@@ -32,20 +32,19 @@ class TestCustomer(Base):
         3.验证当前登录员工客户数
         """
         self.login(browser, base_url)
-        self.page = CustomerPage(browser)
+        page = CustomerPage(browser)
         flag = self.close_layer()  # 关闭弹层
         if flag:
-            self.page.customer_menu.click()  # 点击客户管理菜单栏
+            self.customer_menu()  # 点击客户列表菜单
         else:
             print("弹层关闭失败")
-        self.page.customer_list.click()  # 点击客户列表菜单
-        self.page.window_scroll(None, 1000)
+        page.window_scroll(None, 1000)
         sleep(3)
 
-        self.page.last_page.click()  # 点击最后一页
+        page.last_page.click()  # 点击最后一页
         sleep(3)
 
-        total_text = int(self.page.last_sort.text)
+        total_text = int(page.last_sort.text)
         result = 0
         db_conn = DB(ip='47.103.83.160', user='root', passwd='c587024e9ec3ea0a', db='ylg')
         user = self.get_user()
@@ -71,24 +70,23 @@ class TestCustomer(Base):
         3.点击搜索按钮
         """
         self.login(browser, base_url)
-        self.page = CustomerPage(browser)
+        page = CustomerPage(browser)
         flag = self.close_layer()  # 关闭弹层
         if flag:
-            self.page.customer_menu.click()  # 点击客户管理菜单栏
+            self.customer_menu()  # 点击客户列表菜单
         else:
             print("弹层关闭失败")
-        self.page.customer_list.click()  # 点击客户列表菜单
-        self.page.search_client_rank.select_by_visible_text(client_rank)  # 选择客户等级A
-        self.page.search_btn.click()  # 点击搜索按钮
+        page.search_client_rank.select_by_visible_text(client_rank)  # 选择客户等级A
+        page.search_btn.click()  # 点击搜索按钮
         sleep(2)
 
-        pagination = self.page.pagination  # 分页
+        pagination = page.pagination  # 分页
         if len(pagination) > 0:
-            self.page.window_scroll(None, 1000)
-            self.page.last_page.click()  # 点击最后一页
+            page.window_scroll(None, 1000)
+            page.last_page.click()  # 点击最后一页
             sleep(2)
 
-        total_text = int(self.page.last_sort.text)
+        total_text = int(page.last_sort.text)
         result = 0
         db_conn = DB(ip='47.103.83.160', user='root', passwd='c587024e9ec3ea0a', db='ylg')
         user = self.get_user()
@@ -107,19 +105,18 @@ class TestCustomer(Base):
         模拟修改客户资料功能验证：
         """
         self.login(browser, base_url)
-        self.page = CustomerPage(browser)
+        page = CustomerPage(browser)
         flag = self.close_layer()  # 关闭弹层
         if flag:
-            self.page.customer_menu.click()  # 点击客户管理菜单栏
+            self.customer_menu()  # 点击客户列表菜单
         else:
             print("弹层关闭失败")
-        self.page.customer_list.click()  # 点击客户列表菜单
         sleep(2)
 
-        self.page.edit_customer_btn.click()  # 点击完善资料按钮
+        page.edit_customer_btn.click()  # 点击完善资料按钮
         sleep(2)
 
-        assert self.page.get_title == '完善资料-北京易联购科技有限公司'
+        assert page.get_title == '完善资料-北京易联购科技有限公司'
 
 
 if __name__ == '__main__':

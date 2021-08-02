@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="72.166" timestamp="2021-08-02T14:09:18.594620" hostname="Win7-2019MNTZRK"><testcase classname="test_dir.test_offer.TestOffer" name="test_offer_show_case" time="68.514"><failure message="TypeError: 'str' object is not callable">self = &lt;test_dir.test_offer.TestOffer object at 0x00000000049F1DF0&gt;, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="2533c7accc5a0b7bab2bf7003f88f5fe")&gt;, base_url = 'http://newtest.elinkbuy.cn'
+
+    def test_offer_show_case(self, browser, base_url):
+        """
+        验证报价页面是否正常打开
+        """
+        self.login(browser, base_url)
+        page = OfferPage(browser)
+        flag = self.close_layer()  # 关闭弹层
+        if flag:
+            self.customer_menu()  # 点击客户列表菜单
+        else:
+            print("弹层关闭失败")
+        sleep(2)
+    
+        page.offer_button.click()  # 点击报价按钮
+        sleep(2)
+    
+&gt;       print(page.get_title())
+E       TypeError: 'str' object is not callable
+
+test_dir\test_offer.py:42: TypeError</failure></testcase></testsuite></testsuites>

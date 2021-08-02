@@ -41,19 +41,19 @@ class TestLogin:
         检查点：
         *检查输入用户名和密码是否为空
         """
-        self.page = LoginPage(browser)
-        self.page.get(base_url + "/index.php/employform/Login/index")
-        self.page.input_staff_name = data["user"]
-        self.page.input_password = data["pwd"]
-        self.page.login_button.click()
+        page = LoginPage(browser)
+        page.get(base_url + "/index.php/employform/Login/index")
+        page.input_staff_name = data["user"]
+        page.input_password = data["pwd"]
+        page.login_button.click()
         sleep(2)
 
-        if data['user'] == '' and self.page.user_error.text != '':
-            result = self.page.user_error.text
-        elif data['pwd'] == '' and self.page.pwd_error.text != '':
-            result = self.page.pwd_error.text
-        elif data['user'] == 'error_user_name' and data['pwd'] == 'error_password' and self.page.all_error.text != '':
-            result = self.page.all_error.text
+        if data['user'] == '' and page.user_error.text != '':
+            result = page.user_error.text
+        elif data['pwd'] == '' and page.pwd_error.text != '':
+            result = page.pwd_error.text
+        elif data['user'] == 'error_user_name' and data['pwd'] == 'error_password' and page.all_error.text != '':
+            result = page.all_error.text
         else:
             result = '登录成功'
 
