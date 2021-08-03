@@ -39,8 +39,25 @@ class TestOffer(Base):
 
         page.offer_button.click()  # 点击报价按钮
         sleep(2)
-        assert page.get_title == '客户列表-北京易联购科技有限公司'
 
-        
+        customer_list_handle = page.current_window_handle  # 当前页面句柄
+        all_handles = page.window_handles  # 所有页面句柄
+        for handle in all_handles:
+            if handle != customer_list_handle:
+                page.switch_to_window(handle)
+
+        assert page.get_title == '报价单-北京易联购科技有限公司'
+        client_id = page.client_id.get_attribute('value')
+        page.add_goods_price_btn.click()  # 点击添加按钮
+        sleep(2)
+
+        assert page.get_title == '价格列表-北京易联购科技有限公司'
+        page.search_keyword = 'LC10M'  # 输入货品名称
+        page.search_button.click()
+        sleep(3)
+   
+
+
+
 if __name__ == '__main__':
     pytest.main(["-v", "-s", "test_offer.py"])

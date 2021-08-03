@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="135.526" timestamp="2021-08-03T09:12:28.893620" hostname="Win7-2019MNTZRK"><testcase classname="test_dir.test_offer.TestOffer" name="test_offer_show_case" time="97.254"><failure message="selenium.common.exceptions.NoSuchElementException: Message: ❌ Find 0 elements through: id=pytestSearchBtn">self = &lt;test_dir.test_offer.TestOffer object at 0x00000000049AABB0&gt;, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="2d9fb007f0a106a7caf20be0d4be8557")&gt;, base_url = 'http://newtest.elinkbuy.cn'
+
+    def test_offer_show_case(self, browser, base_url):
+        """
+        验证报价页面是否正常打开
+        点击添加验证价格列表页面是否能正常打开
+        """
+        self.login(browser, base_url)
+        page = OfferPage(browser)
+        flag = self.close_layer()  # 关闭弹层
+        if flag:
+            self.customer_menu()  # 点击客户列表菜单
+        else:
+            print("弹层关闭失败")
+        sleep(2)
+    
+        page.offer_button.click()  # 点击报价按钮
+        sleep(2)
+    
+        customer_list_handle = page.current_window_handle  # 当前页面句柄
+        all_handles = page.window_handles  # 所有页面句柄
+        for handle in all_handles:
+            if handle != customer_list_handle:
+                page.switch_to_window(handle)
+    
+        assert page.get_title == '报价单-北京易联购科技有限公司'
+        client_id = page.client_id.get_attribute('value')
+        page.add_goods_price_btn.click()  # 点击添加按钮
+        sleep(2)
+    
+        assert page.get_title == '价格列表-北京易联购科技有限公司'
+        page.search_keyword = 'LC10M'
+&gt;       page.search_button.click()
+
+test_dir\test_offer.py:56: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+C:\Program Files\Python38\lib\site-packages\poium\page_objects.py:232: in click
+    elem = self.__get_element(self.k, self.v)
+C:\Program Files\Python38\lib\site-packages\poium\page_objects.py:136: in __get_element
+    self.__find_element((By.ID, value))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;poium.page_objects.Element object at 0x00000000047D8160&gt;, elem = ('id', 'pytestSearchBtn')
+
+    def __find_element(self, elem):
+        """
+        Find if the element exists.
+        """
+        for i in range(self.timeout):
+            try:
+                elems = self.__elements(elem[0], elem[1])
+            except FunctionTimedOut:
+                elems = []
+    
+            if len(elems) == 1:
+                logging.info("✅ Find element: {by}={value} ".format(
+                    by=elem[0], value=elem[1]))
+                break
+            elif len(elems) &gt; 1:
+                logging.info("❓ Find {n} elements through: {by}={value}".format(
+                    n=len(elems), by=elem[0], value=elem[1]))
+                break
+            else:
+                sleep(1)
+        else:
+            error_msg = "❌ Find 0 elements through: {by}={value}".format(by=elem[0], value=elem[1])
+            logging.error(error_msg)
+&gt;           raise NoSuchElementException(error_msg)
+E           selenium.common.exceptions.NoSuchElementException: Message: ❌ Find 0 elements through: id=pytestSearchBtn
+
+C:\Program Files\Python38\lib\site-packages\poium\page_objects.py:127: NoSuchElementException</failure></testcase></testsuite></testsuites>

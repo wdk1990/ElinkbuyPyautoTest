@@ -1,0 +1,42 @@
+2021-08-03 09:12:32,982 [32mINFO ✅ Find element: name=staff_name [0m
+2021-08-03 09:12:34,214 [32mINFO 🖋 input element: 登录用户名[0m
+2021-08-03 09:12:34,280 [32mINFO ✅ Find element: name=password [0m
+2021-08-03 09:12:35,242 [32mINFO 🖋 input element: 登录密码[0m
+2021-08-03 09:12:35,329 [32mINFO ✅ Find element: css selector=.card-body>form>div.form-group>button.btn [0m
+2021-08-03 09:12:36,286 [32mINFO 🖱 click element: 登录按钮[0m
+2021-08-03 09:12:52,210 [32mINFO ✨ Find 7 elements through: class_name=layui-m-layer, describe:layer弹窗[0m
+2021-08-03 09:12:52,226 [32mINFO ✨ Find 7 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层[0m
+2021-08-03 09:12:52,332 [32mINFO ✅ Find element: id=pytestCustomerMenu [0m
+2021-08-03 09:12:53,277 [32mINFO 🖱 click element: 客户管理菜单栏[0m
+2021-08-03 09:12:53,372 [32mINFO ✅ Find element: id=pytestCustomerList [0m
+2021-08-03 09:12:54,313 [32mINFO 🖱 click element: 客户列表/我的客户菜单[0m
+2021-08-03 09:12:59,748 [32mINFO ✅ Find element: xpath=//div[@class='table-responsive']/table/tbody[@id='content']/tr[1]/td[last()]/a[@id='pytestOfferBtn'] [0m
+2021-08-03 09:13:00,725 [32mINFO 🖱 click element: 报价按钮[0m
+2021-08-03 09:13:02,824 [32mINFO ✅ Find element: id=client_id [0m
+2021-08-03 09:13:03,802 [32mINFO ✅ Find element: id=pytestAddGoodsPriceBtn [0m
+2021-08-03 09:13:04,754 [32mINFO 🖱 click element: 添加货品价格按钮[0m
+2021-08-03 09:13:08,023 [32mINFO ✅ Find element: id=sea_keyword [0m
+2021-08-03 09:13:09,001 [32mINFO 🖋 input element: 关键字搜索输入框[0m
+2021-08-03 09:13:16,693 [31mERROR ❌ Find 0 elements through: id=pytestSearchBtn[0m
+test end!
+2021-08-03 09:13:39,945 [32mINFO ✅ Find element: name=staff_name [0m
+2021-08-03 09:13:41,154 [32mINFO 🖋 input element: 登录用户名[0m
+2021-08-03 09:13:41,242 [32mINFO ✅ Find element: name=password [0m
+2021-08-03 09:13:42,185 [32mINFO 🖋 input element: 登录密码[0m
+2021-08-03 09:13:42,254 [32mINFO ✅ Find element: css selector=.card-body>form>div.form-group>button.btn [0m
+2021-08-03 09:13:43,195 [32mINFO 🖱 click element: 登录按钮[0m
+2021-08-03 09:13:59,559 [32mINFO ✨ Find 7 elements through: class_name=layui-m-layer, describe:layer弹窗[0m
+2021-08-03 09:13:59,585 [32mINFO ✨ Find 7 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层[0m
+2021-08-03 09:13:59,688 [32mINFO ✅ Find element: id=pytestCustomerMenu [0m
+2021-08-03 09:14:00,638 [32mINFO 🖱 click element: 客户管理菜单栏[0m
+2021-08-03 09:14:00,724 [32mINFO ✅ Find element: id=pytestCustomerList [0m
+2021-08-03 09:14:01,672 [32mINFO 🖱 click element: 客户列表/我的客户菜单[0m
+2021-08-03 09:14:07,243 [32mINFO ✅ Find element: xpath=//div[@class='table-responsive']/table/tbody[@id='content']/tr[1]/td[last()]/a[@id='pytestOfferBtn'] [0m
+2021-08-03 09:14:08,270 [32mINFO 🖱 click element: 报价按钮[0m
+2021-08-03 09:14:10,408 [32mINFO ✅ Find element: id=client_id [0m
+2021-08-03 09:14:11,434 [32mINFO ✅ Find element: id=pytestAddGoodsPriceBtn [0m
+2021-08-03 09:14:12,397 [32mINFO 🖱 click element: 添加货品价格按钮[0m
+2021-08-03 09:14:15,591 [32mINFO ✅ Find element: id=sea_keyword [0m
+2021-08-03 09:14:16,553 [32mINFO 🖋 input element: 关键字搜索输入框[0m
+2021-08-03 09:14:24,254 [31mERROR ❌ Find 0 elements through: id=pytestSearchBtn[0m
+test end!
