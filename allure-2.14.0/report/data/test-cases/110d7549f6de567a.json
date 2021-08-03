@@ -1,5 +1,5 @@
 {
-  "uid" : "c270e8d91e3fea95",
+  "uid" : "110d7549f6de567a",
   "name" : "test_offer_show_case",
   "fullName" : "test_dir.test_offer.TestOffer#test_offer_show_case",
   "historyId" : "171c112010fd04348353b0e7d46a47f3",
@@ -26,10 +26,10 @@
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false,
     "stepsCount" : 0,
-    "hasContent" : false
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
   }, {
     "name" : "base_url",
     "time" : {
@@ -41,10 +41,10 @@
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false,
     "stepsCount" : 0,
-    "hasContent" : false
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
   }, {
     "name" : "browser_close",
     "time" : {
@@ -56,10 +56,10 @@
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false,
     "stepsCount" : 0,
-    "hasContent" : false
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
   } ],
   "testStage" : {
     "description" : "\n        验证报价页面是否正常打开\n        点击添加验证价格列表页面是否能正常打开\n        ",
@@ -76,36 +76,36 @@
       "status" : "passed",
       "steps" : [ ],
       "attachments" : [ {
-        "uid" : "89a8208ff907d58",
+        "uid" : "a1a596cc2c683117",
         "name" : "失败截图",
-        "source" : "89a8208ff907d58.png",
+        "source" : "a1a596cc2c683117.png",
         "type" : "image/png",
         "size" : 175205
       } ],
       "parameters" : [ ],
-      "attachmentsCount" : 1,
-      "shouldDisplayMessage" : false,
       "stepsCount" : 0,
-      "hasContent" : true
+      "hasContent" : true,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false
     } ],
     "attachments" : [ {
-      "uid" : "abf8ffe458083797",
+      "uid" : "b07513c2cc7e0ed4",
       "name" : "log",
-      "source" : "abf8ffe458083797.txt",
+      "source" : "b07513c2cc7e0ed4.txt",
       "type" : "text/plain",
       "size" : 4071
     }, {
-      "uid" : "67a3e2baa659518d",
+      "uid" : "a9e9ae5215c29d96",
       "name" : "stdout",
-      "source" : "67a3e2baa659518d.txt",
+      "source" : "a9e9ae5215c29d96.txt",
       "type" : "text/plain",
       "size" : 3524
     } ],
     "parameters" : [ ],
-    "attachmentsCount" : 3,
-    "shouldDisplayMessage" : true,
     "stepsCount" : 1,
-    "hasContent" : true
+    "hasContent" : true,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : true
   },
   "afterStages" : [ {
     "name" : "browser_close::0",
@@ -118,10 +118,10 @@
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false,
     "stepsCount" : 0,
-    "hasContent" : false
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
   } ],
   "labels" : [ {
     "name" : "parentSuite",
@@ -159,6 +159,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "c270e8d91e3fea95.json",
+  "source" : "110d7549f6de567a.json",
   "parameterValues" : [ ]
 }

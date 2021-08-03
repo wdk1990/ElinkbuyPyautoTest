@@ -23,7 +23,7 @@ class TestOffer(Base):
     模拟业务原给指定客户报价操作
     """
 
-    def test_offer_show_case(self, browser, base_url):
+    def test_offer_case(self, browser, base_url):
         """
         验证报价页面是否正常打开
         点击添加验证价格列表页面是否能正常打开
@@ -54,9 +54,17 @@ class TestOffer(Base):
         assert page.get_title == '价格列表-北京易联购科技有限公司'
         page.search_keyword = 'LC10M'  # 输入货品名称
         page.search_button.click()
-        sleep(3)
-   
+        sleep(2)
 
+        page.price_check.click()  # 点击阶梯价格查询按钮
+        sleep(3)
+
+        url_temps = page.get_url.replace("//", '').split('/')
+        price_id = url_temps[-1]  # 价格ID
+        flag = False
+        if 'priceCompute' in url_temps:  # 价格计算页面
+            flag = True
+        assert flag is True
 
 
 if __name__ == '__main__':

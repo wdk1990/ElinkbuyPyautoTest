@@ -3,13 +3,26 @@
   "name" : "behaviors",
   "children" : [ {
     "name" : "test_offer_show_case",
-    "uid" : "8cecd36f1afd0acc",
+    "uid" : "6931b64e9bcd9703",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
-      "start" : 1627953469072,
-      "stop" : 1627953511290,
-      "duration" : 42218
+      "start" : 1627955599077,
+      "stop" : 1627955652673,
+      "duration" : 53596
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "test_offer_case",
+    "uid" : "6a23938adbd32a60",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1627959661920,
+      "stop" : 1627959712936,
+      "duration" : 51016
     },
     "flaky" : false,
     "newFailed" : false,

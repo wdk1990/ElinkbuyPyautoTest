@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="56.092" timestamp="2021-08-03T09:27:14.136620" hostname="Win7-2019MNTZRK"><testcase classname="test_dir.test_offer.TestOffer" name="test_offer_show_case" time="55.927" /></testsuite></testsuites>

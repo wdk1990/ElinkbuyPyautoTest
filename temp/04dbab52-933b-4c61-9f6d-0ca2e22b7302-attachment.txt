@@ -1,0 +1,25 @@
+2021-08-03 10:50:23,197 [32mINFO ✅ Find element: name=staff_name [0m
+2021-08-03 10:50:24,157 [32mINFO 🖋 input element: 登录用户名[0m
+2021-08-03 10:50:24,238 [32mINFO ✅ Find element: name=password [0m
+2021-08-03 10:50:25,179 [32mINFO 🖋 input element: 登录密码[0m
+2021-08-03 10:50:25,235 [32mINFO ✅ Find element: css selector=.card-body>form>div.form-group>button.btn [0m
+2021-08-03 10:50:26,163 [32mINFO 🖱 click element: 登录按钮[0m
+2021-08-03 10:50:47,522 [32mINFO ✨ Find 7 elements through: class_name=layui-m-layer, describe:layer弹窗[0m
+2021-08-03 10:50:47,540 [32mINFO ✨ Find 7 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层[0m
+2021-08-03 10:50:47,901 [32mINFO ✅ Find element: id=pytestCustomerMenu [0m
+2021-08-03 10:50:49,071 [32mINFO 🖱 click element: 客户管理菜单栏[0m
+2021-08-03 10:50:49,180 [32mINFO ✅ Find element: id=pytestCustomerList [0m
+2021-08-03 10:50:50,133 [32mINFO 🖱 click element: 客户列表/我的客户菜单[0m
+2021-08-03 10:50:55,592 [32mINFO ✅ Find element: xpath=//div[@class='table-responsive']/table/tbody[@id='content']/tr[1]/td[last()]/a[@id='pytestOfferBtn'] [0m
+2021-08-03 10:50:56,566 [32mINFO 🖱 click element: 报价按钮[0m
+2021-08-03 10:50:58,705 [32mINFO ✅ Find element: id=client_id [0m
+2021-08-03 10:50:59,700 [32mINFO ✅ Find element: id=pytestAddGoodsPriceBtn [0m
+2021-08-03 10:51:00,668 [32mINFO 🖱 click element: 添加货品价格按钮[0m
+2021-08-03 10:51:04,293 [32mINFO ✅ Find element: id=sea_keyword [0m
+2021-08-03 10:51:05,288 [32mINFO 🖋 input element: 关键字搜索输入框[0m
+2021-08-03 10:51:05,356 [32mINFO ✅ Find element: xpath=//div[@class='input-group-append']/button[@type='submit'] [0m
+2021-08-03 10:51:06,314 [32mINFO 🖱 click element: 关键字搜索按钮[0m
+2021-08-03 10:51:09,352 [32mINFO ✅ Find element: xpath=//div[@class='table-responsive']/table/tbody/tr[1]/td[last()]/a [0m
+2021-08-03 10:51:10,348 [32mINFO 🖱 click element: 阶梯价格查询按钮[0m
+['http:newtest.elinkbuy.cn', 'index.php', 'employform', 'Goodsprice', 'priceCompute', 'en_back_url', 'aHR0cCUzQSUyRiUyRm5ld3Rlc3QuZWxpbmtidXkuY24lMkZpbmRleC5waHAlMkZlbXBsb3lmb3JtJTJGR29vZHNwcmljZSUyRmluZGV4JTJGc2VhX2tleXdvcmQlMkZURU14TUUwJTNE', 's_keyword', 'TEMxME0=', 'price_id', '1655']
+test end!

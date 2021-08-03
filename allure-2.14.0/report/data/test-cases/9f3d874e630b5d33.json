@@ -1,12 +1,12 @@
 {
-  "uid" : "2492f50a2dbe2e4c",
+  "uid" : "9f3d874e630b5d33",
   "name" : "test_offer_show_case",
   "fullName" : "test_dir.test_offer.TestOffer#test_offer_show_case",
   "historyId" : "171c112010fd04348353b0e7d46a47f3",
   "time" : {
-    "start" : 1627892986559,
-    "stop" : 1627893025676,
-    "duration" : 39117
+    "start" : 1627950345329,
+    "stop" : 1627950382515,
+    "duration" : 37186
   },
   "description" : "\n        验证报价页面是否正常打开\n        点击添加验证价格列表页面是否能正常打开\n        ",
   "descriptionHtml" : "<pre><code>    验证报价页面是否正常打开\n    点击添加验证价格列表页面是否能正常打开\n</code></pre>\n",
@@ -14,89 +14,89 @@
   "flaky" : false,
   "newFailed" : false,
   "beforeStages" : [ {
-    "name" : "base_url",
-    "time" : {
-      "start" : 1627892986558,
-      "stop" : 1627892986558,
-      "duration" : 0
-    },
-    "status" : "passed",
-    "steps" : [ ],
-    "attachments" : [ ],
-    "parameters" : [ ],
-    "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false,
-    "stepsCount" : 0,
-    "hasContent" : false
-  }, {
     "name" : "browser_close",
     "time" : {
-      "start" : 1627892986557,
-      "stop" : 1627892986557,
+      "start" : 1627950345327,
+      "stop" : 1627950345327,
       "duration" : 0
     },
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false,
     "stepsCount" : 0,
-    "hasContent" : false
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1627950345327,
+      "stop" : 1627950345328,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
   }, {
     "name" : "browser",
     "time" : {
-      "start" : 1627892984770,
-      "stop" : 1627892986556,
-      "duration" : 1786
+      "start" : 1627950343013,
+      "stop" : 1627950345327,
+      "duration" : 2314
     },
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false,
     "stepsCount" : 0,
-    "hasContent" : false
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
   } ],
   "testStage" : {
     "description" : "\n        验证报价页面是否正常打开\n        点击添加验证价格列表页面是否能正常打开\n        ",
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ {
-      "uid" : "edff4a9641286299",
+      "uid" : "fe294fb225f9a52e",
       "name" : "log",
-      "source" : "edff4a9641286299.txt",
+      "source" : "fe294fb225f9a52e.txt",
       "type" : "text/plain",
-      "size" : 1469
+      "size" : 1747
     }, {
-      "uid" : "b8dabbdb2e51b6a4",
+      "uid" : "fe46e356450a3aaf",
       "name" : "stdout",
-      "source" : "b8dabbdb2e51b6a4.txt",
+      "source" : "fe46e356450a3aaf.txt",
       "type" : "text/plain",
-      "size" : 1331
+      "size" : 1520
     } ],
     "parameters" : [ ],
-    "attachmentsCount" : 2,
-    "shouldDisplayMessage" : false,
     "stepsCount" : 0,
-    "hasContent" : true
+    "hasContent" : true,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false
   },
   "afterStages" : [ {
     "name" : "browser_close::0",
     "time" : {
-      "start" : 1627893025679,
-      "stop" : 1627893027842,
-      "duration" : 2163
+      "start" : 1627950382516,
+      "stop" : 1627950384636,
+      "duration" : 2120
     },
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false,
     "stepsCount" : 0,
-    "hasContent" : false
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
   } ],
   "labels" : [ {
     "name" : "parentSuite",
@@ -112,7 +112,7 @@
     "value" : "Win7-2019MNTZRK"
   }, {
     "name" : "thread",
-    "value" : "11324-MainThread"
+    "value" : "4308-MainThread"
   }, {
     "name" : "framework",
     "value" : "pytest"
@@ -134,6 +134,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "2492f50a2dbe2e4c.json",
+  "source" : "9f3d874e630b5d33.json",
   "parameterValues" : [ ]
 }

@@ -1,0 +1,164 @@
+{
+  "uid" : "2cf7e7301e2ac5f9",
+  "name" : "test_offer_show_case",
+  "fullName" : "test_dir.test_offer.TestOffer#test_offer_show_case",
+  "historyId" : "171c112010fd04348353b0e7d46a47f3",
+  "time" : {
+    "start" : 1627955495620,
+    "stop" : 1627955571618,
+    "duration" : 75998
+  },
+  "description" : "\n        验证报价页面是否正常打开\n        点击添加验证价格列表页面是否能正常打开\n        ",
+  "descriptionHtml" : "<pre><code>    验证报价页面是否正常打开\n    点击添加验证价格列表页面是否能正常打开\n</code></pre>\n",
+  "status" : "broken",
+  "statusMessage" : "AttributeError: 'OfferPage' object has no attribute 'current_url'",
+  "statusTrace" : "self = <test_dir.test_offer.TestOffer object at 0x0000000004A8FDF0>, browser = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"4528482ac5cf5920d5cbbe881dd1ae3d\")>, base_url = 'http://newtest.elinkbuy.cn'\n\n    def test_offer_show_case(self, browser, base_url):\n        \"\"\"\n        验证报价页面是否正常打开\n        点击添加验证价格列表页面是否能正常打开\n        \"\"\"\n        self.login(browser, base_url)\n        page = OfferPage(browser)\n        flag = self.close_layer()  # 关闭弹层\n        if flag:\n            self.customer_menu()  # 点击客户列表菜单\n        else:\n            print(\"弹层关闭失败\")\n        sleep(2)\n    \n        page.offer_button.click()  # 点击报价按钮\n        sleep(2)\n    \n        customer_list_handle = page.current_window_handle  # 当前页面句柄\n        all_handles = page.window_handles  # 所有页面句柄\n        for handle in all_handles:\n            if handle != customer_list_handle:\n                page.switch_to_window(handle)\n    \n        assert page.get_title == '报价单-北京易联购科技有限公司'\n        client_id = page.client_id.get_attribute('value')\n        page.add_goods_price_btn.click()  # 点击添加按钮\n        sleep(2)\n    \n        assert page.get_title == '价格列表-北京易联购科技有限公司'\n        page.search_keyword = 'LC10M'  # 输入货品名称\n        page.search_button.click()\n        sleep(2)\n    \n        page.price_check.click()  # 点击阶梯价格查询按钮\n        sleep(3)\n>       print(page.current_url)\nE       AttributeError: 'OfferPage' object has no attribute 'current_url'\n\ntest_dir\\test_offer.py:61: AttributeError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "browser",
+    "time" : {
+      "start" : 1627955493786,
+      "stop" : 1627955495619,
+      "duration" : 1833
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "browser_close",
+    "time" : {
+      "start" : 1627955495619,
+      "stop" : 1627955495619,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1627955495619,
+      "stop" : 1627955495619,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "testStage" : {
+    "description" : "\n        验证报价页面是否正常打开\n        点击添加验证价格列表页面是否能正常打开\n        ",
+    "status" : "broken",
+    "statusMessage" : "AttributeError: 'OfferPage' object has no attribute 'current_url'",
+    "statusTrace" : "self = <test_dir.test_offer.TestOffer object at 0x0000000004A8FDF0>, browser = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"4528482ac5cf5920d5cbbe881dd1ae3d\")>, base_url = 'http://newtest.elinkbuy.cn'\n\n    def test_offer_show_case(self, browser, base_url):\n        \"\"\"\n        验证报价页面是否正常打开\n        点击添加验证价格列表页面是否能正常打开\n        \"\"\"\n        self.login(browser, base_url)\n        page = OfferPage(browser)\n        flag = self.close_layer()  # 关闭弹层\n        if flag:\n            self.customer_menu()  # 点击客户列表菜单\n        else:\n            print(\"弹层关闭失败\")\n        sleep(2)\n    \n        page.offer_button.click()  # 点击报价按钮\n        sleep(2)\n    \n        customer_list_handle = page.current_window_handle  # 当前页面句柄\n        all_handles = page.window_handles  # 所有页面句柄\n        for handle in all_handles:\n            if handle != customer_list_handle:\n                page.switch_to_window(handle)\n    \n        assert page.get_title == '报价单-北京易联购科技有限公司'\n        client_id = page.client_id.get_attribute('value')\n        page.add_goods_price_btn.click()  # 点击添加按钮\n        sleep(2)\n    \n        assert page.get_title == '价格列表-北京易联购科技有限公司'\n        page.search_keyword = 'LC10M'  # 输入货品名称\n        page.search_button.click()\n        sleep(2)\n    \n        page.price_check.click()  # 点击阶梯价格查询按钮\n        sleep(3)\n>       print(page.current_url)\nE       AttributeError: 'OfferPage' object has no attribute 'current_url'\n\ntest_dir\\test_offer.py:61: AttributeError",
+    "steps" : [ {
+      "name" : "添加失败截图...",
+      "time" : {
+        "start" : 1627955571818,
+        "stop" : 1627955571968,
+        "duration" : 150
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "8549a4bf95c9aa1d",
+        "name" : "失败截图",
+        "source" : "8549a4bf95c9aa1d.png",
+        "type" : "image/png",
+        "size" : 150042
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "2d08dc3afa1ff24e",
+      "name" : "log",
+      "source" : "2d08dc3afa1ff24e.txt",
+      "type" : "text/plain",
+      "size" : 4795
+    }, {
+      "uid" : "b9bbdb45a7afc49c",
+      "name" : "stdout",
+      "source" : "b9bbdb45a7afc49c.txt",
+      "type" : "text/plain",
+      "size" : 4172
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 1,
+    "hasContent" : true,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : true
+  },
+  "afterStages" : [ {
+    "name" : "browser_close::0",
+    "time" : {
+      "start" : 1627955571970,
+      "stop" : 1627955574227,
+      "duration" : 2257
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_dir"
+  }, {
+    "name" : "suite",
+    "value" : "test_offer"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestOffer"
+  }, {
+    "name" : "host",
+    "value" : "Win7-2019MNTZRK"
+  }, {
+    "name" : "thread",
+    "value" : "11276-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_dir.test_offer"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "2cf7e7301e2ac5f9.json",
+  "parameterValues" : [ ]
+}

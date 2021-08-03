@@ -1,5 +1,9 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Tue Aug 03 09:17:49 CST 2021","Tue Aug 03 09:18:31 CST 2021","42218","test_dir","test_offer","TestOffer","","","test_offer_show_case","
+"passed","Tue Aug 03 09:53:19 CST 2021","Tue Aug 03 09:54:12 CST 2021","53596","test_dir","test_offer","TestOffer","","","test_offer_show_case","
+        验证报价页面是否正常打开
+        点击添加验证价格列表页面是否能正常打开
+        "
+"passed","Tue Aug 03 11:01:01 CST 2021","Tue Aug 03 11:01:52 CST 2021","51016","test_dir","test_offer","TestOffer","","","test_offer_case","
         验证报价页面是否正常打开
         点击添加验证价格列表页面是否能正常打开
         "
