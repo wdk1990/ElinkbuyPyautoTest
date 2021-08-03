@@ -12,7 +12,8 @@ class RunConfig:
     # cases_path = os.path.join(PRO_PATH, "test_dir", "test_login.py")
     # cases_path = os.path.join(PRO_PATH, "test_dir", "test_popup.py")
     # cases_path = os.path.join(PRO_PATH, "test_dir", "test_customer.py")
-    cases_path = os.path.join(PRO_PATH, "test_dir", "test_offer.py")
+    # cases_path = os.path.join(PRO_PATH, "test_dir", "test_offer.py")
+    cases_path = os.path.join(PRO_PATH, "test_dir", "test_customer_report.py")
 
     # 配置浏览器驱动类型(chrome/firefox/chrome-headless/firefox-headless)。
     driver_type = "chrome"

@@ -45,7 +45,7 @@ class Base:
             for layer_shade in self.common.layer_shades:
                 self.common.execute_script('arguments[0].click()', layer_shade)  # 关闭弹窗
             flag = True
-        return flag
+        assert flag is True, "弹窗关闭失败!"
 
     # 退出登录操作
     def logout(self):
@@ -54,7 +54,12 @@ class Base:
         if is_display is True:
             self.common.logout_btn.click()  # 点击退出登录
 
-    # 点击客户管理下客户菜单进入客户列表页
+    # 客户列表菜单
     def customer_menu(self):
         self.common.customer_menu.click()  # 点击客户管理菜单栏
         self.common.customer_list.click()  # 点击客户列表菜单
+
+    # 客户报备菜单
+    def customer_report_menu(self):
+        self.common.customer_report_menu.click()  # 点击报备报价合同菜单栏
+        self.common.customer_report_list.click()  # 点击客户报备菜单

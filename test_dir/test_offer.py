@@ -30,11 +30,8 @@ class TestOffer(Base):
         """
         self.login(browser, base_url)
         page = OfferPage(browser)
-        flag = self.close_layer()  # 关闭弹层
-        if flag:
-            self.customer_menu()  # 点击客户列表菜单
-        else:
-            print("弹层关闭失败")
+        self.close_layer()  # 关闭弹层
+        self.customer_menu()  # 点击客户列表菜单
         sleep(2)
 
         page.offer_button.click()  # 点击报价按钮

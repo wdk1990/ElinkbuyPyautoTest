@@ -15,3 +15,6 @@ class Common(Page):
 
     customer_menu = Element(id_="pytestCustomerMenu", describe="客户管理菜单栏")
     customer_list = Element(id_="pytestCustomerList", describe="客户列表/我的客户菜单")
+
+    customer_report_menu = Element(id_="pytestCustomerReportMenu", describe="报备报价合同栏")
+    customer_report_list = Element(id_="pytestCustomerReportList", describe="客户报备列表")

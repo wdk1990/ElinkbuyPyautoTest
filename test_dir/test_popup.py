@@ -49,7 +49,8 @@ def get_wait_visit_total(role_id, staff_id):
     visit_count = 0
     if clients:
         for client in clients:
-            visit_date = time.strftime("%Y-%m-%d", time.localtime(int(time.mktime(time.strptime(client['visit_time'], "%Y-%m-%d %H:%M:%S")))))
+            visit_date = time.strftime("%Y-%m-%d", time.localtime(
+                int(time.mktime(time.strptime(client['visit_time'], "%Y-%m-%d %H:%M:%S")))))
             next_visit_date = client['next_visit_time']
             now_date = time.strftime("%Y-%m-%d", time.localtime(time.time()))
             if next_visit_date is not None:
@@ -72,11 +73,8 @@ class TestPopup(Base):
         self.login(browser, base_url)
         flag = False
         page = PopupPage(browser)
-        flag = self.close_layer()  # 关闭弹层
-        if flag:
-            page.message_button.click()  # 点击信息图标
-        else:
-            print("弹层关闭失败")
+        self.close_layer()  # 关闭弹层
+        page.message_button.click()  # 点击信息图标
         is_display = page.message_box.is_displayed()  # 信息下拉菜单
         if is_display is True:
             flag = True
@@ -100,11 +98,8 @@ class TestPopup(Base):
         sleep(2)
 
         page = PopupPage(browser)
-        flag = self.close_layer()  # 关闭弹层
-        if flag:
-            page.message_button.click()  # 点击信息图标
-        else:
-            print("弹层关闭失败")
+        self.close_layer()  # 关闭弹层
+        page.message_button.click()  # 点击信息图标
 
         is_display = page.message_box.is_displayed()  # 信息下拉菜单
         wait_visit_text = 0
@@ -139,11 +134,8 @@ class TestPopup(Base):
         sleep(2)
 
         page = PopupPage(browser)
-        flag = self.close_layer()  # 关闭弹层
-        if flag:
-            page.message_button.click()  # 点击信息图标
-        else:
-            print('弹层关闭失败')
+        self.close_layer()  # 关闭弹层
+        page.message_button.click()  # 点击信息图标
         is_display = page.message_box.is_displayed()  # 信息下拉菜单
         wait_visit_quality_text = 0
         if is_display is True:

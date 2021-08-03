@@ -33,11 +33,8 @@ class TestCustomer(Base):
         """
         self.login(browser, base_url)
         page = CustomerPage(browser)
-        flag = self.close_layer()  # 关闭弹层
-        if flag:
-            self.customer_menu()  # 点击客户列表菜单
-        else:
-            print("弹层关闭失败")
+        self.close_layer()  # 关闭弹层
+        self.customer_menu()  # 点击客户列表菜单
         page.window_scroll(None, 1000)
         sleep(3)
 
@@ -71,11 +68,9 @@ class TestCustomer(Base):
         """
         self.login(browser, base_url)
         page = CustomerPage(browser)
-        flag = self.close_layer()  # 关闭弹层
-        if flag:
-            self.customer_menu()  # 点击客户列表菜单
-        else:
-            print("弹层关闭失败")
+        self.close_layer()  # 关闭弹层
+        self.customer_menu()  # 点击客户列表菜单
+
         page.search_client_rank.select_by_visible_text(client_rank)  # 选择客户等级A
         page.search_btn.click()  # 点击搜索按钮
         sleep(2)
@@ -106,11 +101,8 @@ class TestCustomer(Base):
         """
         self.login(browser, base_url)
         page = CustomerPage(browser)
-        flag = self.close_layer()  # 关闭弹层
-        if flag:
-            self.customer_menu()  # 点击客户列表菜单
-        else:
-            print("弹层关闭失败")
+        self.close_layer()  # 关闭弹层
+        self.customer_menu()  # 点击客户列表菜单
         sleep(2)
 
         page.edit_customer_btn.click()  # 点击完善资料按钮

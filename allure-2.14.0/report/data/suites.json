@@ -4,39 +4,26 @@
   "children" : [ {
     "name" : "test_dir",
     "children" : [ {
-      "name" : "test_offer",
+      "name" : "test_customer_report",
       "children" : [ {
-        "name" : "TestOffer",
+        "name" : "TestCustomerReport",
         "children" : [ {
-          "name" : "test_offer_show_case",
-          "uid" : "6931b64e9bcd9703",
-          "parentUid" : "3139ccb076d3a01c6d60f0b2d0235a86",
+          "name" : "test_report_case",
+          "uid" : "d9259016e27c59d7",
+          "parentUid" : "ef7bd00590ad3f0fc16a01c90732ddc6",
           "status" : "passed",
           "time" : {
-            "start" : 1627955599077,
-            "stop" : 1627955652673,
-            "duration" : 53596
-          },
-          "flaky" : false,
-          "newFailed" : false,
-          "parameters" : [ ]
-        }, {
-          "name" : "test_offer_case",
-          "uid" : "6a23938adbd32a60",
-          "parentUid" : "3139ccb076d3a01c6d60f0b2d0235a86",
-          "status" : "passed",
-          "time" : {
-            "start" : 1627959661920,
-            "stop" : 1627959712936,
-            "duration" : 51016
+            "start" : 1627980888590,
+            "stop" : 1627980943296,
+            "duration" : 54706
           },
           "flaky" : false,
           "newFailed" : false,
           "parameters" : [ ]
         } ],
-        "uid" : "3139ccb076d3a01c6d60f0b2d0235a86"
+        "uid" : "ef7bd00590ad3f0fc16a01c90732ddc6"
       } ],
-      "uid" : "80a03222278875084854f8313cf607c6"
+      "uid" : "e59e9a9bcb52610302a0aed210e11e54"
     } ],
     "uid" : "0deb62a7421191a8a69ea1015ab6c56d"
   } ]

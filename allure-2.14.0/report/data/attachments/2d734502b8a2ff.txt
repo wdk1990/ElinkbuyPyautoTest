@@ -1,0 +1,14 @@
+2021-08-03 15:26:37,931 [32mINFO ✅ Find element: name=staff_name [0m
+2021-08-03 15:26:39,063 [32mINFO 🖋 input element: 登录用户名[0m
+2021-08-03 15:26:39,140 [32mINFO ✅ Find element: name=password [0m
+2021-08-03 15:26:40,086 [32mINFO 🖋 input element: 登录密码[0m
+2021-08-03 15:26:40,154 [32mINFO ✅ Find element: css selector=.card-body>form>div.form-group>button.btn [0m
+2021-08-03 15:26:41,083 [32mINFO 🖱 click element: 登录按钮[0m
+2021-08-03 15:26:59,565 [32mINFO ✨ Find 7 elements through: class_name=layui-m-layer, describe:layer弹窗[0m
+2021-08-03 15:26:59,581 [32mINFO ✨ Find 7 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层[0m
+2021-08-03 15:26:59,973 [32mINFO ✅ Find element: id=pytestCustomerReportMenu [0m
+2021-08-03 15:27:01,184 [32mINFO 🖱 click element: 报备报价合同栏[0m
+2021-08-03 15:27:01,286 [32mINFO ✅ Find element: id=pytestCustomerReportList [0m
+2021-08-03 15:27:02,244 [32mINFO 🖱 click element: 客户报备列表[0m
+2021-08-03 15:27:13,433 [32mINFO ✨ Find 0 elements through: xpath=//div[@class='pagination']/table[@id='report_tab']/tr/td[@id='pytestReportListPage']/ul[@class='pagination']/li, describe:分页[0m
+test end!
