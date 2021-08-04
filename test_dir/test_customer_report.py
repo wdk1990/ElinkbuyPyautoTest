@@ -27,6 +27,8 @@ class TestCustomerReport(Base):
         1.点击顶级菜单报备报价合同下客户报备菜单
         2.验证是否正常跳转到客户报备列表页
         3.验证报备列表数据
+        4.输入报备客户名称点击报备检索
+        5.验证输入的客户是否符合报备条件
         """
         self.login(browser, base_url)
         self.close_layer()
@@ -57,10 +59,20 @@ class TestCustomerReport(Base):
         assert page.get_title == '报备验证-北京易联购科技有限公司'
         page.report_name_input = '张三'
         page.report_search_button.click()
-        sleep(5)
+        sleep(3)
 
-        url_temps = page.get_url.replace("//", '').split('/')
+        # 验证客户是否可以报备
         
+
+
+        # url_temps = page.get_url.replace("//", '').split('/')
+        # flag = False
+        # if 'checkCustomer' in url_temps:  # 报备信息提交页面
+        #     flag = True
+        # assert flag is True
+        # sleep(3)
+
+
 
 
     if __name__ == '__main__':

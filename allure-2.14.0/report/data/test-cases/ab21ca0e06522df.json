@@ -1,12 +1,12 @@
 {
-  "uid" : "f891c0c4d6bf1037",
+  "uid" : "ab21ca0e06522df",
   "name" : "test_report_case",
   "fullName" : "test_dir.test_customer_report.TestCustomerReport#test_report_case",
   "historyId" : "c5bdcc54ea665b8a44d464bd17f9a56d",
   "time" : {
-    "start" : 1627975596866,
-    "stop" : 1627975633435,
-    "duration" : 36569
+    "start" : 1627980139200,
+    "stop" : 1627980187839,
+    "duration" : 48639
   },
   "description" : "\n        模拟业务员报备客户:\n        1.点击顶级菜单报备报价合同下客户报备菜单\n        2.验证是否正常跳转到客户报备列表页\n        3.验证报备列表数据\n        ",
   "descriptionHtml" : "<pre><code>    模拟业务员报备客户:\n    1.点击顶级菜单报备报价合同下客户报备菜单\n    2.验证是否正常跳转到客户报备列表页\n    3.验证报备列表数据\n</code></pre>\n",
@@ -16,87 +16,87 @@
   "beforeStages" : [ {
     "name" : "base_url",
     "time" : {
-      "start" : 1627975596864,
-      "stop" : 1627975596864,
+      "start" : 1627980139198,
+      "stop" : 1627980139198,
       "duration" : 0
     },
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   }, {
     "name" : "browser_close",
     "time" : {
-      "start" : 1627975596863,
-      "stop" : 1627975596863,
+      "start" : 1627980139198,
+      "stop" : 1627980139198,
       "duration" : 0
     },
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   }, {
     "name" : "browser",
     "time" : {
-      "start" : 1627975595058,
-      "stop" : 1627975596863,
-      "duration" : 1805
+      "start" : 1627980137482,
+      "stop" : 1627980139198,
+      "duration" : 1716
     },
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   } ],
   "testStage" : {
     "description" : "\n        模拟业务员报备客户:\n        1.点击顶级菜单报备报价合同下客户报备菜单\n        2.验证是否正常跳转到客户报备列表页\n        3.验证报备列表数据\n        ",
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ {
-      "uid" : "e584235e7251a404",
+      "uid" : "9a31ce1e15480fdc",
       "name" : "log",
-      "source" : "e584235e7251a404.txt",
+      "source" : "9a31ce1e15480fdc.txt",
       "type" : "text/plain",
-      "size" : 1421
+      "size" : 1970
     }, {
-      "uid" : "2d734502b8a2ff",
+      "uid" : "de88f0dd0fced10e",
       "name" : "stdout",
-      "source" : "2d734502b8a2ff.txt",
+      "source" : "de88f0dd0fced10e.txt",
       "type" : "text/plain",
-      "size" : 1250
+      "size" : 1729
     } ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : true,
     "attachmentsCount" : 2,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : true
   },
   "afterStages" : [ {
     "name" : "browser_close::0",
     "time" : {
-      "start" : 1627975633438,
-      "stop" : 1627975635585,
-      "duration" : 2147
+      "start" : 1627980187843,
+      "stop" : 1627980189996,
+      "duration" : 2153
     },
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   } ],
   "labels" : [ {
     "name" : "parentSuite",
@@ -112,7 +112,7 @@
     "value" : "Win7-2019MNTZRK"
   }, {
     "name" : "thread",
-    "value" : "10668-MainThread"
+    "value" : "13572-MainThread"
   }, {
     "name" : "framework",
     "value" : "pytest"
@@ -134,6 +134,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "f891c0c4d6bf1037.json",
+  "source" : "ab21ca0e06522df.json",
   "parameterValues" : [ ]
 }

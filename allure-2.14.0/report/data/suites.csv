@@ -1,5 +1,5 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Tue Aug 03 16:54:48 CST 2021","Tue Aug 03 16:55:43 CST 2021","54706","test_dir","test_customer_report","TestCustomerReport","","","test_report_case","
+"passed","Wed Aug 04 08:41:26 CST 2021","Wed Aug 04 08:42:20 CST 2021","53610","test_dir","test_customer_report","TestCustomerReport","","","test_report_case","
         模拟业务员报备客户:
         1.点击顶级菜单报备报价合同下客户报备菜单
         2.验证是否正常跳转到客户报备列表页

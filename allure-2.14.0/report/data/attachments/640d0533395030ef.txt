@@ -1,0 +1,24 @@
+2021-08-04 08:41:28,296 [32mINFO ✅ Find element: name=staff_name [0m
+2021-08-04 08:41:29,504 [32mINFO 🖋 input element: 登录用户名[0m
+2021-08-04 08:41:29,559 [32mINFO ✅ Find element: name=password [0m
+2021-08-04 08:41:30,492 [32mINFO 🖋 input element: 登录密码[0m
+2021-08-04 08:41:30,559 [32mINFO ✅ Find element: css selector=.card-body>form>div.form-group>button.btn [0m
+2021-08-04 08:41:31,499 [32mINFO 🖱 click element: 登录按钮[0m
+2021-08-04 08:41:47,534 [32mINFO ✨ Find 7 elements through: class_name=layui-m-layer, describe:layer弹窗[0m
+2021-08-04 08:41:47,547 [32mINFO ✨ Find 7 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层[0m
+2021-08-04 08:41:47,656 [32mINFO ✅ Find element: id=pytestCustomerReportMenu [0m
+2021-08-04 08:41:48,620 [32mINFO 🖱 click element: 报备报价合同栏[0m
+2021-08-04 08:41:48,699 [32mINFO ✅ Find element: id=pytestCustomerReportList [0m
+2021-08-04 08:41:49,638 [32mINFO 🖱 click element: 客户报备列表[0m
+2021-08-04 08:41:55,754 [32mINFO ✨ Find 13 elements through: xpath=//td[@id='pytestReportListPage']/ul[@class='pagination']/li, describe:分页[0m
+2021-08-04 08:41:55,767 [32mINFO ✅ Find element: xpath=//td[@id='pytestReportListPage']/ul[@class='pagination']/li[last()-1] [0m
+2021-08-04 08:41:56,726 [32mINFO 🖱 click element: 最后一页[0m
+2021-08-04 08:42:01,456 [32mINFO ✅ Find element: xpath=//div[@class='table-responsive']/table[@id='report_tab save-stage']/tbody/tr[last()]/td[@id='pytestReportListSort'] [0m
+2021-08-04 08:42:04,625 [32mINFO ✅ Find element: id=pytestReportBtn [0m
+2021-08-04 08:42:05,598 [32mINFO 🖱 click element: 报备按钮[0m
+2021-08-04 08:42:09,812 [32mINFO ✅ Find element: id=cust_name [0m
+2021-08-04 08:42:10,762 [32mINFO 🖋 input element: 报备名称输入框[0m
+2021-08-04 08:42:10,881 [32mINFO ✅ Find element: id=subBtn [0m
+2021-08-04 08:42:11,840 [32mINFO 🖱 click element: 报备检索按钮[0m
+['http:newtest.elinkbuy.cn', 'index.php', 'employform', 'Report', 'checkCustomer']
+test end!

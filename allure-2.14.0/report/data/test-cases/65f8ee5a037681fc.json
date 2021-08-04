@@ -1,12 +1,12 @@
 {
-  "uid" : "e994a077ce6c811d",
+  "uid" : "65f8ee5a037681fc",
   "name" : "test_report_case",
   "fullName" : "test_dir.test_customer_report.TestCustomerReport#test_report_case",
   "historyId" : "c5bdcc54ea665b8a44d464bd17f9a56d",
   "time" : {
-    "start" : 1627975180440,
-    "stop" : 1627975208178,
-    "duration" : 27738
+    "start" : 1628037686974,
+    "stop" : 1628037740584,
+    "duration" : 53610
   },
   "description" : "\n        模拟业务员报备客户:\n        1.点击顶级菜单报备报价合同下客户报备菜单\n        2.验证是否正常跳转到客户报备列表页\n        3.验证报备列表数据\n        ",
   "descriptionHtml" : "<pre><code>    模拟业务员报备客户:\n    1.点击顶级菜单报备报价合同下客户报备菜单\n    2.验证是否正常跳转到客户报备列表页\n    3.验证报备列表数据\n</code></pre>\n",
@@ -14,89 +14,89 @@
   "flaky" : false,
   "newFailed" : false,
   "beforeStages" : [ {
-    "name" : "browser",
-    "time" : {
-      "start" : 1627975171138,
-      "stop" : 1627975180362,
-      "duration" : 9224
-    },
-    "status" : "passed",
-    "steps" : [ ],
-    "attachments" : [ ],
-    "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
-    "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
-  }, {
     "name" : "browser_close",
     "time" : {
-      "start" : 1627975180362,
-      "stop" : 1627975180362,
+      "start" : 1628037686972,
+      "stop" : 1628037686972,
       "duration" : 0
     },
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "browser",
+    "time" : {
+      "start" : 1628037685172,
+      "stop" : 1628037686972,
+      "duration" : 1800
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   }, {
     "name" : "base_url",
     "time" : {
-      "start" : 1627975180362,
-      "stop" : 1627975180362,
+      "start" : 1628037686972,
+      "stop" : 1628037686972,
       "duration" : 0
     },
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   } ],
   "testStage" : {
     "description" : "\n        模拟业务员报备客户:\n        1.点击顶级菜单报备报价合同下客户报备菜单\n        2.验证是否正常跳转到客户报备列表页\n        3.验证报备列表数据\n        ",
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ {
-      "uid" : "4f44dfb9f563700c",
+      "uid" : "d6e1911139736cec",
       "name" : "log",
-      "source" : "4f44dfb9f563700c.txt",
+      "source" : "d6e1911139736cec.txt",
       "type" : "text/plain",
-      "size" : 1205
+      "size" : 2320
     }, {
-      "uid" : "7465f62a81de4100",
+      "uid" : "640d0533395030ef",
       "name" : "stdout",
-      "source" : "7465f62a81de4100.txt",
+      "source" : "640d0533395030ef.txt",
       "type" : "text/plain",
-      "size" : 1048
+      "size" : 2106
     } ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : true,
     "attachmentsCount" : 2,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : true
   },
   "afterStages" : [ {
     "name" : "browser_close::0",
     "time" : {
-      "start" : 1627975208191,
-      "stop" : 1627975210385,
-      "duration" : 2194
+      "start" : 1628037740586,
+      "stop" : 1628037742693,
+      "duration" : 2107
     },
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : false,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
   } ],
   "labels" : [ {
     "name" : "parentSuite",
@@ -112,7 +112,7 @@
     "value" : "Win7-2019MNTZRK"
   }, {
     "name" : "thread",
-    "value" : "13556-MainThread"
+    "value" : "13812-MainThread"
   }, {
     "name" : "framework",
     "value" : "pytest"
@@ -128,12 +128,54 @@
   } ],
   "parameters" : [ ],
   "links" : [ ],
-  "hidden" : true,
-  "retry" : true,
+  "hidden" : false,
+  "retry" : false,
   "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "3353b4875f231cc7",
+      "status" : "passed",
+      "time" : {
+        "start" : 1627980888590,
+        "stop" : 1627980943296,
+        "duration" : 54706
+      }
+    }, {
+      "uid" : "ab21ca0e06522df",
+      "status" : "passed",
+      "time" : {
+        "start" : 1627980139200,
+        "stop" : 1627980187839,
+        "duration" : 48639
+      }
+    }, {
+      "uid" : "927a8354d4a06661",
+      "status" : "passed",
+      "time" : {
+        "start" : 1627979875867,
+        "stop" : 1627979910045,
+        "duration" : 34178
+      }
+    }, {
+      "uid" : "8c726ffa0c7c3576",
+      "status" : "passed",
+      "time" : {
+        "start" : 1627975596866,
+        "stop" : 1627975633435,
+        "duration" : 36569
+      }
+    }, {
+      "uid" : "a0f5c14a4b04eda1",
+      "status" : "passed",
+      "time" : {
+        "start" : 1627975180440,
+        "stop" : 1627975208178,
+        "duration" : 27738
+      }
+    } ],
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "e994a077ce6c811d.json",
+  "source" : "65f8ee5a037681fc.json",
   "parameterValues" : [ ]
 }

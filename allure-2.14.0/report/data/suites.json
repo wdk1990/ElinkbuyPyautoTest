@@ -9,13 +9,13 @@
         "name" : "TestCustomerReport",
         "children" : [ {
           "name" : "test_report_case",
-          "uid" : "d9259016e27c59d7",
+          "uid" : "65f8ee5a037681fc",
           "parentUid" : "ef7bd00590ad3f0fc16a01c90732ddc6",
           "status" : "passed",
           "time" : {
-            "start" : 1627980888590,
-            "stop" : 1627980943296,
-            "duration" : 54706
+            "start" : 1628037686974,
+            "stop" : 1628037740584,
+            "duration" : 53610
           },
           "flaky" : false,
           "newFailed" : false,
