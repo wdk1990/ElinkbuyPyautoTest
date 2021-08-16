@@ -1,4 +1,8 @@
 *.pyc
 *.log
+temp
+test_report
+allure-2.14.0
+.pytest_cache
 __pycache__
 .idea
