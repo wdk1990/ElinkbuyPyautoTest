@@ -1,0 +1,8 @@
+待回访优质客户：157
+2021-08-16 15:58:13,091 [32mINFO ✨ Find 7 elements through: class_name=layui-m-layer, describe:layer弹窗[0m
+2021-08-16 15:58:13,108 [32mINFO ✨ Find 7 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层[0m
+2021-08-16 15:58:13,184 [32mINFO ✅ Find element: id=message_warn [0m
+2021-08-16 15:58:14,151 [32mINFO 🖱 click element: 信息图标按钮[0m
+2021-08-16 15:58:14,255 [32mINFO ✅ Find element: id=messageBox [0m
+2021-08-16 15:58:15,294 [32mINFO ✅ Find element: xpath=//a[@id='qualityVisitData']/span[@class='dropdown-item-desc']/span[@class='message-num'] [0m
+test end!

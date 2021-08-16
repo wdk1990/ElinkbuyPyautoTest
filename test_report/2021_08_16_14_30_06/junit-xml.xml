@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="6" time="263.301" timestamp="2021-08-16T14:30:08.144000" hostname="Win7-2019MNTZRK"><testcase classname="test_dir.test_customer.TestCustomer" name="test_customer_list_case" time="77.053"><failure message="assert 8508 == 8507&#10;  +8508&#10;  -8507">self = &lt;test_dir.test_customer.TestCustomer object at 0x0000000004ABB580&gt;, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="920d925c964bf91c197804ee1c2a11b1")&gt;, base_url = 'http://newtest.elinkbuy.cn'
+
+    def test_customer_list_case(self, browser, base_url):
+        """
+        模拟点击客户列表或我的客户子菜单进入客户列表页：
+        1.点击最后一页最后的序号获取总记录数
+        2.查询当前员工所属客户总数
+        3.验证当前登录员工客户数
+        """
+        self.login(browser, base_url)
+        page = CustomerPage(browser)
+        self.close_layer()  # 关闭弹层
+        self.customer_menu()  # 点击客户列表菜单
+        page.window_scroll(None, 1000)
+        sleep(3)
+    
+        page.last_page.click()  # 点击最后一页
+        sleep(3)
+    
+        total_text = int(page.last_sort.text)
+        result = 0
+        db_conn = DB(ip='47.103.83.160', user='root', passwd='c587024e9ec3ea0a', db='ylg')
+        user = self.get_user()
+        sql = "select count(1) total from `xy_client` WHERE  `staff_id` =" + str(user['staff_id']) + " and `clientkind` = 1  and `tradekindid` &lt;&gt; 2  and `closed` = 'F'"
+        if user['roles_str'] in [87, 91]:
+            sql = "select count(1) total from `xy_client` WHERE  `staff_id` =" + str(user['staff_id']) + " and `clientkind` = 1  and `tradekindid` &lt;&gt; 2  and `closed` = 'F' and `high_quality` = 0"
+        clients = db_conn.query(sql)
+        if clients:
+            result = clients[0]['total']
+        sleep(3)
+&gt;       assert result == total_text
+E       assert 8508 == 8507
+E         +8508
+E         -8507
+
+test_dir\test_customer.py:55: AssertionError</failure></testcase><testcase classname="test_dir.test_customer.TestCustomer" name="test_customer_rank_case[A]" time="37.847" /><testcase classname="test_dir.test_customer.TestCustomer" name="test_customer_rank_case[B]" time="38.123" /><testcase classname="test_dir.test_customer.TestCustomer" name="test_customer_rank_case[C]" time="38.615" /><testcase classname="test_dir.test_customer.TestCustomer" name="test_customer_rank_case[D]" time="38.518" /><testcase classname="test_dir.test_customer.TestCustomer" name="test_customer_info_update_case" time="31.506" /></testsuite></testsuites>

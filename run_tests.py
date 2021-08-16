@@ -53,7 +53,7 @@ def run(m):
         # zipDir(RunConfig.NEW_REPORT, RunConfig.NEW_REPORT + '.zip')  # 压缩测试报告目录
         # html_report_zip = RunConfig.NEW_REPORT + '.zip'
         # yag = yagmail.SMTP(user="513411425@qq.com", password="xilwsmpslpzjbijf", host='smtp.qq.com')
-        # yag.send(['513411425@qq.com'], now_time + "_易联购测试报告", ["请查看附件"], [html_report_zip])
+        # yag.send(['513411425@qq.com', '2310829636@qq.com'], now_time + "_易联购测试报告", ["请查看附件"], [html_report_zip])
         # yag.close()
         # print("测试报告邮件发送成功！")
 

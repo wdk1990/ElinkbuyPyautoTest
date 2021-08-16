@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="15" time="543.179" timestamp="2021-08-16T16:03:58.957000" hostname="Win7-2019MNTZRK"><testcase classname="test_dir.test_customer.TestCustomer" name="test_customer_list_case" time="44.266" /><testcase classname="test_dir.test_customer.TestCustomer" name="test_customer_rank_case[A]" time="44.773" /><testcase classname="test_dir.test_customer.TestCustomer" name="test_customer_rank_case[B]" time="41.063" /><testcase classname="test_dir.test_customer.TestCustomer" name="test_customer_rank_case[C]" time="59.120" /><testcase classname="test_dir.test_customer.TestCustomer" name="test_customer_rank_case[D]" time="41.616" /><testcase classname="test_dir.test_customer.TestCustomer" name="test_customer_info_update_case" time="29.198" /><testcase classname="test_dir.test_customer_report.TestCustomerReport" name="test_report_case" time="46.092" /><testcase classname="test_dir.test_login.TestLogin" name="test_login_case[data0]" time="9.428" /><testcase classname="test_dir.test_login.TestLogin" name="test_login_case[data1]" time="9.575" /><testcase classname="test_dir.test_login.TestLogin" name="test_login_case[data2]" time="9.701" /><testcase classname="test_dir.test_login.TestLogin" name="test_login_case[data3]" time="8.693" /><testcase classname="test_dir.test_offer.TestOffer" name="test_offer_case" time="42.403"><failure message="AssertionError: 弹窗关闭失败!">self = &lt;test_dir.test_offer.TestOffer object at 0x0000000004A06F10&gt;, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="7a3929b1ec68d651aa42f94bec2c5d41")&gt;, base_url = 'http://newtest.elinkbuy.cn'
+
+    def test_offer_case(self, browser, base_url):
+        """
+        验证报价页面是否正常打开
+        点击添加验证价格列表页面是否能正常打开
+        """
+        self.login(browser, base_url)
+        page = OfferPage(browser)
+&gt;       self.close_layer()  # 关闭弹层
+
+test_dir\test_offer.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;test_dir.test_offer.TestOffer object at 0x0000000004A06F10&gt;
+
+    def close_layer(self):
+        flag = False
+        if len(self.common.layer_divs) &gt; 0:  # 弹出弹窗
+            for layer_shade in self.common.layer_shades:
+                self.common.execute_script('arguments[0].click()', layer_shade)  # 关闭弹窗
+            flag = True
+&gt;       assert flag is True, "弹窗关闭失败!"
+E       AssertionError: 弹窗关闭失败!
+
+test_dir\base.py:48: AssertionError</failure></testcase><testcase classname="test_dir.test_popup.TestPopup" name="test_popup_show_case" time="42.396"><failure message="AssertionError: 弹窗关闭失败!">self = &lt;test_dir.test_popup.TestPopup object at 0x0000000004B4A280&gt;, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="7a3929b1ec68d651aa42f94bec2c5d41")&gt;, base_url = 'http://newtest.elinkbuy.cn'
+
+    def test_popup_show_case(self, browser, base_url):
+        """
+        检测弹窗弹出：
+        步骤：
+        1.检测弹层是否正常弹出
+        2.检测点击信息图标是否正常出现下拉菜单
+        """
+        self.login(browser, base_url)
+        flag = False
+        page = PopupPage(browser)
+&gt;       self.close_layer()  # 关闭弹层
+
+test_dir\test_popup.py:76: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;test_dir.test_popup.TestPopup object at 0x0000000004B4A280&gt;
+
+    def close_layer(self):
+        flag = False
+        if len(self.common.layer_divs) &gt; 0:  # 弹出弹窗
+            for layer_shade in self.common.layer_shades:
+                self.common.execute_script('arguments[0].click()', layer_shade)  # 关闭弹窗
+            flag = True
+&gt;       assert flag is True, "弹窗关闭失败!"
+E       AssertionError: 弹窗关闭失败!
+
+test_dir\base.py:48: AssertionError</failure></testcase><testcase classname="test_dir.test_popup.TestPopup" name="test_wait_visit_case" time="49.143"><failure message="AssertionError: 弹窗关闭失败!">self = &lt;test_dir.test_popup.TestPopup object at 0x0000000004B62160&gt;, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="7a3929b1ec68d651aa42f94bec2c5d41")&gt;, base_url = 'http://newtest.elinkbuy.cn'
+
+    def test_wait_visit_case(self, browser, base_url):
+        """
+        模拟业务员待回访弹窗数据验证:
+        1.查询业务员待回访数据
+        2.点击信息图标获取信息下拉菜单中的待回访客户菜单
+        3.验证待回访数据
+        """
+        self.login(browser, base_url)
+        user = self.get_user()
+        wait_visit_total = get_wait_visit_total(user['roles_str'], user['staff_id'])
+        print('待回访客户：' + str(wait_visit_total))
+        sleep(2)
+    
+        page = PopupPage(browser)
+&gt;       self.close_layer()  # 关闭弹层
+
+test_dir\test_popup.py:101: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;test_dir.test_popup.TestPopup object at 0x0000000004B62160&gt;
+
+    def close_layer(self):
+        flag = False
+        if len(self.common.layer_divs) &gt; 0:  # 弹出弹窗
+            for layer_shade in self.common.layer_shades:
+                self.common.execute_script('arguments[0].click()', layer_shade)  # 关闭弹窗
+            flag = True
+&gt;       assert flag is True, "弹窗关闭失败!"
+E       AssertionError: 弹窗关闭失败!
+
+test_dir\base.py:48: AssertionError</failure></testcase><testcase classname="test_dir.test_popup.TestPopup" name="test_wait_visit_quality_case" time="59.229" /></testsuite></testsuites>

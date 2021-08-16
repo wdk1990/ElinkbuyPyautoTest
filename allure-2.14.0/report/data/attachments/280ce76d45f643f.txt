@@ -1,0 +1,16 @@
+2021-08-16 13:55:24,711 [32mINFO ✨ Find 7 elements through: class_name=layui-m-layer, describe:layer弹窗[0m
+2021-08-16 13:55:24,729 [32mINFO ✨ Find 7 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层[0m
+2021-08-16 13:55:24,828 [32mINFO ✅ Find element: id=pytestCustomerReportMenu [0m
+2021-08-16 13:55:25,790 [32mINFO 🖱 click element: 报备报价合同栏[0m
+2021-08-16 13:55:25,927 [32mINFO ✅ Find element: id=pytestCustomerReportList [0m
+2021-08-16 13:55:26,894 [32mINFO 🖱 click element: 客户报备列表[0m
+2021-08-16 13:55:33,723 [32mINFO ✨ Find 13 elements through: xpath=//td[@id='pytestReportListPage']/ul[@class='pagination']/li, describe:分页[0m
+2021-08-16 13:55:33,751 [32mINFO ✅ Find element: xpath=//td[@id='pytestReportListPage']/ul[@class='pagination']/li[last()-1] [0m
+2021-08-16 13:55:34,715 [32mINFO 🖱 click element: 最后一页[0m
+2021-08-16 13:55:39,024 [32mINFO ✅ Find element: xpath=//div[@class='table-responsive']/table[@id='report_tab save-stage']/tbody/tr[last()]/td[@id='pytestReportListSort'] [0m
+2021-08-16 13:55:42,129 [32mINFO ✅ Find element: id=pytestReportBtn [0m
+2021-08-16 13:55:43,119 [32mINFO 🖱 click element: 报备按钮[0m
+2021-08-16 13:55:46,143 [32mINFO ✅ Find element: id=cust_name [0m
+2021-08-16 13:55:47,094 [32mINFO 🖋 input element: 报备名称输入框[0m
+2021-08-16 13:55:47,187 [32mINFO ✅ Find element: id=subBtn [0m
+2021-08-16 13:55:48,131 [32mINFO 🖱 click element: 报备检索按钮[0m

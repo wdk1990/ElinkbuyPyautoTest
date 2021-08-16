@@ -1,0 +1,8 @@
+2021-08-16 15:55:41,350 [32mINFO ✅ Find element: name=staff_name [0m
+2021-08-16 15:55:42,536 [32mINFO 🖋 input element: 登录用户名[0m
+2021-08-16 15:55:42,615 [32mINFO ✅ Find element: name=password [0m
+2021-08-16 15:55:43,575 [32mINFO 🖋 input element: 登录密码[0m
+2021-08-16 15:55:43,710 [32mINFO ✅ Find element: css selector=.card-body>form>div.form-group>button.btn [0m
+2021-08-16 15:55:44,667 [32mINFO 🖱 click element: 登录按钮[0m
+2021-08-16 15:55:46,939 [32mINFO ✅ Find element: xpath=//div[@class='card-body']/form/div[3]/span [0m
+2021-08-16 15:55:47,947 [32mINFO ✅ Find element: xpath=//div[@class='card-body']/form/div[3]/span [0m

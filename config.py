@@ -8,18 +8,19 @@ class RunConfig:
     运行测试配置
     """
     # 运行测试用例的目录或文件
-    # cases_path = os.path.join(PRO_PATH, "test_dir")
+    cases_path = os.path.join(PRO_PATH, "test_dir")
     # cases_path = os.path.join(PRO_PATH, "test_dir", "test_login.py")
     # cases_path = os.path.join(PRO_PATH, "test_dir", "test_popup.py")
     # cases_path = os.path.join(PRO_PATH, "test_dir", "test_customer.py")
     # cases_path = os.path.join(PRO_PATH, "test_dir", "test_offer.py")
-    cases_path = os.path.join(PRO_PATH, "test_dir", "test_customer_report.py")
+    # cases_path = os.path.join(PRO_PATH, "test_dir", "test_customer_report.py")
 
     # 配置浏览器驱动类型(chrome/firefox/chrome-headless/firefox-headless)。
     driver_type = "chrome"
 
     # 配置运行的 URL
     url = "http://newtest.elinkbuy.cn"
+    # url = "http://sh.elinkbuy.cn"
 
     # 失败重跑次数
     rerun = "1"

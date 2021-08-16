@@ -1,0 +1,139 @@
+{
+  "uid" : "137c635d73897cd",
+  "name" : "test_offer_case",
+  "fullName" : "test_dir.test_offer.TestOffer#test_offer_case",
+  "historyId" : "b4a116e670719b884bf22eefd9390620",
+  "time" : {
+    "start" : 1629100757828,
+    "stop" : 1629100819779,
+    "duration" : 61951
+  },
+  "description" : "\n        验证报价页面是否正常打开\n        点击添加验证价格列表页面是否能正常打开\n        ",
+  "descriptionHtml" : "<pre><code>    验证报价页面是否正常打开\n    点击添加验证价格列表页面是否能正常打开\n</code></pre>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "browser_close",
+    "time" : {
+      "start" : 1629100757827,
+      "stop" : 1629100757827,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1629100757827,
+      "stop" : 1629100757827,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "browser",
+    "time" : {
+      "start" : 1629100756023,
+      "stop" : 1629100757827,
+      "duration" : 1804
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "description" : "\n        验证报价页面是否正常打开\n        点击添加验证价格列表页面是否能正常打开\n        ",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "e8b9155c7d3267d8",
+      "name" : "log",
+      "source" : "e8b9155c7d3267d8.txt",
+      "type" : "text/plain",
+      "size" : 2397
+    }, {
+      "uid" : "58a0e3f5202e7d6b",
+      "name" : "stdout",
+      "source" : "58a0e3f5202e7d6b.txt",
+      "type" : "text/plain",
+      "size" : 2086
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "browser_close::0",
+    "time" : {
+      "start" : 1629100819783,
+      "stop" : 1629100821967,
+      "duration" : 2184
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_dir"
+  }, {
+    "name" : "suite",
+    "value" : "test_offer"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestOffer"
+  }, {
+    "name" : "host",
+    "value" : "Win7-2019MNTZRK"
+  }, {
+    "name" : "thread",
+    "value" : "11868-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_dir.test_offer"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "137c635d73897cd.json",
+  "parameterValues" : [ ]
+}

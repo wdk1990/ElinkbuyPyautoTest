@@ -1,0 +1,164 @@
+{
+  "uid" : "4b78ca2201e50b99",
+  "name" : "test_customer_list_case",
+  "fullName" : "test_dir.test_customer.TestCustomer#test_customer_list_case",
+  "historyId" : "0043fe995204959df5b24b050e10ed48",
+  "time" : {
+    "start" : 1629095410908,
+    "stop" : 1629095449793,
+    "duration" : 38885
+  },
+  "description" : "\n        模拟点击客户列表或我的客户子菜单进入客户列表页：\n        1.点击最后一页最后的序号获取总记录数\n        2.查询当前员工所属客户总数\n        3.验证当前登录员工客户数\n        ",
+  "descriptionHtml" : "<pre><code>    模拟点击客户列表或我的客户子菜单进入客户列表页：\n    1.点击最后一页最后的序号获取总记录数\n    2.查询当前员工所属客户总数\n    3.验证当前登录员工客户数\n</code></pre>\n",
+  "status" : "failed",
+  "statusMessage" : "AssertionError: assert 8508 == 8507\n  +8508\n  -8507",
+  "statusTrace" : "self = <test_dir.test_customer.TestCustomer object at 0x000000000492FD30>, browser = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"920d925c964bf91c197804ee1c2a11b1\")>, base_url = 'http://newtest.elinkbuy.cn'\n\n    def test_customer_list_case(self, browser, base_url):\n        \"\"\"\n        模拟点击客户列表或我的客户子菜单进入客户列表页：\n        1.点击最后一页最后的序号获取总记录数\n        2.查询当前员工所属客户总数\n        3.验证当前登录员工客户数\n        \"\"\"\n        self.login(browser, base_url)\n        page = CustomerPage(browser)\n        self.close_layer()  # 关闭弹层\n        self.customer_menu()  # 点击客户列表菜单\n        page.window_scroll(None, 1000)\n        sleep(3)\n    \n        page.last_page.click()  # 点击最后一页\n        sleep(3)\n    \n        total_text = int(page.last_sort.text)\n        result = 0\n        db_conn = DB(ip='47.103.83.160', user='root', passwd='c587024e9ec3ea0a', db='ylg')\n        user = self.get_user()\n        sql = \"select count(1) total from `xy_client` WHERE  `staff_id` =\" + str(user['staff_id']) + \" and `clientkind` = 1  and `tradekindid` <> 2  and `closed` = 'F'\"\n        if user['roles_str'] in [87, 91]:\n            sql = \"select count(1) total from `xy_client` WHERE  `staff_id` =\" + str(user['staff_id']) + \" and `clientkind` = 1  and `tradekindid` <> 2  and `closed` = 'F' and `high_quality` = 0\"\n        clients = db_conn.query(sql)\n        if clients:\n            result = clients[0]['total']\n        sleep(3)\n>       assert result == total_text\nE       assert 8508 == 8507\nE         +8508\nE         -8507\n\ntest_dir\\test_customer.py:55: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "browser_close",
+    "time" : {
+      "start" : 1629095410907,
+      "stop" : 1629095410907,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1629095410907,
+      "stop" : 1629095410907,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "browser",
+    "time" : {
+      "start" : 1629095408655,
+      "stop" : 1629095410907,
+      "duration" : 2252
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "description" : "\n        模拟点击客户列表或我的客户子菜单进入客户列表页：\n        1.点击最后一页最后的序号获取总记录数\n        2.查询当前员工所属客户总数\n        3.验证当前登录员工客户数\n        ",
+    "status" : "failed",
+    "statusMessage" : "AssertionError: assert 8508 == 8507\n  +8508\n  -8507",
+    "statusTrace" : "self = <test_dir.test_customer.TestCustomer object at 0x000000000492FD30>, browser = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"920d925c964bf91c197804ee1c2a11b1\")>, base_url = 'http://newtest.elinkbuy.cn'\n\n    def test_customer_list_case(self, browser, base_url):\n        \"\"\"\n        模拟点击客户列表或我的客户子菜单进入客户列表页：\n        1.点击最后一页最后的序号获取总记录数\n        2.查询当前员工所属客户总数\n        3.验证当前登录员工客户数\n        \"\"\"\n        self.login(browser, base_url)\n        page = CustomerPage(browser)\n        self.close_layer()  # 关闭弹层\n        self.customer_menu()  # 点击客户列表菜单\n        page.window_scroll(None, 1000)\n        sleep(3)\n    \n        page.last_page.click()  # 点击最后一页\n        sleep(3)\n    \n        total_text = int(page.last_sort.text)\n        result = 0\n        db_conn = DB(ip='47.103.83.160', user='root', passwd='c587024e9ec3ea0a', db='ylg')\n        user = self.get_user()\n        sql = \"select count(1) total from `xy_client` WHERE  `staff_id` =\" + str(user['staff_id']) + \" and `clientkind` = 1  and `tradekindid` <> 2  and `closed` = 'F'\"\n        if user['roles_str'] in [87, 91]:\n            sql = \"select count(1) total from `xy_client` WHERE  `staff_id` =\" + str(user['staff_id']) + \" and `clientkind` = 1  and `tradekindid` <> 2  and `closed` = 'F' and `high_quality` = 0\"\n        clients = db_conn.query(sql)\n        if clients:\n            result = clients[0]['total']\n        sleep(3)\n>       assert result == total_text\nE       assert 8508 == 8507\nE         +8508\nE         -8507\n\ntest_dir\\test_customer.py:55: AssertionError",
+    "steps" : [ {
+      "name" : "添加失败截图...",
+      "time" : {
+        "start" : 1629095450280,
+        "stop" : 1629095450466,
+        "duration" : 186
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "a8fd401f35d1594d",
+        "name" : "失败截图",
+        "source" : "a8fd401f35d1594d.png",
+        "type" : "image/png",
+        "size" : 137712
+      } ],
+      "parameters" : [ ],
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "90c204558e3e5f29",
+      "name" : "log",
+      "source" : "90c204558e3e5f29.txt",
+      "type" : "text/plain",
+      "size" : 1621
+    }, {
+      "uid" : "9ca138398a9ea579",
+      "name" : "stdout",
+      "source" : "9ca138398a9ea579.txt",
+      "type" : "text/plain",
+      "size" : 1412
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : true,
+    "stepsCount" : 1,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "browser_close::0",
+    "time" : {
+      "start" : 1629095669159,
+      "stop" : 1629095671431,
+      "duration" : 2272
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_dir"
+  }, {
+    "name" : "suite",
+    "value" : "test_customer"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestCustomer"
+  }, {
+    "name" : "host",
+    "value" : "Win7-2019MNTZRK"
+  }, {
+    "name" : "thread",
+    "value" : "11048-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_dir.test_customer"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "4b78ca2201e50b99.json",
+  "parameterValues" : [ ]
+}

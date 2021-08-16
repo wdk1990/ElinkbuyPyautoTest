@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="15" time="543.461" timestamp="2021-08-16T13:50:44.683000" hostname="Win7-2019MNTZRK"><testcase classname="test_dir.test_customer.TestCustomer" name="test_customer_list_case" time="79.032"><failure message="assert 8508 == 8507&#10;  +8508&#10;  -8507">self = &lt;test_dir.test_customer.TestCustomer object at 0x0000000004B11610&gt;, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="27f8883020d2b607065dd4911832831b")&gt;, base_url = 'http://newtest.elinkbuy.cn'
+
+    def test_customer_list_case(self, browser, base_url):
+        """
+        模拟点击客户列表或我的客户子菜单进入客户列表页：
+        1.点击最后一页最后的序号获取总记录数
+        2.查询当前员工所属客户总数
+        3.验证当前登录员工客户数
+        """
+        self.login(browser, base_url)
+        page = CustomerPage(browser)
+        self.close_layer()  # 关闭弹层
+        self.customer_menu()  # 点击客户列表菜单
+        page.window_scroll(None, 1000)
+        sleep(3)
+    
+        page.last_page.click()  # 点击最后一页
+        sleep(3)
+    
+        total_text = int(page.last_sort.text)
+        result = 0
+        db_conn = DB(ip='47.103.83.160', user='root', passwd='c587024e9ec3ea0a', db='ylg')
+        user = self.get_user()
+        sql = "select count(1) total from `xy_client` WHERE  `staff_id` =" + str(user['staff_id']) + " and `clientkind` = 1  and `tradekindid` &lt;&gt; 2  and `closed` = 'F'"
+        if user['roles_str'] in [87, 91]:
+            sql = "select count(1) total from `xy_client` WHERE  `staff_id` =" + str(user['staff_id']) + " and `clientkind` = 1  and `tradekindid` &lt;&gt; 2  and `closed` = 'F' and `high_quality` = 0"
+        clients = db_conn.query(sql)
+        if clients:
+            result = clients[0]['total']
+        sleep(3)
+&gt;       assert result == total_text
+E       assert 8508 == 8507
+E         +8508
+E         -8507
+
+test_dir\test_customer.py:55: AssertionError</failure></testcase><testcase classname="test_dir.test_customer.TestCustomer" name="test_customer_rank_case[A]" time="37.844" /><testcase classname="test_dir.test_customer.TestCustomer" name="test_customer_rank_case[B]" time="38.266" /><testcase classname="test_dir.test_customer.TestCustomer" name="test_customer_rank_case[C]" time="38.660" /><testcase classname="test_dir.test_customer.TestCustomer" name="test_customer_rank_case[D]" time="38.235" /><testcase classname="test_dir.test_customer.TestCustomer" name="test_customer_info_update_case" time="29.226" /><testcase classname="test_dir.test_customer_report.TestCustomerReport" name="test_report_case" time="46.275" /><testcase classname="test_dir.test_login.TestLogin" name="test_login_case[data0]" time="9.576" /><testcase classname="test_dir.test_login.TestLogin" name="test_login_case[data1]" time="9.364" /><testcase classname="test_dir.test_login.TestLogin" name="test_login_case[data2]" time="9.698" /><testcase classname="test_dir.test_login.TestLogin" name="test_login_case[data3]" time="8.974" /><testcase classname="test_dir.test_offer.TestOffer" name="test_offer_case" time="42.496"><failure message="AssertionError: 弹窗关闭失败!">self = &lt;test_dir.test_offer.TestOffer object at 0x0000000004B338E0&gt;, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="27f8883020d2b607065dd4911832831b")&gt;, base_url = 'http://newtest.elinkbuy.cn'
+
+    def test_offer_case(self, browser, base_url):
+        """
+        验证报价页面是否正常打开
+        点击添加验证价格列表页面是否能正常打开
+        """
+        self.login(browser, base_url)
+        page = OfferPage(browser)
+&gt;       self.close_layer()  # 关闭弹层
+
+test_dir\test_offer.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;test_dir.test_offer.TestOffer object at 0x0000000004B338E0&gt;
+
+    def close_layer(self):
+        flag = False
+        if len(self.common.layer_divs) &gt; 0:  # 弹出弹窗
+            for layer_shade in self.common.layer_shades:
+                self.common.execute_script('arguments[0].click()', layer_shade)  # 关闭弹窗
+            flag = True
+&gt;       assert flag is True, "弹窗关闭失败!"
+E       AssertionError: 弹窗关闭失败!
+
+test_dir\base.py:48: AssertionError</failure></testcase><testcase classname="test_dir.test_popup.TestPopup" name="test_popup_show_case" time="42.346"><failure message="AssertionError: 弹窗关闭失败!">self = &lt;test_dir.test_popup.TestPopup object at 0x0000000004BE4910&gt;, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="27f8883020d2b607065dd4911832831b")&gt;, base_url = 'http://newtest.elinkbuy.cn'
+
+    def test_popup_show_case(self, browser, base_url):
+        """
+        检测弹窗弹出：
+        步骤：
+        1.检测弹层是否正常弹出
+        2.检测点击信息图标是否正常出现下拉菜单
+        """
+        self.login(browser, base_url)
+        flag = False
+        page = PopupPage(browser)
+&gt;       self.close_layer()  # 关闭弹层
+
+test_dir\test_popup.py:76: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;test_dir.test_popup.TestPopup object at 0x0000000004BE4910&gt;
+
+    def close_layer(self):
+        flag = False
+        if len(self.common.layer_divs) &gt; 0:  # 弹出弹窗
+            for layer_shade in self.common.layer_shades:
+                self.common.execute_script('arguments[0].click()', layer_shade)  # 关闭弹窗
+            flag = True
+&gt;       assert flag is True, "弹窗关闭失败!"
+E       AssertionError: 弹窗关闭失败!
+
+test_dir\base.py:48: AssertionError</failure></testcase><testcase classname="test_dir.test_popup.TestPopup" name="test_wait_visit_case" time="47.339"><failure message="AssertionError: 弹窗关闭失败!">self = &lt;test_dir.test_popup.TestPopup object at 0x0000000004BF2BB0&gt;, browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="27f8883020d2b607065dd4911832831b")&gt;, base_url = 'http://newtest.elinkbuy.cn'
+
+    def test_wait_visit_case(self, browser, base_url):
+        """
+        模拟业务员待回访弹窗数据验证:
+        1.查询业务员待回访数据
+        2.点击信息图标获取信息下拉菜单中的待回访客户菜单
+        3.验证待回访数据
+        """
+        self.login(browser, base_url)
+        user = self.get_user()
+        wait_visit_total = get_wait_visit_total(user['roles_str'], user['staff_id'])
+        print('待回访客户：' + str(wait_visit_total))
+        sleep(2)
+    
+        page = PopupPage(browser)
+&gt;       self.close_layer()  # 关闭弹层
+
+test_dir\test_popup.py:101: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;test_dir.test_popup.TestPopup object at 0x0000000004BF2BB0&gt;
+
+    def close_layer(self):
+        flag = False
+        if len(self.common.layer_divs) &gt; 0:  # 弹出弹窗
+            for layer_shade in self.common.layer_shades:
+                self.common.execute_script('arguments[0].click()', layer_shade)  # 关闭弹窗
+            flag = True
+&gt;       assert flag is True, "弹窗关闭失败!"
+E       AssertionError: 弹窗关闭失败!
+
+test_dir\base.py:48: AssertionError</failure></testcase><testcase classname="test_dir.test_popup.TestPopup" name="test_wait_visit_quality_case" time="59.226" /></testsuite></testsuites>

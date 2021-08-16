@@ -1,0 +1,23 @@
+2021-08-16 16:01:12,526 [32mINFO ✅ Find element: name=staff_name [0m
+2021-08-16 16:01:13,686 [32mINFO 🖋 input element: 登录用户名[0m
+2021-08-16 16:01:13,769 [32mINFO ✅ Find element: name=password [0m
+2021-08-16 16:01:14,719 [32mINFO 🖋 input element: 登录密码[0m
+2021-08-16 16:01:14,779 [32mINFO ✅ Find element: css selector=.card-body>form>div.form-group>button.btn [0m
+2021-08-16 16:01:15,710 [32mINFO 🖱 click element: 登录按钮[0m
+2021-08-16 16:01:31,601 [32mINFO ✨ Find 7 elements through: class_name=layui-m-layer, describe:layer弹窗[0m
+2021-08-16 16:01:31,625 [32mINFO ✨ Find 7 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层[0m
+2021-08-16 16:01:31,726 [32mINFO ✅ Find element: id=pytestCustomerReportMenu [0m
+2021-08-16 16:01:32,689 [32mINFO 🖱 click element: 报备报价合同栏[0m
+2021-08-16 16:01:32,809 [32mINFO ✅ Find element: id=pytestCustomerReportList [0m
+2021-08-16 16:01:33,764 [32mINFO 🖱 click element: 客户报备列表[0m
+2021-08-16 16:01:39,148 [32mINFO ✨ Find 13 elements through: xpath=//td[@id='pytestReportListPage']/ul[@class='pagination']/li, describe:分页[0m
+2021-08-16 16:01:39,179 [32mINFO ✅ Find element: xpath=//td[@id='pytestReportListPage']/ul[@class='pagination']/li[last()-1] [0m
+2021-08-16 16:01:40,161 [32mINFO 🖱 click element: 最后一页[0m
+2021-08-16 16:01:44,708 [32mINFO ✅ Find element: xpath=//div[@class='table-responsive']/table[@id='report_tab save-stage']/tbody/tr[last()]/td[@id='pytestReportListSort'] [0m
+2021-08-16 16:01:47,862 [32mINFO ✅ Find element: id=pytestReportBtn [0m
+2021-08-16 16:01:48,838 [32mINFO 🖱 click element: 报备按钮[0m
+2021-08-16 16:01:52,126 [32mINFO ✅ Find element: id=cust_name [0m
+2021-08-16 16:01:53,102 [32mINFO 🖋 input element: 报备名称输入框[0m
+2021-08-16 16:01:53,207 [32mINFO ✅ Find element: id=subBtn [0m
+2021-08-16 16:01:54,180 [32mINFO 🖱 click element: 报备检索按钮[0m
+test end!

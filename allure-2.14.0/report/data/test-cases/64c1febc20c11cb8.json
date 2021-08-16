@@ -1,0 +1,142 @@
+{
+  "uid" : "64c1febc20c11cb8",
+  "name" : "test_customer_rank_case[B]",
+  "fullName" : "test_dir.test_customer.TestCustomer#test_customer_rank_case",
+  "historyId" : "9570bbf89b9dae8c9aaab8a40a508423",
+  "time" : {
+    "start" : 1629100151160,
+    "stop" : 1629100203683,
+    "duration" : 52523
+  },
+  "description" : "\n        模拟点击客户等级下拉框筛选客户\n        1.点击客户等级下拉框\n        2.选择筛选等级\n        3.点击搜索按钮\n        ",
+  "descriptionHtml" : "<pre><code>    模拟点击客户等级下拉框筛选客户\n    1.点击客户等级下拉框\n    2.选择筛选等级\n    3.点击搜索按钮\n</code></pre>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "browser_close",
+    "time" : {
+      "start" : 1629100065455,
+      "stop" : 1629100065455,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1629100151159,
+      "stop" : 1629100151159,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "browser",
+    "time" : {
+      "start" : 1629100063588,
+      "stop" : 1629100065455,
+      "duration" : 1867
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "description" : "\n        模拟点击客户等级下拉框筛选客户\n        1.点击客户等级下拉框\n        2.选择筛选等级\n        3.点击搜索按钮\n        ",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "de9e84a4a9507a1",
+      "name" : "log",
+      "source" : "de9e84a4a9507a1.txt",
+      "type" : "text/plain",
+      "size" : 1510
+    }, {
+      "uid" : "91bd66d5f2b6e18a",
+      "name" : "stdout",
+      "source" : "91bd66d5f2b6e18a.txt",
+      "type" : "text/plain",
+      "size" : 1329
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "browser_close::0",
+    "time" : {
+      "start" : 1629100309853,
+      "stop" : 1629100312138,
+      "duration" : 2285
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_dir"
+  }, {
+    "name" : "suite",
+    "value" : "test_customer"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestCustomer"
+  }, {
+    "name" : "host",
+    "value" : "Win7-2019MNTZRK"
+  }, {
+    "name" : "thread",
+    "value" : "11716-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_dir.test_customer"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "client_rank",
+    "value" : "'B'"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "64c1febc20c11cb8.json",
+  "parameterValues" : [ "'B'" ]
+}

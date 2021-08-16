@@ -1,5 +1,26 @@
 {
   "uid" : "4b4757e66a1912dae1a509f688f20b0f",
   "name" : "categories",
-  "children" : [ ]
+  "children" : [ {
+    "name" : "Product defects",
+    "children" : [ {
+      "name" : "AssertionError: 弹窗关闭失败!",
+      "children" : [ {
+        "name" : "test_offer_case",
+        "uid" : "677828290de0b3dc",
+        "parentUid" : "efd6789f1dbdf60d93faadc100c27620",
+        "status" : "failed",
+        "time" : {
+          "start" : 1629101405113,
+          "stop" : 1629101426380,
+          "duration" : 21267
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "efd6789f1dbdf60d93faadc100c27620"
+    } ],
+    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
+  } ]
 }

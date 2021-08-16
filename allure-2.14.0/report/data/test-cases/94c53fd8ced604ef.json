@@ -1,0 +1,168 @@
+{
+  "uid" : "94c53fd8ced604ef",
+  "name" : "test_customer_rank_case[D]",
+  "fullName" : "test_dir.test_customer.TestCustomer#test_customer_rank_case",
+  "historyId" : "1678a1ae6f4d92fd06527318d58b2f9e",
+  "time" : {
+    "start" : 1629101228500,
+    "stop" : 1629101270114,
+    "duration" : 41614
+  },
+  "description" : "\n        模拟点击客户等级下拉框筛选客户\n        1.点击客户等级下拉框\n        2.选择筛选等级\n        3.点击搜索按钮\n        ",
+  "descriptionHtml" : "<pre><code>    模拟点击客户等级下拉框筛选客户\n    1.点击客户等级下拉框\n    2.选择筛选等级\n    3.点击搜索按钮\n</code></pre>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "browser_close",
+    "time" : {
+      "start" : 1629101040969,
+      "stop" : 1629101040969,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "browser",
+    "time" : {
+      "start" : 1629101039189,
+      "stop" : 1629101040969,
+      "duration" : 1780
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1629101228496,
+      "stop" : 1629101228497,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "description" : "\n        模拟点击客户等级下拉框筛选客户\n        1.点击客户等级下拉框\n        2.选择筛选等级\n        3.点击搜索按钮\n        ",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "ff16fe74fab0d838",
+      "name" : "log",
+      "source" : "ff16fe74fab0d838.txt",
+      "type" : "text/plain",
+      "size" : 1510
+    }, {
+      "uid" : "32650d6518bf09e1",
+      "name" : "stdout",
+      "source" : "32650d6518bf09e1.txt",
+      "type" : "text/plain",
+      "size" : 1329
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "browser_close::0",
+    "time" : {
+      "start" : 1629101545654,
+      "stop" : 1629101547941,
+      "duration" : 2287
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_dir"
+  }, {
+    "name" : "suite",
+    "value" : "test_customer"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestCustomer"
+  }, {
+    "name" : "host",
+    "value" : "Win7-2019MNTZRK"
+  }, {
+    "name" : "thread",
+    "value" : "5568-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_dir.test_customer"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "client_rank",
+    "value" : "'D'"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "69a8b2f2279c62f1",
+      "status" : "passed",
+      "time" : {
+        "start" : 1629100242498,
+        "stop" : 1629100280534,
+        "duration" : 38036
+      }
+    }, {
+      "uid" : "117508069b8246ff",
+      "status" : "passed",
+      "time" : {
+        "start" : 1629095601399,
+        "stop" : 1629095639912,
+        "duration" : 38513
+      }
+    }, {
+      "uid" : "fea0da3ecea42cc1",
+      "status" : "passed",
+      "time" : {
+        "start" : 1629093239999,
+        "stop" : 1629093278228,
+        "duration" : 38229
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "94c53fd8ced604ef.json",
+  "parameterValues" : [ "'D'" ]
+}

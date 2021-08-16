@@ -1,0 +1,13 @@
+2021-08-16 16:06:41,041 [32mINFO ✨ Find 7 elements through: class_name=layui-m-layer, describe:layer弹窗[0m
+2021-08-16 16:06:41,057 [32mINFO ✨ Find 7 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层[0m
+2021-08-16 16:06:41,163 [32mINFO ✅ Find element: id=pytestCustomerMenu [0m
+2021-08-16 16:06:42,108 [32mINFO 🖱 click element: 客户管理菜单栏[0m
+2021-08-16 16:06:42,217 [32mINFO ✅ Find element: id=pytestCustomerList [0m
+2021-08-16 16:06:43,167 [32mINFO 🖱 click element: 客户列表/我的客户菜单[0m
+2021-08-16 16:06:46,496 [32mINFO ✅ Find element: name=search_client_rank [0m
+2021-08-16 16:06:47,811 [32mINFO ✅ Find element: id=pytestCustomerSearchBtn [0m
+2021-08-16 16:06:48,774 [32mINFO 🖱 click element: 搜索按钮[0m
+2021-08-16 16:06:57,134 [32mINFO ✨ Find 13 elements through: xpath=//td[@id='pytestCustomerListPage']/ul[@class='pagination']/li, describe:分页[0m
+2021-08-16 16:06:57,167 [32mINFO ✅ Find element: xpath=//td[@id='pytestCustomerListPage']/ul[@class='pagination']/li[last()-1] [0m
+2021-08-16 16:06:58,137 [32mINFO 🖱 click element: 最后一页[0m
+2021-08-16 16:07:05,032 [32mINFO ✅ Find element: xpath=//div[@class='table-responsive']/table/tbody[@id='content']/tr[last()]/td[@id='pytestCustomerListSort'] [0m

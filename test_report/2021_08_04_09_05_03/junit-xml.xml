@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="58.538" timestamp="2021-08-04T09:05:03.994620" hostname="Win7-2019MNTZRK"><testcase classname=".TestCustomerReport" name="test_report_case" time="58.385" /></testsuite></testsuites>

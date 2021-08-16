@@ -45,9 +45,17 @@ class TestCustomer(Base):
         result = 0
         db_conn = DB(ip='47.103.83.160', user='root', passwd='c587024e9ec3ea0a', db='ylg')
         user = self.get_user()
-        sql = "select count(1) total from `xy_client` WHERE  `staff_id` =" + str(user['staff_id']) + " and `clientkind` = 1  and `tradekindid` <> 2  and `closed` = 'F'"
+        # 隐藏不属于自己的24小时报备保护客户
+        report_clients = db_conn.query("select client_id from `xy_report` where `staff_id`!=" + str(user['staff_id']) + " and status=2")
+        client_id_str = ''
+        if len(report_clients) > 0:
+            for client in report_clients:
+                client_id_str = str(client['client_id']) + ','
+            client_id_str = " and client_id not in("+client_id_str[:-1]+")"
+
+        sql = "select count(1) total from `xy_client` WHERE  `staff_id` =" + str(user['staff_id']) + " and `clientkind` = 1  and `tradekindid` <> 2  and `closed` = 'F'"+client_id_str
         if user['roles_str'] in [87, 91]:
-            sql = "select count(1) total from `xy_client` WHERE  `staff_id` =" + str(user['staff_id']) + " and `clientkind` = 1  and `tradekindid` <> 2  and `closed` = 'F' and `high_quality` = 0"
+            sql = "select count(1) total from `xy_client` WHERE  `staff_id` =" + str(user['staff_id']) + " and `clientkind` = 1  and `tradekindid` <> 2  and `closed` = 'F' and `high_quality` = 0"+client_id_str
         clients = db_conn.query(sql)
         if clients:
             result = clients[0]['total']

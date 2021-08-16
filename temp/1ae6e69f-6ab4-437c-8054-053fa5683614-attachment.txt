@@ -1,0 +1,6 @@
+2021-08-16 16:09:34,328 [32mINFO ✅ Find element: name=staff_name [0m
+2021-08-16 16:09:35,454 [32mINFO 🖋 input element: 登录用户名[0m
+2021-08-16 16:09:35,510 [32mINFO ✅ Find element: name=password [0m
+2021-08-16 16:09:36,463 [32mINFO 🖋 input element: 登录密码[0m
+2021-08-16 16:09:36,552 [32mINFO ✅ Find element: css selector=.card-body>form>div.form-group>button.btn [0m
+2021-08-16 16:09:37,505 [32mINFO 🖱 click element: 登录按钮[0m

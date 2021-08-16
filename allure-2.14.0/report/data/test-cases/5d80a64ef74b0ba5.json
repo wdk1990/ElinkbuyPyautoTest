@@ -1,0 +1,164 @@
+{
+  "uid" : "5d80a64ef74b0ba5",
+  "name" : "test_popup_show_case",
+  "fullName" : "test_dir.test_popup.TestPopup#test_popup_show_case",
+  "historyId" : "b76382b248c9ab9fa69ae7a36c0f5bd9",
+  "time" : {
+    "start" : 1629101426808,
+    "stop" : 1629101447987,
+    "duration" : 21179
+  },
+  "description" : "\n        检测弹窗弹出：\n        步骤：\n        1.检测弹层是否正常弹出\n        2.检测点击信息图标是否正常出现下拉菜单\n        ",
+  "descriptionHtml" : "<pre><code>    检测弹窗弹出：\n    步骤：\n    1.检测弹层是否正常弹出\n    2.检测点击信息图标是否正常出现下拉菜单\n</code></pre>\n",
+  "status" : "failed",
+  "statusMessage" : "AssertionError: 弹窗关闭失败!",
+  "statusTrace" : "self = <test_dir.test_popup.TestPopup object at 0x0000000004A121C0>, browser = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"7a3929b1ec68d651aa42f94bec2c5d41\")>, base_url = 'http://newtest.elinkbuy.cn'\n\n    def test_popup_show_case(self, browser, base_url):\n        \"\"\"\n        检测弹窗弹出：\n        步骤：\n        1.检测弹层是否正常弹出\n        2.检测点击信息图标是否正常出现下拉菜单\n        \"\"\"\n        self.login(browser, base_url)\n        flag = False\n        page = PopupPage(browser)\n>       self.close_layer()  # 关闭弹层\n\ntest_dir\\test_popup.py:76: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <test_dir.test_popup.TestPopup object at 0x0000000004A121C0>\n\n    def close_layer(self):\n        flag = False\n        if len(self.common.layer_divs) > 0:  # 弹出弹窗\n            for layer_shade in self.common.layer_shades:\n                self.common.execute_script('arguments[0].click()', layer_shade)  # 关闭弹窗\n            flag = True\n>       assert flag is True, \"弹窗关闭失败!\"\nE       AssertionError: 弹窗关闭失败!\n\ntest_dir\\base.py:48: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "browser_close",
+    "time" : {
+      "start" : 1629101040969,
+      "stop" : 1629101040969,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1629101426808,
+      "stop" : 1629101426808,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "browser",
+    "time" : {
+      "start" : 1629101039189,
+      "stop" : 1629101040969,
+      "duration" : 1780
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "description" : "\n        检测弹窗弹出：\n        步骤：\n        1.检测弹层是否正常弹出\n        2.检测点击信息图标是否正常出现下拉菜单\n        ",
+    "status" : "failed",
+    "statusMessage" : "AssertionError: 弹窗关闭失败!",
+    "statusTrace" : "self = <test_dir.test_popup.TestPopup object at 0x0000000004A121C0>, browser = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"7a3929b1ec68d651aa42f94bec2c5d41\")>, base_url = 'http://newtest.elinkbuy.cn'\n\n    def test_popup_show_case(self, browser, base_url):\n        \"\"\"\n        检测弹窗弹出：\n        步骤：\n        1.检测弹层是否正常弹出\n        2.检测点击信息图标是否正常出现下拉菜单\n        \"\"\"\n        self.login(browser, base_url)\n        flag = False\n        page = PopupPage(browser)\n>       self.close_layer()  # 关闭弹层\n\ntest_dir\\test_popup.py:76: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <test_dir.test_popup.TestPopup object at 0x0000000004A121C0>\n\n    def close_layer(self):\n        flag = False\n        if len(self.common.layer_divs) > 0:  # 弹出弹窗\n            for layer_shade in self.common.layer_shades:\n                self.common.execute_script('arguments[0].click()', layer_shade)  # 关闭弹窗\n            flag = True\n>       assert flag is True, \"弹窗关闭失败!\"\nE       AssertionError: 弹窗关闭失败!\n\ntest_dir\\base.py:48: AssertionError",
+    "steps" : [ {
+      "name" : "添加失败截图...",
+      "time" : {
+        "start" : 1629101448240,
+        "stop" : 1629101448404,
+        "duration" : 164
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "227dd0539cad6afe",
+        "name" : "失败截图",
+        "source" : "227dd0539cad6afe.png",
+        "type" : "image/png",
+        "size" : 141574
+      } ],
+      "parameters" : [ ],
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "d3d22e672bdb6dc7",
+      "name" : "log",
+      "source" : "d3d22e672bdb6dc7.txt",
+      "type" : "text/plain",
+      "size" : 127
+    }, {
+      "uid" : "41fe293ad0deceb",
+      "name" : "stdout",
+      "source" : "41fe293ad0deceb.txt",
+      "type" : "text/plain",
+      "size" : 114
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : true,
+    "stepsCount" : 1,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "browser_close::0",
+    "time" : {
+      "start" : 1629101545654,
+      "stop" : 1629101547941,
+      "duration" : 2287
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_dir"
+  }, {
+    "name" : "suite",
+    "value" : "test_popup"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPopup"
+  }, {
+    "name" : "host",
+    "value" : "Win7-2019MNTZRK"
+  }, {
+    "name" : "thread",
+    "value" : "5568-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_dir.test_popup"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "5d80a64ef74b0ba5.json",
+  "parameterValues" : [ ]
+}

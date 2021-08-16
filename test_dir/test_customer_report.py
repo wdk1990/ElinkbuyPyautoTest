@@ -62,7 +62,7 @@ class TestCustomerReport(Base):
         sleep(3)
 
         # 验证客户是否可以报备
-        
+
 
 
         # url_temps = page.get_url.replace("//", '').split('/')

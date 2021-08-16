@@ -1,0 +1,185 @@
+{
+  "uid" : "735d4c148762fff",
+  "name" : "test_popup_show_case",
+  "fullName" : "test_dir.test_popup.TestPopup#test_popup_show_case",
+  "historyId" : "b76382b248c9ab9fa69ae7a36c0f5bd9",
+  "time" : {
+    "start" : 1629101825976,
+    "stop" : 1629101853720,
+    "duration" : 27744
+  },
+  "description" : "\n        检测弹窗弹出：\n        步骤：\n        1.检测弹层是否正常弹出\n        2.检测点击信息图标是否正常出现下拉菜单\n        ",
+  "descriptionHtml" : "<pre><code>    检测弹窗弹出：\n    步骤：\n    1.检测弹层是否正常弹出\n    2.检测点击信息图标是否正常出现下拉菜单\n</code></pre>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1629101825974,
+      "stop" : 1629101825974,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "browser_close",
+    "time" : {
+      "start" : 1629101825974,
+      "stop" : 1629101825974,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "browser",
+    "time" : {
+      "start" : 1629101824140,
+      "stop" : 1629101825974,
+      "duration" : 1834
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "description" : "\n        检测弹窗弹出：\n        步骤：\n        1.检测弹层是否正常弹出\n        2.检测点击信息图标是否正常出现下拉菜单\n        ",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "ab3e81e1a0edd6a6",
+      "name" : "log",
+      "source" : "ab3e81e1a0edd6a6.txt",
+      "type" : "text/plain",
+      "size" : 1085
+    }, {
+      "uid" : "100ae76171155364",
+      "name" : "stdout",
+      "source" : "100ae76171155364.txt",
+      "type" : "text/plain",
+      "size" : 932
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "browser_close::0",
+    "time" : {
+      "start" : 1629101916020,
+      "stop" : 1629101918202,
+      "duration" : 2182
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_dir"
+  }, {
+    "name" : "suite",
+    "value" : "test_popup"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPopup"
+  }, {
+    "name" : "host",
+    "value" : "Win7-2019MNTZRK"
+  }, {
+    "name" : "thread",
+    "value" : "10376-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_dir.test_popup"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "68cfaeb23419c3d0",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: 弹窗关闭失败!",
+      "time" : {
+        "start" : 1629101448411,
+        "stop" : 1629101469628,
+        "duration" : 21217
+      }
+    }, {
+      "uid" : "5d80a64ef74b0ba5",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: 弹窗关闭失败!",
+      "time" : {
+        "start" : 1629101426808,
+        "stop" : 1629101447987,
+        "duration" : 21179
+      }
+    }, {
+      "uid" : "638e173228e20307",
+      "status" : "passed",
+      "time" : {
+        "start" : 1629100617232,
+        "stop" : 1629100639994,
+        "duration" : 22762
+      }
+    }, {
+      "uid" : "db240789f7e64448",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: 弹窗关闭失败!",
+      "time" : {
+        "start" : 1629093456345,
+        "stop" : 1629093477538,
+        "duration" : 21193
+      }
+    }, {
+      "uid" : "3dcf44103eda6ecd",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: 弹窗关闭失败!",
+      "time" : {
+        "start" : 1629093434789,
+        "stop" : 1629093455941,
+        "duration" : 21152
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "735d4c148762fff.json",
+  "parameterValues" : [ ]
+}

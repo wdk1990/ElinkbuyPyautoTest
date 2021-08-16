@@ -1,0 +1,15 @@
+2021-08-16 15:47:47,881 [32mINFO ✅ Find element: name=staff_name [0m
+2021-08-16 15:47:48,832 [32mINFO 🖋 input element: 登录用户名[0m
+2021-08-16 15:47:48,875 [32mINFO ✅ Find element: name=password [0m
+2021-08-16 15:47:49,808 [32mINFO 🖋 input element: 登录密码[0m
+2021-08-16 15:47:49,870 [32mINFO ✅ Find element: css selector=.card-body>form>div.form-group>button.btn [0m
+2021-08-16 15:47:50,819 [32mINFO 🖱 click element: 登录按钮[0m
+2021-08-16 15:48:06,930 [32mINFO ✨ Find 7 elements through: class_name=layui-m-layer, describe:layer弹窗[0m
+2021-08-16 15:48:06,945 [32mINFO ✨ Find 7 elements through: class_name=layui-m-layershade, describe:layer弹窗蒙层[0m
+2021-08-16 15:48:07,033 [32mINFO ✅ Find element: id=pytestCustomerMenu [0m
+2021-08-16 15:48:07,990 [32mINFO 🖱 click element: 客户管理菜单栏[0m
+2021-08-16 15:48:08,069 [32mINFO ✅ Find element: id=pytestCustomerList [0m
+2021-08-16 15:48:09,016 [32mINFO 🖱 click element: 客户列表/我的客户菜单[0m
+2021-08-16 15:48:15,443 [32mINFO ✅ Find element: xpath=//td[@id='pytestCustomerListPage']/ul[@class='pagination']/li[last()-1] [0m
+2021-08-16 15:48:16,427 [32mINFO 🖱 click element: 最后一页[0m
+2021-08-16 15:48:21,216 [32mINFO ✅ Find element: xpath=//div[@class='table-responsive']/table/tbody[@id='content']/tr[last()]/td[@id='pytestCustomerListSort'] [0m

@@ -1,0 +1,164 @@
+{
+  "uid" : "1b3d7497b785c02f",
+  "name" : "test_offer_case",
+  "fullName" : "test_dir.test_offer.TestOffer#test_offer_case",
+  "historyId" : "b4a116e670719b884bf22eefd9390620",
+  "time" : {
+    "start" : 1629093391432,
+    "stop" : 1629093412648,
+    "duration" : 21216
+  },
+  "description" : "\n        验证报价页面是否正常打开\n        点击添加验证价格列表页面是否能正常打开\n        ",
+  "descriptionHtml" : "<pre><code>    验证报价页面是否正常打开\n    点击添加验证价格列表页面是否能正常打开\n</code></pre>\n",
+  "status" : "failed",
+  "statusMessage" : "AssertionError: 弹窗关闭失败!",
+  "statusTrace" : "self = <test_dir.test_offer.TestOffer object at 0x0000000004B2BFD0>, browser = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"27f8883020d2b607065dd4911832831b\")>, base_url = 'http://newtest.elinkbuy.cn'\n\n    def test_offer_case(self, browser, base_url):\n        \"\"\"\n        验证报价页面是否正常打开\n        点击添加验证价格列表页面是否能正常打开\n        \"\"\"\n        self.login(browser, base_url)\n        page = OfferPage(browser)\n>       self.close_layer()  # 关闭弹层\n\ntest_dir\\test_offer.py:33: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <test_dir.test_offer.TestOffer object at 0x0000000004B2BFD0>\n\n    def close_layer(self):\n        flag = False\n        if len(self.common.layer_divs) > 0:  # 弹出弹窗\n            for layer_shade in self.common.layer_shades:\n                self.common.execute_script('arguments[0].click()', layer_shade)  # 关闭弹窗\n            flag = True\n>       assert flag is True, \"弹窗关闭失败!\"\nE       AssertionError: 弹窗关闭失败!\n\ntest_dir\\base.py:48: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "browser_close",
+    "time" : {
+      "start" : 1629093049083,
+      "stop" : 1629093049083,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "browser",
+    "time" : {
+      "start" : 1629093045189,
+      "stop" : 1629093049083,
+      "duration" : 3894
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "base_url",
+    "time" : {
+      "start" : 1629093391430,
+      "stop" : 1629093391430,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "description" : "\n        验证报价页面是否正常打开\n        点击添加验证价格列表页面是否能正常打开\n        ",
+    "status" : "failed",
+    "statusMessage" : "AssertionError: 弹窗关闭失败!",
+    "statusTrace" : "self = <test_dir.test_offer.TestOffer object at 0x0000000004B2BFD0>, browser = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"27f8883020d2b607065dd4911832831b\")>, base_url = 'http://newtest.elinkbuy.cn'\n\n    def test_offer_case(self, browser, base_url):\n        \"\"\"\n        验证报价页面是否正常打开\n        点击添加验证价格列表页面是否能正常打开\n        \"\"\"\n        self.login(browser, base_url)\n        page = OfferPage(browser)\n>       self.close_layer()  # 关闭弹层\n\ntest_dir\\test_offer.py:33: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <test_dir.test_offer.TestOffer object at 0x0000000004B2BFD0>\n\n    def close_layer(self):\n        flag = False\n        if len(self.common.layer_divs) > 0:  # 弹出弹窗\n            for layer_shade in self.common.layer_shades:\n                self.common.execute_script('arguments[0].click()', layer_shade)  # 关闭弹窗\n            flag = True\n>       assert flag is True, \"弹窗关闭失败!\"\nE       AssertionError: 弹窗关闭失败!\n\ntest_dir\\base.py:48: AssertionError",
+    "steps" : [ {
+      "name" : "添加失败截图...",
+      "time" : {
+        "start" : 1629093412869,
+        "stop" : 1629093413084,
+        "duration" : 215
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "9124d33d368f013e",
+        "name" : "失败截图",
+        "source" : "9124d33d368f013e.png",
+        "type" : "image/png",
+        "size" : 141612
+      } ],
+      "parameters" : [ ],
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "2ec97a8cdd885ef7",
+      "name" : "log",
+      "source" : "2ec97a8cdd885ef7.txt",
+      "type" : "text/plain",
+      "size" : 127
+    }, {
+      "uid" : "38eded2f42af1ecd",
+      "name" : "stdout",
+      "source" : "38eded2f42af1ecd.txt",
+      "type" : "text/plain",
+      "size" : 114
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : true,
+    "stepsCount" : 1,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "browser_close::0",
+    "time" : {
+      "start" : 1629093552147,
+      "stop" : 1629093554488,
+      "duration" : 2341
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_dir"
+  }, {
+    "name" : "suite",
+    "value" : "test_offer"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestOffer"
+  }, {
+    "name" : "host",
+    "value" : "Win7-2019MNTZRK"
+  }, {
+    "name" : "thread",
+    "value" : "11448-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_dir.test_offer"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "1b3d7497b785c02f.json",
+  "parameterValues" : [ ]
+}
